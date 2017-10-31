@@ -65,7 +65,6 @@
   </div>
 </template>
 <script>
-  import SideBar from 'components/sidebar'
   import UserAvatorURL from '../../assets/defaultUserlogo.png'
   import Avator from '../../components/avator.vue'
 
@@ -79,7 +78,6 @@
       }
     },
     components: {
-      'sidebar': SideBar,
       Avator
     },
     methods: {
@@ -100,9 +98,11 @@
   .flex-box {
     margin-top: 70px;
   }
-  .left_paper{
+
+  .left_paper {
     margin: 10px 0 20px 0;
   }
+
   .user_profile_show {
     height: 290px;
     background: url('../../assets/person_achievement.png');
