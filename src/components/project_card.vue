@@ -25,22 +25,21 @@
         <mu-row gutter>
           <mu-col width="100" tablet="50" desktop="45">
             <div class="left">
-              <div class="project_status">{{project.taskLevel}}</div>
-              <div class="project_icon">图标 icon</div>
+              <div class="project_status">{{project.proLevel}}</div>
+              <!--<div class="project_icon"></div>-->
+              <img  class="project_icon" :src="project.proIcon" alt="图片加载失败"/>
             </div>
           </mu-col>
           <mu-col width="100" tablet="50" desktop="55">
             <div class="right">
-              <div class="price">￥{{project.taskPrice}}</div>
+              <div class="price">￥{{project.proPrice}}</div>
               <div class="period">项目周期: {{project | dateFormat}}</div>
               <div class="title">
-                名称:{{project.taskName}}
+                名称:{{project.proName}}
                 <div class="project_rank"></div>
               </div>
             </div>
           </mu-col>
-
-
         </mu-row>
 
       </router-link>
@@ -75,16 +74,16 @@
     filters: {
 
       dateFormat (project) {
-        let start = new Date(project.taskCycle)
-        let end = new Date(project.taskDeadline)
+        let start = new Date(project.endedOn)
+        let end = new Date(project.applyDeadline)
         console.log(start, end)
         let period = Date.parse(start) - Date.parse(end)
 //        console.log(period)
 //        let periodY =
 //        let periodM =
         let periodD = period / 86400000
-//        console.log(periodD)
-        return periodD + '天'
+        console.log(periodD)
+        return periodD + ' 天'
       }
     }
   }
@@ -108,7 +107,9 @@
     }
     .project_icon {
       background-color: #000;
-      width: 100px;
+      margin-left: 10px;
+      margin-top: 7px;
+      width: 130px;
       height: 100px;
     }
   }

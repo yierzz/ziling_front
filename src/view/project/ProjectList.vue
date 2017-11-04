@@ -44,7 +44,9 @@
           currentPage: this.currentPage,
           pageNum: this.pageNum
         }).then(res => {
+          console.log('res:' + res.taskList.list)
           this.projectList = res.taskList.list
+          console.log(this.projectList)
         })
       }
     },
