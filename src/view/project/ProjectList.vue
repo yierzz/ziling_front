@@ -1,7 +1,10 @@
 <template>
   <div>
     <search-bar :filters="filters"></search-bar>
-    <div>按搜索共有21个项目正在寻找人才</div>
+    <div class="task_result">
+      <img src="../../assets/笑脸.png" />
+      <div class="task_result_text">按搜索共有6个项目正在寻找人才</div>
+    </div>
     <div class="container">
 
       <projcard v-for="(project, index) in projectList" :project="project" :key="`index-project-${index}`"></projcard>
@@ -44,7 +47,9 @@
           currentPage: this.currentPage,
           pageNum: this.pageNum
         }).then(res => {
+          console.log('res:' + res.taskList.list)
           this.projectList = res.taskList.list
+          console.log(this.projectList)
         })
       }
     },
@@ -55,16 +60,30 @@
   }
 </script>
 <style scoped lang="scss" rel="stylesheet/scss">
+  .task_result {
+    margin-left: 30px;
+    display: flex;
+
+    img{
+      opacity: 1;
+    }
+
+    .task_result_text {
+      font-family: MicrosoftYaHei;
+      font-size: 14px;
+      color: #808080;
+      letter-spacing: 0;
+      line-height: 30px;
+    }
+
+  }
+
   .container {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     align-items: flex-start;
     flex-wrap: wrap;
-
-    .proj_item {
-      margin: 5px 20px 5px 20px;
-      width: 25%;
-      height: 200px;
-    }
+    width: 1200px;
+    margin-top: 25px;
   }
 </style>
