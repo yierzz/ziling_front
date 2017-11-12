@@ -2,41 +2,29 @@
   <div class="card">
     <mu-paper :zDepth="2">
       <router-link :to="`/project/detail/${project.taskId}`">
-        <!--<div class="mu-grid-tile">-->
-        <!--<img :src="img"></img>-->
-        <!--<div class="mu-grid-tile-titlebar">-->
-        <!--<div class="mu-grid-tile-title-container">-->
-        <!--<div class="mu-grid-tile-title">-->
-        <!--<slot name="title">-->
-        <!--{{project_title}}-->
-        <!--</slot>-->
-        <!--</div>-->
-        <!--<div class="mu-grid-tile-subtitle">-->
-        <!--<slot name="subTitle">-->
-        <!--项目周期 {{project_duration}}天-->
-        <!--</slot>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="mu-grid-tile-action">-->
-        <!--<span> ￥{{moneyNum}}</span>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
         <mu-row gutter>
-          <mu-col width="100" tablet="50" desktop="45">
+          <!--<mu-col>-->
+            <mu-col width="100" tablet="50" desktop="34">
             <div class="left">
-              <div class="project_status">{{project.proLevel}}</div>
-              <!--<div class="project_icon"></div>-->
-              <img  class="project_icon" :src="project.proIcon" alt="图片加载失败"/>
+              <div class="project_status"  v-bind:style="{backgroundImage: 'url(/static/prorank/'+project.proLevel+'.png)'}" ></div>
+              <!--<div class="project_status">{{project.proLevel}}</div>-->
+              <div class="project_icon" v-bind:style="{backgroundImage: 'url(/static/protype/'+project.proType+'.png)'}" ></div>
+              <!--<img  class="project_icon" src="../assets/安卓.png" alt="图片加载失败"/>-->
             </div>
           </mu-col>
-          <mu-col width="100" tablet="50" desktop="55">
+          <!--<mu-col>-->
+            <mu-col width="100" tablet="50" desktop="66">
             <div class="right">
-              <div class="price">￥{{project.proPrice}}</div>
-              <div class="period">项目周期: {{project | dateFormat}}</div>
               <div class="title">
-                名称:{{project.proName}}
-                <div class="project_rank"></div>
+                {{project.proName}}
+              </div>
+              <div class="pro-text">
+                <div>项目悬赏</div>
+                <div class="pro-text-2">预计周期</div>
+              </div>
+              <div class="pro-value">
+                <div class="price">{{project.proPrice}}<label >元</label></div>
+                <div class="period">{{project | dateFormat}}<label >天</label></div>
               </div>
             </div>
           </mu-col>
@@ -83,7 +71,7 @@
 //        let periodM =
         let periodD = period / 86400000
         console.log(periodD)
-        return periodD + ' 天'
+        return periodD
       }
     }
   }
@@ -93,42 +81,92 @@
   @import "../../node_modules/muse-ui/src/styles/import.less";
 
   .card {
-    width: 28rem;
-    padding: 1rem
+    width: 360px;
+    height: 124px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,0.08);
+    border-radius: 5px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+  }
+
+  .mu-paper {
+    width: 360px;
+    height: 124px;
   }
 
   .left {
-    position: relative;
-    height: 100%;
     .project_status {
-      position: relative;
-      top: 0;
-      left: 0;
+      position: absolute;
+      width:32px;
+      height:32px;
+      margin-left: 13px;
+      margin-top: 15px;
+      background-image: linear-gradient(-46deg, #5ECD87 0%, #8EF5CC 100%);
+      background-image: url("../assets/A+.png");
+      z-index: 2;
     }
     .project_icon {
-      background-color: #000;
-      margin-left: 10px;
-      margin-top: 7px;
-      width: 130px;
-      height: 100px;
+      position: absolute;
+      width: 88px;
+      height: 88px;
+      margin: 18px;
+      background-image: linear-gradient(-135deg, #FFC9BC 0%, #FE6666 100%);
+      background-image: url("../assets/安卓.png");
     }
   }
 
   .right {
-    position: relative;
-    height: 100%;
+    margin-top: 23px;
     .title {
-      height: 100px
+      font-family: MicrosoftYaHei-Bold;
+      font-size: 14px;
+      color: #808080;
+      letter-spacing: 0;
+      line-height: 14px;
+
+      margin-left: 0px;
+      width: 182px;
+      height: 16px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
-    .price {
-      font-size: 24px;
-      color: @yellow800
+    .pro-text{
+      font-family: MicrosoftYaHei;
+      font-size: 12px;
+      color: #BCBCBC;
+      letter-spacing: 0;
+      line-height: 12px;
+
+      margin-top: 22px;
+      display : flex;
+      .pro-text-2 {
+        margin-left: 63px;
+      }
     }
-    .project_rank {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+    .pro-value {
+      ont-family: Roboto-Bold;
+      font-size: 20px;
+      color: #FF5B00;
+      letter-spacing: 0;
+      line-height: 20px;
+
+      margin-top: 10px;
+      display: flex;
+      .price {
+
+      }
+      .period {
+        position: absolute;
+        margin-left: 111px;
+      }
+      label {
+        font-size: 13px;
+        margin-left: 4px
+      }
     }
+
   }
 
 </style>
