@@ -30,6 +30,7 @@ module.exports = {
     proxyTable: {
       '/apiv1':{
         target:'http://zling.net',
+        // target:'http://localhost:8080',
         changeOrigin:true,
         // pathRewrite: {
         //   '^/apiv1':'/'
