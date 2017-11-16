@@ -4,16 +4,18 @@
       <router-link :to="`/project/detail/${project.taskId}`">
         <mu-row gutter>
           <!--<mu-col>-->
-            <mu-col width="100" tablet="50" desktop="34">
+          <mu-col width="100" tablet="50" desktop="34">
             <div class="left">
-              <div class="project_status"  v-bind:style="{backgroundImage: 'url(/static/prorank/'+project.proLevel+'.png)'}" ></div>
+              <div class="project_status"
+                   v-bind:style="{backgroundImage: 'url(/static/prorank/'+project.proLevel+'.png)'}"></div>
               <!--<div class="project_status">{{project.proLevel}}</div>-->
-              <div class="project_icon" v-bind:style="{backgroundImage: 'url(/static/protype/'+project.proType+'.png)'}" ></div>
+              <div class="project_icon"
+                   v-bind:style="{backgroundImage: 'url(/static/protype/'+project.proType+'.png)'}"></div>
               <!--<img  class="project_icon" src="../assets/安卓.png" alt="图片加载失败"/>-->
             </div>
           </mu-col>
           <!--<mu-col>-->
-            <mu-col width="100" tablet="50" desktop="66">
+          <mu-col width="100" tablet="50" desktop="66">
             <div class="right">
               <div class="title">
                 {{project.proName}}
@@ -23,8 +25,8 @@
                 <div class="pro-text-2">预计周期</div>
               </div>
               <div class="pro-value">
-                <div class="price">{{project.proPrice}}<label >元</label></div>
-                <div class="period">{{project | dateFormat}}<label >天</label></div>
+                <div class="price">{{project.proPrice}}<label>元</label></div>
+                <div class="period">{{project | dateFormat}}<label>天</label></div>
               </div>
             </div>
           </mu-col>
@@ -84,7 +86,7 @@
     width: 360px;
     height: 124px;
     background: #FFFFFF;
-    box-shadow: 0 1px 6px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.08);
     border-radius: 5px;
     margin-left: 30px;
     margin-bottom: 30px;
@@ -98,8 +100,8 @@
   .left {
     .project_status {
       position: absolute;
-      width:32px;
-      height:32px;
+      width: 32px;
+      height: 32px;
       margin-left: 13px;
       margin-top: 15px;
       background-image: linear-gradient(-46deg, #5ECD87 0%, #8EF5CC 100%);
@@ -132,7 +134,7 @@
       white-space: nowrap;
       text-overflow: ellipsis;
     }
-    .pro-text{
+    .pro-text {
       font-family: MicrosoftYaHei;
       font-size: 12px;
       color: #BCBCBC;
@@ -140,7 +142,7 @@
       line-height: 12px;
 
       margin-top: 22px;
-      display : flex;
+      display: flex;
       .pro-text-2 {
         margin-left: 63px;
       }

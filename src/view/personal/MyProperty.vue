@@ -19,37 +19,37 @@
       </div>
       <mu-divider/>
 
-      <mu-list>
-        <mu-list-item v-for="(card,index) in bankCard" :title="card.bankName" :describeText="card.cardNumber"
-                      :key="index" class="card_item">
-          <mu-badge :content="card.cardType" primary slot="right"/>
-        </mu-list-item>
-      </mu-list>
+      <!--<mu-list>-->
+        <!--<mu-list-item v-for="(card,index) in bankCard" :title="card.bankName" :describeText="card.cardNumber"-->
+                      <!--:key="index" class="card_item">-->
+          <!--<mu-badge :content="card.cardType" primary slot="right"/>-->
+        <!--</mu-list-item>-->
+      <!--</mu-list>-->
       <mu-divider/>
-      <mu-raised-button label="添加银行卡" primary @click=""/>
+      <!--<mu-raised-button label="添加银行卡" primary @click=""/>-->
 
-      <mu-table :fixedFooter="false" fixedHeader :height="'300px'"
-                enableSelectAll multiSelectable
-                :selectable="false" :showCheckbox="false">
-        <mu-thead slot="header">
-          <mu-tr>
-            <mu-th tooltip="流水单号">流水单号</mu-th>
-            <mu-th tooltip="项目名称">项目名称</mu-th>
-            <mu-th tooltip="收支情况">资金情况</mu-th>
-            <mu-th tooltip="金额">金额</mu-th>
+      <!--<mu-table :fixedFooter="false" fixedHeader :height="'300px'"-->
+                <!--enableSelectAll multiSelectable-->
+                <!--:selectable="false" :showCheckbox="false">-->
+        <!--<mu-thead slot="header">-->
+          <!--<mu-tr>-->
+            <!--<mu-th tooltip="流水单号">流水单号</mu-th>-->
+            <!--<mu-th tooltip="项目名称">项目名称</mu-th>-->
+            <!--<mu-th tooltip="收支情况">资金情况</mu-th>-->
+            <!--<mu-th tooltip="金额">金额</mu-th>-->
 
-          </mu-tr>
-        </mu-thead>
-        <mu-tbody>
-          <mu-tr v-for="item,index in tableData" :key="index" :selected="item.selected">
-            <mu-td>{{index + 1}}</mu-td>
-            <mu-td>{{item.projectName}}</mu-td>
-            <mu-td :style=[item.balance?incomeStyle:expenseStyle]>{{item.balance | balanceNormalizer}}</mu-td>
-            <mu-td>￥{{item.amount}}</mu-td>
+          <!--</mu-tr>-->
+        <!--</mu-thead>-->
+        <!--<mu-tbody>-->
+          <!--<mu-tr v-for="item,index in tableData" :key="index" :selected="item.selected">-->
+            <!--<mu-td>{{index + 1}}</mu-td>-->
+            <!--<mu-td>{{item.projectName}}</mu-td>-->
+            <!--<mu-td :style=[item.balance?incomeStyle:expenseStyle]>{{item.balance | balanceNormalizer}}</mu-td>-->
+            <!--<mu-td>￥{{item.amount}}</mu-td>-->
 
-          </mu-tr>
-        </mu-tbody>
-      </mu-table>
+          <!--</mu-tr>-->
+        <!--</mu-tbody>-->
+      <!--</mu-table>-->
 
     </mu-paper>
 

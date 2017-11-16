@@ -1,7 +1,7 @@
 <template>
-    <div>
-
-    </div>
+  <div>
+    fdsfadsf
+  </div>
 </template>
 <script>
   export default {

@@ -4,6 +4,7 @@
       <mu-col width="100" tablet="50" desktop="25">
         <mu-paper :zDepth="2" class="left_paper">
           <avator :avator="avatorURL"/>
+          <mu-raised-button label="编辑简历" to="/info-modify"/>
           <div>欢迎您：{{username}}</div>
           <div class="user_username">会员等级:
             <mu-badge content=" 紫钻会员" primary/>
