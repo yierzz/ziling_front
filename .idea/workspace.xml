@@ -2,8 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="290202fc-8944-435e-8e99-2e3e98094513" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/A+.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/A.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/B.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/C.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/IOS 资质.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/Oval.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/S.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/WEB 资质.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/WEB-单色.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/WEB.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/任务.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/向下箭头.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/安卓 认证.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/安卓.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/安卓=单色.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/小程序 资质.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/微信-单色.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/微信.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/忙碌中 底.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/我的钱包.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/星星0.2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/星星0.4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/星星0.6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/星星0.8.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/星星0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/星星1.0.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/消息.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/空闲中 底.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/笑脸.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/箭头.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/苹果-单色.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/苹果.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/proIcon/pro_1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/proIcon/pro_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/proIcon/pro_3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/proIcon/pro_4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/proIcon/pro_5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/proIcon/pro_6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/prorank/A+.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/prorank/A.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/prorank/B.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/prorank/C.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/prorank/S.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/protype/WEB.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/protype/安卓.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/protype/微信.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/protype/苹果.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/index.js" afterPath="$PROJECT_DIR$/config/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/project_card.vue" afterPath="$PROJECT_DIR$/src/components/project_card.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/project/ProjectList.vue" afterPath="$PROJECT_DIR$/src/view/project/ProjectList.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,10 +78,10 @@
       <file leaf-file-name="ProjectList.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/project/ProjectList.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+            <state relative-caret-position="420">
+              <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
               <folding>
-                <element signature="e#545#600#0" expanded="true" />
+                <marker date="1510488539874" expanded="true" signature="2172:2184" ph="..." />
               </folding>
             </state>
           </provider>
@@ -56,8 +108,8 @@
       <file leaf-file-name="App.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="416">
+              <caret line="47" column="20" lean-forward="false" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="e#361#396#0" expanded="true" />
@@ -86,9 +138,12 @@
       <file leaf-file-name="project_card.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/project_card.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="105">
+              <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+              <folding>
+                <marker date="1510488539873" expanded="true" signature="4147:4151" ph="{...}" />
+                <marker date="1510488539873" expanded="true" signature="4147:4160" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -519,12 +574,12 @@
       <workItem from="1509625938920" duration="14000" />
       <workItem from="1510366056976" duration="354000" />
       <workItem from="1510457340787" duration="450000" />
-      <workItem from="1510488230847" duration="247000" />
+      <workItem from="1510488230847" duration="358000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278371000" />
+    <option name="totallyTimeSpent" value="278482000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -843,10 +898,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/project/ProjectList.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        <state relative-caret-position="420">
+          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
           <folding>
-            <element signature="e#545#600#0" expanded="true" />
+            <marker date="1510488539874" expanded="true" signature="2172:2184" ph="..." />
           </folding>
         </state>
       </provider>
@@ -868,9 +923,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/project_card.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="105">
+          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding>
+            <marker date="1510488539873" expanded="true" signature="4147:4151" ph="{...}" />
+            <marker date="1510488539873" expanded="true" signature="4147:4160" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -948,8 +1006,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="416">
+          <caret line="47" column="20" lean-forward="false" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
           <folding>
             <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#361#396#0" expanded="true" />

@@ -38,13 +38,13 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ## 项目目录结构
 root
  - build 构建代码
-   - 开发服务器和webpac配置都在这个目录下
+   - 开发服务器和webpack配置都在这个目录下
  - config 配置
    - 配置了开发时代理在index中
  - dist 构建生产版本后产生的目录
    - index.html
    - static
-   - **整个丢进nginx的网站根目录即可**
+   - **运行打包命令后整个丢进nginx的网站根目录即可**
  - src 项目源码
    - api 项目api集中处理
    - assets 静态文件
