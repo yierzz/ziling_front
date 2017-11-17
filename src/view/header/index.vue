@@ -24,9 +24,9 @@
         </div>
 
 
-        <div v-else slot="right" style="height: 100%">
-          <mu-flat-button label="注 册" slot="right" style="color: #000;" @click="openDialog('login')"/>
-          <mu-flat-button label="登 录" slot="right" style="color: #000;" @click=" openDialog('signup')"/>
+        <div v-else slot="right" style="height: 100%; display: flex; align-items: center">
+          <mu-raised-button label="注 册" primary slot="right" @click="openDialog('signup')" style="margin-right: 12px"/>
+          <mu-raised-button label="登 录" slot="right" @click=" openDialog('login')"/>
         </div>
       </div>
       <div class="mobile_device" slot="left">

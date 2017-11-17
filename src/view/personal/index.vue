@@ -1,42 +1,77 @@
 <template>
   <div>
     <mu-row gutter>
-      <mu-col width="100" tablet="50" desktop="25">
+      <mu-col width="300" tablet="50" desktop="25">
         <mu-paper :zDepth="2" class="left_paper">
-          <avator :avator="avatorURL"/>
-          <mu-raised-button label="编辑简历" to="/info-modify"/>
-          <div>欢迎您：{{username}}</div>
-          <div class="user_username">会员等级:
-            <mu-badge content=" 紫钻会员" primary/>
+          <avator :avator="avatorURL" style="margin-top: 20px;"/>
+          <mu-badge content="LV1" style="margin-top: 12px;" color="#F6DB65"/>
+          <mu-linear-progress mode="determinate" :value="80" style="margin-top: 20px;width: 240px" color="#4A5AF8"/>
+          <div class="user_username" style="margin-top: 20px;">紫领简历完成度:82%</div>
+
+          <mu-raised-button label="编辑简历" to="/info-modify" style="margin-top: 20px;"/>
+          <!--<div>欢迎您：{{username}}</div>-->
+          <!--<div class="user_username">会员等级:-->
+          <!--<mu-badge content=" 紫钻会员" primary/>-->
+          <!--</div>-->
+
+          <div class="grey_bkg" style="margin-top: 30px;">
+            <div class="title">资质等级:8.2</div>
+            <mu-linear-progress mode="determinate" class="linear" :value="80" color="#4A5AF8"/>
+
+            <div class="title">信用等级:9.8</div>
+            <mu-linear-progress mode="determinate" :value="80" class="linear" color="#5ECD87"/>
+
+
+            <div class="title"> 评价星级:4.2</div>
+            <star-rank v-bind:rank="5"></star-rank>
           </div>
-          <div class="user_username">紫领简历完成度：</div>
-          <mu-linear-progress mode="determinate" :value="80"/>
+
+          <div class="grey_bkg">
+            <span style="margin-top: 12px; margin-bottom: 10px;">认证资质</span>
+            <skill-list :skills="verifiedSkill"></skill-list>
+            <mu-raised-button label="认证更多" style="margin: 20px 0;"/>
+          </div>
+
+          <div class="grey_bkg">
+            <span style="margin-top: 12px; margin-bottom: 10px;">技能标签</span>
+            <div style="display: flex; width: 100%; justify-content: space-between;margin-bottom: 15px;">
+              <mu-chip class="demo-chip">
+                标签1
+              </mu-chip>
+              <mu-chip class="demo-chip">
+                标签2
+              </mu-chip>
+              <mu-chip class="demo-chip">
+                标签3
+              </mu-chip>
+            </div>
+
+          </div>
+
         </mu-paper>
 
-        <mu-paper :zDepth="1" class="left_paper">
-          <div>资质等级</div>
-          <div>信用等级</div>
-          <div>评价星级</div>
-          <div>资质</div>
-          <a to="/more">更多认证</a>
-        </mu-paper>
-        <mu-paper class="left_paper">
-          <mu-badge v-for="(label,index) in resume" :key="index" :content="label"></mu-badge>
-        </mu-paper>
+        <!--<mu-paper :zDepth="1" class="left_paper">-->
+
+        <!--<div>资质</div>-->
+        <!--<a to="/more">更多认证</a>-->
+        <!--</mu-paper>-->
+        <!--<mu-paper class="left_paper">-->
+        <!--<mu-badge v-for="(label,index) in resume" :key="index" :content="label"></mu-badge>-->
+        <!--</mu-paper>-->
       </mu-col>
       <mu-col width="100" tablet="50" desktop="75">
-        <mu-paper :zDepth="2">
+        <mu-paper :zDepth="2" class="right_paper">
           <mu-tabs :value="activeTab" @change="handleTabChange">
-            <mu-tab value="tab1" icon="attach_money" title="个人钱包" href="#/personal/purse"/>
-            <mu-tab value="tab2" icon="assignment" title="当前项目" href="#/personal/current_project"/>
-            <mu-tab value="tab3" icon="message" title="消息" href="#/personal/message"/>
-            <mu-tab value="tab4" icon="person_pin" title="成长记录" href="#/personal/mile_stone"/>
+            <mu-tab value="tab1" title="个人钱包" href="#/personal/purse"/>
+            <mu-tab value="tab2" title="当前项目" href="#/personal/current_project"/>
+            <mu-tab value="tab3" title="消息" href="#/personal/message"/>
+            <mu-tab value="tab4" title="成长记录" href="#/personal/mile_stone"/>
 
           </mu-tabs>
+          <router-view></router-view>
+
         </mu-paper>
 
-        <router-view>
-        </router-view>
       </mu-col>
       <!--<mu-col width="100" tablet="50" desktop="75">-->
       <!--<mu-paper class="user_profile_show" :zDepth="2">-->
@@ -68,6 +103,8 @@
 <script>
   import UserAvatorURL from '../../assets/defaultUserlogo.png'
   import Avator from '../../components/avator.vue'
+  import StarRank from '../../components/star_rank.vue'
+  import SkillList from '../../components/skill_list.vue'
 
   export default {
     data () {
@@ -75,11 +112,14 @@
         avatorURL: UserAvatorURL,
         username: 'zilingspace.com',
         activeTab: 'tab1',
-        resume: ['java后端科学家', 'php魔法师', 'js前端切图仔']
+        resume: ['java后端科学家', 'php魔法师', 'js前端切图仔'],
+        verifiedSkill: ['android', 'ios', 'web', 'wechat']
       }
     },
     components: {
-      Avator
+      Avator,
+      'star-rank': StarRank,
+      'skill-list': SkillList
     },
     methods: {
       handleTabChange (val) {
@@ -101,7 +141,47 @@
   }
 
   .left_paper {
-    margin: 10px 0 20px 0;
+    margin: 15px 0 20px 0;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #808080;
+    letter-spacing: 0;
+    .grey_bkg {
+
+      .linear {
+        width: 220px;
+        margin-top: 8px;
+        height: 10px;
+        border-radius: 5px;
+      }
+      .title {
+        margin-top: 15px;
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #808080;
+        letter-spacing: 0;
+      }
+      margin-bottom: 20px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      background: rgba(211, 209, 209, 0.1);
+      border-radius: 10px;
+      width: 260px;
+
+    }
+  }
+
+  .right_paper {
+    margin: 15px 0 20px 0;
+
   }
 
   .user_profile_show {
