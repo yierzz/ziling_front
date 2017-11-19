@@ -24,14 +24,13 @@
 </script>
 <style scoped lang="scss" rel="stylesheet/scss">
   .avator {
-    width:100px;
-    height:100px;
-    margin:8px auto;
-    // border-radius: 100px;
-  }
 
-  .avator img{width:98px;height:98px;border:6px solid #fff;border-radius:98px;}
-  .gender {
+    position: relative;
+    > img{
+      width: 88px;
+      height: 88px;
+    }
+    .gender {
       position: absolute;
       right: 0;
       bottom: 0;
