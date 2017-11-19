@@ -43,19 +43,10 @@
   @import 'styles/normalize.css';
 
   #body {
-    width:1200px;
-    padding: 0 0rem;
+    width: 90%;
+    padding: 0 5rem;
     margin: 0 auto;
   }
-
-
-  /*@media (max-width: 1255px) {*/
-    /*#body {*/
-      /*width: 98%;*/
-      /*padding: 0 5rem;*/
-      /*margin: 0 auto;*/
-    /*}*/
-  /*}*/
 
   @media (max-width: 600px) {
     #body {
