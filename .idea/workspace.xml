@@ -258,17 +258,6 @@
               <item name="ziling_front" type="b2602c69:ProjectViewProjectNode" />
               <item name="ziling_front" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ziling_front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ziling_front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ziling_front" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ziling_front" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -473,12 +462,12 @@
       <workItem from="1510488230847" duration="1412000" />
       <workItem from="1510670789340" duration="5000" />
       <workItem from="1510839845222" duration="21603000" />
-      <workItem from="1511058053544" duration="2408000" />
+      <workItem from="1511058053544" duration="3188000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="303552000" />
+    <option name="totallyTimeSpent" value="304332000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
