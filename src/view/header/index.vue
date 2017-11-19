@@ -24,9 +24,9 @@
         </div>
 
 
-        <div v-else="loginTag" slot="right" style="height: 100%">
-          <mu-flat-button label="注 册" slot="right" style="color: #000;" to="/signup"/>
-          <mu-flat-button label="登 录" slot="right" style="color: #000;" to="/login"/>
+        <div v-else slot="right" style="height: 100%; display: flex; align-items: center">
+          <mu-raised-button label="注 册" primary slot="right" @click="openDialog('signup')" style="margin-right: 12px"/>
+          <mu-raised-button label="登 录" slot="right" @click=" openDialog('login')"/>
         </div>
       </div>
       <div class="mobile_device" slot="left">
@@ -74,10 +74,65 @@
     </mu-popover>
     <mu-drawer right :open="drawer" :docked="false" @close="touchToggle()">
       <mu-list @itemClick="touchToggle()">
-        <mu-list-item title="注册" to="/signup"/>
-        <mu-list-item title="登录" to="/login"/>
+        <mu-list-item title="注册"/>
+        <mu-list-item title="登录" @click="login_dialog = true"/>
       </mu-list>
     </mu-drawer>
+
+    <mu-dialog :open="login_dialog" @close="close">
+      <div class="dialog">
+        <div slot="title" class="dialog_head">做产品
+          <span style="font-weight: bold; font-size: 2rem">
+          一个人在家也可以
+          </span>
+        </div>
+        <mu-tabs :value="activeTab" @change="handleTabChange" style="width: 60%;background-color: #fff;">
+          <mu-tab value="login" title="登录" style="color: #000"/>
+          <mu-tab value="signup" title="注册" style="color: #000"/>
+        </mu-tabs>
+        <div v-if="activeTab === 'login'" style="width: 60%">
+          <mu-text-field hintText="手机号" type="" icon="phone" v-model="loginInfo.userName" style="width: 100%"/>
+          <br/>
+          <mu-text-field hintText="密码" type="password" icon="lock" v-model="loginInfo.password" style="width: 100%"/>
+          <br/>
+          <div style="display: flex; justify-content: space-between">
+            <mu-checkbox label="记住密码" v-model="remeberPWD"/>
+            <a href="#">忘记密码?</a>
+
+          </div>
+          <div style="display: flex; justify-content: space-between">
+            <mu-raised-button label="立即登录" primary @click="login"/>
+            <mu-raised-button label="取消" @click=" login_dialog = false"/>
+          </div>
+
+          <div id="captcha">
+
+          </div>
+        </div>
+        <div v-if="activeTab === 'signup'"  style="width: 60%">
+          <mu-text-field hintText="手机号" type="" icon="phone" v-model="signupInfo.cellphone" style="width: 100%"/>
+          <mu-text-field hintText="密码" type="password" icon="lock" v-model="signupInfo.password" style="width: 100%"/>
+          <mu-text-field hintText="确认密码" type="password" icon="lock" v-model="signupInfo.rePwd" style="width: 100%"/>
+
+          <br/>
+          <mu-checkbox label="确认并同意用户条款" v-model="signupInfo.agreeTermsheet"/>
+          <br/>
+
+          <!--验证码-->
+          <!--<div class="captcha_action">-->
+          <!--<mu-text-field label="请填写验证码" labelFloat style="width: 60%"/>-->
+          <!--<mu-raised-button label="获取验证码" class="demo-raised-button" primary/>-->
+          <!--</div>-->
+          <div style="display: flex; justify-content: space-between">
+            <mu-raised-button label="立即注册" primary @click="signup"/>
+            <mu-raised-button label="取消" @click=" login_dialog = false"/>
+          </div>
+
+        </div>
+
+
+      </div>
+    </mu-dialog>
 
   </div>
 </template>
@@ -90,6 +145,20 @@
   export default {
     data () {
       return {
+        signupInfo: {
+          cellphone: '',
+          password: '',
+          rePwd: '',
+          agreeTermsheet: false
+        },
+        hideToast: false,
+        remeberPWD: false,
+        loginInfo: {
+          userName: '',
+          password: ''
+        },
+        activeTab: 'login',
+        login_dialog: false,
         LOGO_NOBACK,
         userAvatorImg,
         msgOpen: false,
@@ -103,6 +172,59 @@
     },
     components: {},
     methods: {
+      openDialog (type) {
+        this.activeTab = type
+        this.login_dialog = true
+      },
+      login () {
+        this.$store.commit('changeLoadState', true)
+        this.$store.dispatch('loginByPhone', {
+          userName: this.loginInfo.userName,
+          password: this.loginInfo.password
+        }).then(res => {
+          if (res.status_code !== 1) {
+            console.log(res)
+            console.log('login success')
+            this.login_dialog = false
+            this.$store.commit('SET', {
+              type: 'info',
+              data: res.data
+            })
+            this.$store.commit('changeLoadState', false)
+            this.$router.push('/index')
+          }
+        }, error => {
+          console.log(error)
+        })
+      },
+      signup () {
+        if (this.signupInfo.agreeTermsheet) {
+          if (this.signupInfo.password === this.signupInfo.rePwd) {
+            let {cellphone, password, agreeTermsheet} = this.signupInfo
+            this.$store.dispatch('signupByPhone', {cellphone, password, agreeTermsheet}).then(res => {
+              //  if(res.errorCode === 0){}
+              console.log(res)
+              this.login_dialog = false
+
+              this.$store.commit('SET', {
+                type: 'info',
+                data: res.data
+              })
+              this.$router.push('/index')
+            })
+          } else {
+            this.errMsg = '请确认两次输入的密码一致'
+          }
+        } else {
+          this.errMsg = '请先同意我们的条款'
+        }
+      },
+      handleTabChange (val) {
+        this.activeTab = val
+      },
+      close () {
+        this.login_dialog = false
+      },
       toIndex () {
         this.$router.push('/index')
       },
@@ -149,8 +271,8 @@
     filters: {}
   }
 </script>
-<style scoped lang="scss" rel="stylesheet/scss">
-  // @import '~muse-ui/src/styles/colors.less';
+<style scoped lang="less" ref="stylesheet/less">
+  @import "../../../node_modules/muse-ui/src/styles/colors.less";
 
   .popop_user_profile {
     width: 300px;
@@ -161,10 +283,32 @@
     align-items: center;
   }
 
+  .dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .dialog_head {
+      text-align: center;
+      color: #fff;
+      line-height: 4rem;
+      background: @purple300;
+      width: 100%;
+      border-radius: 6px 6px 0 0;
+      height: 4rem;
+    }
+
+  }
+
+  .tab {
+    color: #000;
+  }
+
   @media (max-width: 600px) {
     .desktop {
       display: none
     }
+
     .mobile_device {
       color: #000
     }
@@ -174,6 +318,7 @@
     .mobile_device {
       display: none
     }
+
     .desktop {
       height: 100%;
     }

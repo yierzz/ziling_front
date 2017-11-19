@@ -1,5 +1,5 @@
 <template>
-  <div id="app" style="background-color: rgb(239, 231, 231); width: 100%;padding-bottom: 10px; min-height: 900px">
+  <div id="app" style="background-color: rgb(239, 231, 231); width: 100%;padding-bottom: 10px; min-height: 100vh">
     <div id="body">
       <app-header></app-header>
       <fs-loading v-if="loading"></fs-loading>
@@ -43,6 +43,7 @@
   @import 'styles/normalize.css';
 
   #body {
+
     width:1200px;
     padding: 0 0rem;
     margin: 0 auto;

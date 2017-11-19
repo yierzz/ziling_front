@@ -25,8 +25,11 @@
 <style scoped lang="scss" rel="stylesheet/scss">
   .avator {
     position: relative;
-    width: 128px;
-    height: 128px;
+    > img{
+      width: 88px;
+      height: 88px;
+    }
+
     .gender {
       position: absolute;
       right: 0;

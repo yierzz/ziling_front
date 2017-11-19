@@ -18,12 +18,15 @@ const CurrentProject = resolve => require(['../view/personal/CurrentProject'], r
 const MessageBox = resolve => require(['../view/personal/MessageBox'], resolve)
 const SuccessDeal = resolve => require(['../view/personal/SuccessDeal'], resolve)
 const MyProperty = resolve => require(['../view/personal/MyProperty'], resolve)
+const ModifyProfile = resolve => require(['../view/personal/ModifyProfile'], resolve)
 
 const Recruit = resolve => require(['../view/recruit'], resolve)
 
 /* user view */
 const User = resolve => require(['../view/user'], resolve)
 
+/* other */
+const Help = resolve => require(['../view/other/help'], resolve)
 /**
  * project view
  * */
@@ -63,6 +66,10 @@ export default new Router({
       component: Index
     },
     {
+      path: '/info-modify',
+      component: ModifyProfile
+    },
+    {
       path: '/personal',
       component: Personal,
       children: [
@@ -73,7 +80,12 @@ export default new Router({
         {path: 'message_box', component: MessageBox},
         {path: 'success_deal', component: SuccessDeal},
         {path: 'purse', component: MyProperty}
+        // {path: 'modify', component: ModifyProfile}
       ]
+    },
+    {
+      path: '/help',
+      component: Help
     },
     {
       path: '/user/:id',
