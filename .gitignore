@@ -1,6 +1,5 @@
 .DS_Store
 .idea
-.gitignore
 node_modules/
 dist/
 npm-debug.log*

@@ -24,9 +24,11 @@
 </script>
 <style scoped lang="scss" rel="stylesheet/scss">
   .avator {
-
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
     position: relative;
-    > img{
+    > img {
       width: 88px;
       height: 88px;
     }
@@ -35,4 +37,5 @@
       right: 0;
       bottom: 0;
     }
+  }
 </style>

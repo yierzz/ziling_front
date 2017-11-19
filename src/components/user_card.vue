@@ -1,6 +1,6 @@
 <template>
   <div class="card_container">
-      <div class="icon">
+      <div >
          <avator  gender="男"></avator>
       </div>
       <div class="baseInfo">
@@ -27,7 +27,7 @@
                 <p>信用等级:{{userProfile.creditRank}}</p>
                 <div class="creditBar">
                    <div class="CreditProgress">
-                    
+
                   </div>
                 </div>
               </div>
@@ -90,7 +90,7 @@
         <div>评价星级:{{userProfile.evaluateRank}}</div>
         <div>认证资质:<span v-for="skill in userProfile.verifiedSkills">{{skill}}  </span></div>
       </div> -->
-  
+
   </div>
 </template>
 <script>
@@ -211,7 +211,7 @@
       width:92%;
       margin:10px auto;
       height:200px;
-      
+
    }
 
    .baseInfo .ranks p{
