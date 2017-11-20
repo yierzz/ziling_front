@@ -1,50 +1,51 @@
 <template>
   <mu-paper class="modify_profile" :zDepth="2">
-    <avator :avator="avatorURL"/>     
-      <mu-sub-header>个人资料</mu-sub-header>       
-        <div class="flex-picker" >
-        所在城市
-        <br>
-          <mu-dropDown-menu :value="addressProvince" @change="addressChange" >
-            <mu-menu-item value="湖北" title="湖北"/>
-          </mu-dropDown-menu>
-          <mu-dropDown-menu :value="addressCity" @change="addressChange" >
-            <mu-menu-item value="武汉" title="武汉"/>
-          </mu-dropDown-menu>
-        </div>
-        <mu-flexbox>
-          <mu-flexbox-item class="flex-intro">
-            联系方式 
-            <mu-text-field v-model="telephone"/>
-          </mu-flexbox-item>
-          <mu-flexbox-item class="flex-intro">
-            工作邮箱 
-            <mu-text-field v-model="email" />
-          </mu-flexbox-item>
-        </mu-flexbox>
-        <mu-flexbox class="flex2" orient="vertical">
-          <mu-flexbox-item order="0" class="flex-intro">
-            联系QQ
-            <mu-text-field v-model="qq" />
-          </mu-flexbox-item>
-          <mu-flexbox-item order="1" class="flex-intro">
-            个人简介
-            <mu-text-field hintText="该紫领暂未填写个人简介,该紫领暂未填写个人简介。" fullWidth/>
-          </mu-flexbox-item>
-        </mu-flexbox>
+    <avator :avator="avatorURL"/>
+    <mu-sub-header>个人资料</mu-sub-header>
+    <div class="flex-picker">
+      所在城市
       <br>
-      <br>
-      <mu-sub-header>案例展示</mu-sub-header>
-        <div class="case">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-      <div class="submit">
-        <mu-raised-button label="保存修改" class="submit-button" primary/>
-        <mu-raised-button label="取消" class="submit-button" />
-      </div>
+      <mu-dropDown-menu :value="choosedProvince" @change="selectProvince" :maxHeight="400"
+                        :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}" style="width: 100px">
+        <mu-menu-item v-for="province,index in Object.keys(cityMap)" :value="province" :title="province" :key="'province-'+ index"/>
+      </mu-dropDown-menu>
+      <mu-dropDown-menu :value="choosedCity" @change="selectCity">
+        <mu-menu-item v-for="city,index in cityMap[choosedProvince]" :value="city" :title="city" :key="'city-' + index"/>
+      </mu-dropDown-menu>
+    </div>
+    <mu-flexbox>
+      <mu-flexbox-item class="flex-intro">
+        联系方式
+        <mu-text-field v-model="telephone"/>
+      </mu-flexbox-item>
+      <mu-flexbox-item class="flex-intro">
+        工作邮箱
+        <mu-text-field v-model="email"/>
+      </mu-flexbox-item>
+    </mu-flexbox>
+    <mu-flexbox class="flex2" orient="vertical">
+      <mu-flexbox-item order="0" class="flex-intro">
+        联系QQ
+        <mu-text-field v-model="qq"/>
+      </mu-flexbox-item>
+      <mu-flexbox-item order="1" class="flex-intro">
+        个人简介
+        <mu-text-field hintText="该紫领暂未填写个人简介,该紫领暂未填写个人简介。" fullWidth/>
+      </mu-flexbox-item>
+    </mu-flexbox>
+    <br>
+    <br>
+    <mu-sub-header>案例展示</mu-sub-header>
+    <div class="case">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="submit">
+      <mu-raised-button label="保存修改" class="submit-button" primary/>
+      <mu-raised-button label="取消" class="submit-button"/>
+    </div>
   </mu-paper>
 </template>
 
@@ -52,7 +53,7 @@
   import UserAvatorURL from '../../assets/defaultUserlogo.png'
   import Avator from '../../components/avator.vue'
 
-  const address = {
+  const cityMap = {
     '北京': ['北京'],
     '广东': ['广州', '深圳', '珠海', '汕头', '韶关', '佛山', '江门', '湛江', '茂名', '肇庆', '惠州', '梅州', '汕尾', '河源', '阳江', '清远', '东莞', '中山', '潮州', '揭阳', '云浮'],
     '上海': ['上海'],
@@ -87,7 +88,7 @@
     '香港': ['香港'],
     '澳门': ['澳门'],
     '台湾': ['台北市', '高雄市', '台北县', '桃园县', '新竹县', '苗栗县', '台中县', '彰化县', '南投县', '云林县', '嘉义县', '台南县', '高雄县', '屏东县', '宜兰县', '花莲县', '台东县', '澎湖县', '基隆市', '新竹市', '台中市', '嘉义市', '台南市']
-}
+  }
   export default {
     data () {
       return {
@@ -95,19 +96,22 @@
         telephone: '12345678900',
         qq: '123456789',
         email: '123456789@qq.com',
-        address: ['湖北', '武汉'],
-        addressProvince: '湖北',
-        addressCity: '武汉'
+        cities: null,
+        choosedProvince: '北京', // 选定的省份
+        choosedCity: '北京', // 选定的城市
+        cityMap
       }
     },
     components: {
       Avator
     },
     methods: {
-      addressChange (addressProvince) {
-        this.addressProvince = addressProvince
-        this.addressCity = address[value]
-        this.address = [this.addressProvince, this.addressCity]
+      selectProvince (choosedProvince) {
+        this.choosedProvince = choosedProvince
+        this.choosedCity = cityMap[choosedProvince][0]
+      },
+      selectCity (choosedCity) {
+        this.choosedCity = choosedCity
       }
     },
     computed: {}
@@ -115,46 +119,46 @@
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-.flex-picker{
-  width:256px;
-}
+  .flex-picker {
+    width: 256px;
+  }
 
-.flex2 {
-  margin-top: 18px;
-}
+  .flex2 {
+    margin-top: 18px;
+  }
 
-.flex-intro {
-  height: 32px;
-  background-color: white;
-  text-align: left;
-  line-height: 32px;
-}
+  .flex-intro {
+    height: 32px;
+    background-color: white;
+    text-align: left;
+    line-height: 32px;
+  }
 
-.submit{
-  display: flex;
-  justify-content: center;
-}
+  .submit {
+    display: flex;
+    justify-content: center;
+  }
 
-.submit-button {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  margin: 20px;
-  border-radius:15px;
-}
+  .submit-button {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 20px;
+    border-radius: 18px;
+  }
 
-.case{
-  display: flex;
-  height: 200px;
-  margin:10px;
-}
+  .case {
+    display: flex;
+    height: 200px;
+    margin: 10px;
+  }
 
-.case div{
-  background: #e0e0e0;
-  flex: 1;
-}
+  .case div {
+    background: #e0e0e0;
+    flex: 1;
+  }
 
-.case div+div{
-  margin-left: 10px;
-}
+  .case div + div {
+    margin-left: 10px;
+  }
 </style>

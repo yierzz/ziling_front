@@ -8,7 +8,7 @@
           <mu-linear-progress mode="determinate" :value="80" style="margin-top: 20px;width: 240px" color="#4A5AF8"/>
           <div class="user_username" style="margin-top: 20px;">紫领简历完成度:82%</div>
 
-          <mu-raised-button label="编辑简历" to="/info-modify" style="margin-top: 20px;"/>
+          <mu-raised-button label="编辑简历" to="/personal/info-modify" style="margin-top: 20px;"/>
           <!--<div>欢迎您：{{username}}</div>-->
           <!--<div class="user_username">会员等级:-->
           <!--<mu-badge content=" 紫钻会员" primary/>-->
@@ -61,7 +61,7 @@
       </mu-col>
       <mu-col width="100" tablet="50" desktop="75">
         <mu-paper :zDepth="2" class="right_paper">
-          <mu-tabs :value="activeTab" @change="handleTabChange">
+          <mu-tabs :value="activeTab" @change="handleTabChange" v-if="showTab">
             <mu-tab value="tab1" title="个人钱包" href="#/personal/purse"/>
             <mu-tab value="tab2" title="当前项目" href="#/personal/current_project"/>
             <mu-tab value="tab3" title="消息" href="#/personal/message"/>
@@ -131,7 +131,16 @@
         currentUser: this.$store.state.user.info.userId
       })
     },
-    computed: {}
+    computed: {
+      showTab () {
+        let path = this.$route.path
+        if (path === '/personal/info-modify') {
+          return false
+        } else {
+          return true
+        }
+      }
+    }
   }
 </script>
 <style scoped lang="scss" rel="stylesheet/scss">
