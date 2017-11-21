@@ -140,7 +140,8 @@
     background: #FFFFFF;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.08);
     border-radius: 5px;
-    margin-left: 30px;
+    display:flex;
+    justify-content:center;
     margin-bottom: 30px;
   }
 

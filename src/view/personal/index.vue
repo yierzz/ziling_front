@@ -3,8 +3,8 @@
     <mu-row gutter>
       <mu-col width="300" tablet="50" desktop="25">
         <mu-paper :zDepth="2" class="left_paper">
-          <avator :avator="avatorURL" style="margin-top: 20px;"/>
-          <mu-badge content="LV1" style="margin-top: 12px;" color="#F6DB65"/>
+          <avator :avator="avatorURL" style="margin-top: 50px;"/>
+          <mu-badge content="LV1" style="margin-top: -20px;" color="#F6DB65"/>
           <mu-linear-progress mode="determinate" :value="80" style="margin-top: 20px;width: 240px" color="#4A5AF8"/>
           <div class="user_username" style="margin-top: 20px;">紫领简历完成度:82%</div>
 
@@ -150,7 +150,7 @@
   }
 
   .left_paper {
-    margin: 15px 0 20px 0;
+    margin: 35px 0 20px 0;
     padding: 0 2rem;
     display: flex;
     justify-content: flex-start;
@@ -189,7 +189,7 @@
   }
 
   .right_paper {
-    margin: 15px 0 20px 0;
+    margin: 35px 0 20px 0;
 
   }
 

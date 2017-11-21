@@ -1,40 +1,41 @@
 <template>
-  <mu-paper class="modify_profile" :zDepth="2">
-    <avator :avator="avatorURL"/>
+  <mu-paper class="modify-profile" :zDepth="2">
+    <avator :avator="avatorURL" style="margin-top: 50px;"/>
     <mu-sub-header>个人资料</mu-sub-header>
-    <div class="flex-picker">
+    <mu-flexbox class="flex-intro">
       所在城市
-      <br>
       <mu-dropDown-menu :value="choosedProvince" @change="selectProvince" :maxHeight="400"
-                        :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}" style="width: 100px">
+                        :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}" style="width: 110px;margin-top:-10px;">
         <mu-menu-item v-for="province,index in Object.keys(cityMap)" :value="province" :title="province" :key="'province-'+ index"/>
       </mu-dropDown-menu>
-      <mu-dropDown-menu :value="choosedCity" @change="selectCity">
+      <mu-dropDown-menu :value="choosedCity" @change="selectCity" style="width: 110px;margin-top:-10px;">
         <mu-menu-item v-for="city,index in cityMap[choosedProvince]" :value="city" :title="city" :key="'city-' + index"/>
       </mu-dropDown-menu>
-    </div>
+    </mu-flexbox>
     <mu-flexbox>
       <mu-flexbox-item class="flex-intro">
         联系方式
         <mu-text-field v-model="telephone"/>
       </mu-flexbox-item>
+    </mu-flexbox>
+    <mu-flexbox>
       <mu-flexbox-item class="flex-intro">
         工作邮箱
         <mu-text-field v-model="email"/>
       </mu-flexbox-item>
     </mu-flexbox>
-    <mu-flexbox class="flex2" orient="vertical">
-      <mu-flexbox-item order="0" class="flex-intro">
+    <mu-flexbox>
+      <mu-flexbox-item class="flex-intro">
         联系QQ
         <mu-text-field v-model="qq"/>
       </mu-flexbox-item>
-      <mu-flexbox-item order="1" class="flex-intro">
+    </mu-flexbox>
+    <mu-flexbox>
+      <mu-flexbox-item class="flex-intro">
         个人简介
         <mu-text-field hintText="该紫领暂未填写个人简介,该紫领暂未填写个人简介。" fullWidth/>
       </mu-flexbox-item>
     </mu-flexbox>
-    <br>
-    <br>
     <mu-sub-header>案例展示</mu-sub-header>
     <div class="case">
       <div></div>
@@ -119,19 +120,22 @@
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  .flex-picker {
-    width: 256px;
-  }
 
-  .flex2 {
-    margin-top: 18px;
-  }
+.modify-profile{
+  margin: 35px 0 20px 0;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-family: MicrosoftYaHei;
+  font-size: 12px;
+  color: #808080;
+  letter-spacing: 0;
 
   .flex-intro {
-    height: 32px;
+    margin:10px 0 10px 0;
     background-color: white;
     text-align: left;
-    line-height: 32px;
   }
 
   .submit {
@@ -161,4 +165,5 @@
   .case div + div {
     margin-left: 10px;
   }
+}
 </style>

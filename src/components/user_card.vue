@@ -153,11 +153,20 @@
 <style scoped lang="scss" rel="stylesheet/scss">
   .card_container {
     width: 360px;
-    // height:470px;
-    background-color: #FFD3D1D1;
-    margin-right:30px;
-    margin-bottom:35px;
+    //height:470px;
+    margin-bottom:30px;
+    margin-top:40px;
+    dispaly:flex;
+    justify-content:center;
+    background-color: #FFD3D1;
     border-radius: 5px;
+  }
+
+  .avator1{
+    //width: 88px;
+    //height: 88px;
+    top:-50%px;
+    position:relative;
   }
 
   .baseInfo{
@@ -173,6 +182,7 @@
     width:100%;
   }
     .baseInfo .currentState{
+      margin-top:-38px;
       position:relative;
     }
 
