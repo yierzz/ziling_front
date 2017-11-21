@@ -1,6 +1,8 @@
 <template>
   <div class="card_container">
+      <div >
          <avator  gender="男"></avator>
+      </div>
       <div class="baseInfo">
           <div class="divide"></div>
           <div class="currentState">

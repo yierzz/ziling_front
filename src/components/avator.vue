@@ -31,15 +31,15 @@
     height:88px;
   }
   .avator img {
-      width: 88px;
-      height: 88px;
-      top: -50%;
-      position: relative;
-    }
+    width: 88px;
+    height: 88px;
+    top: -50%;
+    position: relative;
+  }
   .avator gender {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-    }
-  
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
 </style>
