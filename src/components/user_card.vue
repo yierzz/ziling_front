@@ -1,81 +1,84 @@
 <template>
-  <div class="card_container">
+  <div>
+    <mu-paper class="card_container">
       <div >
-         <avator  gender="男"></avator>
+        <avator  gender="男"></avator>
       </div>
       <div class="baseInfo">
-          <div class="divide"></div>
-          <div class="currentState">
-            <img :src="RESTSTATE">
-            <p class="status">{{userProfile.status || '接单中'}}</p>
-          </div>
-          <div class="username">
-            <b>{{userProfile.nickname}}</b>
-          </div>
-          <div class="skills">
-            <span v-for="skill in userProfile.verifiedSkills">{{skill}}</span>
-          </div>
-          <div class="ranks">
-              <div class="capacityRank">
-                <p>能力等级:{{userProfile.capacityRank}}</p>
-                <div class="capacityBar">
-                  <div class="CapacityProgress">
-                  </div>
-                </div>
+        <div class="divide"></div>
+        <div class="currentState">
+          <img :src="RESTSTATE">
+          <p class="status">{{userProfile.status || '接单中'}}</p>
+        </div>
+        <div class="username">
+          <b>{{userProfile.nickname}}</b>
+        </div>
+        <div class="skills">
+          <span v-for="skill in userProfile.verifiedSkills">{{skill}}</span>
+        </div>
+        <div class="ranks">
+          <div class="capacityRank">
+            <p>能力等级:{{userProfile.capacityRank}}</p>
+            <div class="capacityBar">
+              <div class="CapacityProgress">
               </div>
-              <div class="creditRank">
-                <p>信用等级:{{userProfile.creditRank}}</p>
-                <div class="creditBar">
-                   <div class="CreditProgress">
+            </div>
+          </div>
+          <div class="creditRank">
+            <p>信用等级:{{userProfile.creditRank}}</p>
+            <div class="creditBar">
+              <div class="CreditProgress">
 
-                  </div>
-                </div>
               </div>
-              <div class="evaluateRank">
-                <p>评价星级:{{userProfile.evaluateRank}}</p>
-                 <div class="evaluateBar">
-                    <ul>
-                      <li>
-                        <img :src="STAR1">
-                      </li>
-                      <li>
-                        <img :src="STAR1">
-                      </li>
-                       <li>
-                        <img :src="STAR1">
-                      </li>
-                       <li>
-                        <img :src="STAR1">
-                      </li>
-                      <li>
-                        <img :src="STAR06">
-                      </li>
-                    </ul>
-                 </div>
-                </div>
+            </div>
           </div>
-          <div class="verifiedSkills">
-            <p>认证资质</p>
-            <div class="qualify">
+          <div class="evaluateRank">
+            <p>评价星级:{{userProfile.evaluateRank}}</p>
+            <div class="evaluateBar">
               <ul>
                 <li>
-                     <li>
-                        <img :src="IOSQUA">
-                      </li>
-                       <li>
-                        <img :src="WEBQUA">
-                      </li>
-                       <li>
-                        <img :src="SMALLPROQUA">
-                      </li>
-                      <li>
-                        <img :src="ANDRIODQUA">
-                      </li>
+                  <img :src="STAR1">
+                </li>
+                <li>
+                  <img :src="STAR1">
+                </li>
+                <li>
+                  <img :src="STAR1">
+                </li>
+                <li>
+                  <img :src="STAR1">
+                </li>
+                <li>
+                  <img :src="STAR06">
                 </li>
               </ul>
             </div>
           </div>
+        </div>
+        <div class="verifiedSkills">
+          <p>认证资质</p>
+          <div class="qualify">
+            <ul>
+              <li>
+              <li>
+                <img :src="IOSQUA">
+              </li>
+              <li>
+                <img :src="WEBQUA">
+              </li>
+              <li>
+                <img :src="SMALLPROQUA">
+              </li>
+              <li>
+                <img :src="ANDRIODQUA">
+              </li>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
+    </mu-paper>
+
       <!-- <div>当前状态：{{userProfile.status || '接单中'}}</div> -->
       <!-- <div class="base_info" style="cursor: pointer" @click="toUserProfile" >
         <avator  gender="男"></avator>

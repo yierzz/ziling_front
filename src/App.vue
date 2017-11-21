@@ -1,7 +1,10 @@
 <template>
-  <div id="app" style="background-color: rgb(239, 231, 231); width: 100%;padding-bottom: 10px; min-height: 100vh">
-    <div id="body">
+  <div id="app" style="background-color: #fff; width: 100%;padding-bottom: 10px; min-height: 100vh">
+    <div style="box-shadow: 0 3px 10px rgba(0,0,0,.156863);">
       <app-header></app-header>
+    </div>
+
+    <div id="body">
       <fs-loading v-if="loading"></fs-loading>
       <router-view default v-else="loading"></router-view>
       <app-footer></app-footer>

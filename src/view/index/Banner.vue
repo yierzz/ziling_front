@@ -47,7 +47,7 @@
 <style scoped lang="less">
   .swiper-container {
     width: 100%;
-    height: 40rem;
+    height: 520px;
 
   .swiper-wrapper {
     width: 100%;

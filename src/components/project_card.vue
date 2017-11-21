@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <mu-paper :zDepth="2">
+    <mu-paper >
       <router-link :to="`/project/detail/${project.taskId}`">
         <mu-row gutter>
           <!--<mu-col>-->

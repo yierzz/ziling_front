@@ -1,13 +1,19 @@
 <template>
   <div>
-    <mu-appbar style="background-color: rgb(246, 241, 241);height:80px; box-shadow: none">
-      <a @click="toIndex" slot="left" style="width: 100px;height: 100%; cursor: pointer;">
+    <mu-appbar style="background-color: #fff;height:80px; box-shadow: none; width: 1200px; margin: 0 auto">
+      <a @click="toIndex" slot="left" style="width: 100px;height: 100%; cursor: pointer; margin-right: 116px;">
         <img :src="LOGO_NOBACK" slot="left" style="width: 100%">
       </a>
-      <div class="desktop" slot="left">
-        <mu-flat-button slot="left" color="black" label="聘请紫领" to="/recruit"/>
-        <mu-flat-button slot="left" color="black" label="任务列表" to="/projects"/>
-        <mu-flat-button slot="left" color="black" label="帮助" to="/help" :rippleOpacity="0"/>
+      <div class="desktop" slot="left" style="display: flex; align-items: center;">
+        <mu-flat-button slot="left" color="black" label="首页" to="/index" style="height: 30px;border-radius: 18px"
+                        activeClass="pathActive" :color="currentPath === '/index' ? '#fff': '#000' "/>
+        <mu-flat-button slot="left" color="black" label="聘请紫领" to="/recruit" style="height: 30px;border-radius: 18px"
+                        activeClass="pathActive" :color="currentPath === '/recruit' ? '#fff': '#000' "/>
+        <mu-flat-button slot="left" color="black" label="任务列表" to="/projects" style="height: 30px;border-radius: 18px"
+                        activeClass="pathActive" :color="currentPath === '/projects' ? '#fff': '#000' "/>
+        <mu-flat-button slot="left" color="black" label="帮助" to="/help" :rippleOpacity="0"
+                        style="height: 30px;border-radius: 18px" activeClass="pathActive"
+                        :color="currentPath === '/help' ? '#fff': '#000' "/>
       </div>
       <div class="desktop" slot="right">
 
@@ -25,8 +31,10 @@
 
 
         <div v-else slot="right" style="height: 100%; display: flex; align-items: center">
-          <mu-raised-button label="注 册" primary slot="right" @click="openDialog('signup')" style="margin-right: 12px"/>
-          <mu-raised-button label="登 录" slot="right" @click=" openDialog('login')"/>
+          <mu-raised-button label="注 册" primary slot="right" @click="openDialog('signup')"
+                            style="height: 30px;margin-right: 12px; border-radius: 18px"/>
+          <mu-raised-button label="登 录" slot="right" @click=" openDialog('login')"
+                            style="height: 30px;border-radius: 18px"/>
         </div>
       </div>
       <div class="mobile_device" slot="left">
@@ -109,7 +117,7 @@
 
           </div>
         </div>
-        <div v-if="activeTab === 'signup'"  style="width: 60%">
+        <div v-if="activeTab === 'signup'" style="width: 60%">
           <mu-text-field hintText="手机号" type="" icon="phone" v-model="signupInfo.cellphone" style="width: 100%"/>
           <mu-text-field hintText="密码" type="password" icon="lock" v-model="signupInfo.password" style="width: 100%"/>
           <mu-text-field hintText="确认密码" type="password" icon="lock" v-model="signupInfo.rePwd" style="width: 100%"/>
@@ -260,7 +268,11 @@
         userInfo: (state) => {
           return state.user.info
         }
-      })
+      }),
+      currentPath () {
+        console.log(this.$route.path)
+        return this.$route.path
+      }
     },
     updated () {
       if (this.loginTag) {
@@ -302,6 +314,11 @@
 
   .tab {
     color: #000;
+  }
+
+  .pathActive {
+    background-color: #9013FE;
+    color: #fff;
   }
 
   @media (max-width: 600px) {
