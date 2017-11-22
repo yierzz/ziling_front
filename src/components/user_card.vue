@@ -78,6 +78,8 @@
         </div>
       </div>
     </mu-paper>
+
+
       <!-- <div>当前状态：{{userProfile.status || '接单中'}}</div> -->
       <!-- <div class="base_info" style="cursor: pointer" @click="toUserProfile" >
         <avator  gender="男"></avator>
