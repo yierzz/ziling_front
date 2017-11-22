@@ -51,23 +51,19 @@ export default new Router({
       path: '/signup',
       component: Signup
     },
-/*    {
-      path: '/welcome',
-      component: Welcome,
-      name: 'welcome',
-      children: [
-        {path: '', component: ShowPage},
-        {path: 'login', component: Login},
-        {path: 'signup', component: Signup}
-      ]
-    }, */
+    /*    {
+          path: '/welcome',
+          component: Welcome,
+          name: 'welcome',
+          children: [
+            {path: '', component: ShowPage},
+            {path: 'login', component: Login},
+            {path: 'signup', component: Signup}
+          ]
+        }, */
     {
       path: '/index',
       component: Index
-    },
-    {
-      path: '/info-modify',
-      component: ModifyProfile
     },
     {
       path: '/personal',
@@ -79,8 +75,11 @@ export default new Router({
         {path: 'current_project', component: CurrentProject},
         {path: 'message_box', component: MessageBox},
         {path: 'success_deal', component: SuccessDeal},
-        {path: 'purse', component: MyProperty}
-        // {path: 'modify', component: ModifyProfile}
+        {path: 'purse', component: MyProperty},
+        {
+          path: 'info-modify',
+          component: ModifyProfile
+        }
       ]
     },
     {

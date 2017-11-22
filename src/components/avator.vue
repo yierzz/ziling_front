@@ -1,7 +1,7 @@
 <template>
   <div class="avator">
     <img :src="avator"/>
-    <div class="gender">{{gender}}</div>
+    <!-- <div class="gender">{{gender}}</div> -->
   </div>
 </template>
 <script>
@@ -24,16 +24,22 @@
 </script>
 <style scoped lang="scss" rel="stylesheet/scss">
   .avator {
-    position: relative;
-    > img{
-      width: 88px;
-      height: 88px;
-    }
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    height:88px;
+  }
 
-    .gender {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-    }
+  .avator img {
+    width: 88px;
+    height: 88px;
+    top: -50%;
+    position: relative;
+  }
+
+  .avator gender {
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 </style>
