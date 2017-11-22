@@ -150,7 +150,7 @@
   }
 
   .left_paper {
-    margin: 35px 0 20px 0;
+    margin: 15px 0 20px 0;
     padding: 0 2rem;
     display: flex;
     justify-content: flex-start;
@@ -189,7 +189,7 @@
   }
 
   .right_paper {
-    margin: 35px 0 20px 0;
+    margin: 15px 0 20px 0;
 
   }
 
