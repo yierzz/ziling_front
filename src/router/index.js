@@ -12,8 +12,8 @@ const ProjectDetail = resolve => require(['../view/project/ProjectDetail'], reso
 const Project = resolve => require(['../view/project/index'], resolve)
 /* personal view */
 const Personal = resolve => require(['../view/personal'], resolve)
+const Growth = resolve => require(['../view/personal/Growth'], resolve)
 const UserProfile = resolve => require(['../view/personal/UserProfile'], resolve)
-const BrowseHistory = resolve => require(['../view/personal/BrowseHistory'], resolve)
 const CurrentProject = resolve => require(['../view/personal/CurrentProject'], resolve)
 const MessageBox = resolve => require(['../view/personal/MessageBox'], resolve)
 const SuccessDeal = resolve => require(['../view/personal/SuccessDeal'], resolve)
@@ -71,11 +71,14 @@ export default new Router({
       children: [
         {path: '', redirect: 'purse'},
         {path: 'profile', component: UserProfile},
-        {path: 'browse_history', component: BrowseHistory},
         {path: 'current_project', component: CurrentProject},
-        {path: 'message_box', component: MessageBox},
+        {path: 'message', component: MessageBox},
         {path: 'success_deal', component: SuccessDeal},
         {path: 'purse', component: MyProperty},
+        {
+          path: 'growth',
+          component: Growth
+        },
         {
           path: 'info-modify',
           component: ModifyProfile

@@ -18,6 +18,10 @@ const User = {
   getPrivateUserInfo: {
     url: '/user/personalInfo',
     type: 'POST'
+  },
+  postNewUserInfo: {
+    url: '/user/modifyInfo',
+    type: 'POST'
   }
 }
 
