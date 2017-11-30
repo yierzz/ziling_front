@@ -295,6 +295,7 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    margin-left: -200px;
   }
 
   .dialog {

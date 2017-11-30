@@ -15,15 +15,17 @@
           <!--</div>-->
 
           <div class="grey_bkg" style="margin-top: 30px;">
-            <div class="title">资质等级:8.2</div>
-            <mu-linear-progress mode="determinate" class="linear" :value="80" color="#4A5AF8"/>
 
-            <div class="title">信用等级:9.8</div>
-            <mu-linear-progress mode="determinate" :value="80" class="linear" color="#5ECD87"/>
+            <div class="title">资质等级:{{capacity_rank}}</div>
+            <mu-linear-progress mode="determinate" class="linear" :value="capacity_rank*10" color="#4A5AF8"/>
+
+            <div class="title">信用等级:{{credit_rank}}</div>
+            <mu-linear-progress mode="determinate" :value="credit_rank*10" class="linear" color="#5ECD87"/>
 
 
-            <div class="title"> 评价星级:4.2</div>
-            <star-rank v-bind:rank="5"></star-rank>
+            <div class="title"> 评价星级:{{evaluate_rank}}</div>
+            <star-rank v-bind:rank="4"></star-rank>
+
           </div>
 
           <div class="grey_bkg">
@@ -113,7 +115,10 @@
         username: 'zilingspace.com',
         activeTab: 'tab1',
         resume: ['java后端科学家', 'php魔法师', 'js前端切图仔'],
-        verifiedSkill: ['android', 'ios', 'web', 'wechat']
+        verifiedSkill: ['android', 'ios', 'web', 'wechat'],
+        credit_rank: 8.2,
+        capacity_rank: 9.8,
+        evaluate_rank: 4.2
       }
     },
     components: {
