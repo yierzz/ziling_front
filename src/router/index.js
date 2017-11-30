@@ -79,7 +79,7 @@ export default new Router({
         {path: 'message', component: MessageBox},
         {path: 'success_deal', component: SuccessDeal},
         {path: 'pre_pay', component: Recharge},
-        {path: 'purse', component: MyProperty}
+        {path: 'purse', component: MyProperty},
         // {path: 'modify', component: ModifyProfile}
         {path: 'purse', component: MyProperty},
         {

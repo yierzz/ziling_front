@@ -16,7 +16,7 @@ export default {
   actions: {
     loginByPhone ({commit}, userLoginInfo) {
       // console.log(userInfo)
-      return API('loginByPhone', userLoginInfo
+      return API('loginByPhone', userLoginInfo)
       // return loginByPhone(userInfo.phone, userInfo.pwd)
     },
     signupByPhone ({commit}, userSignupInfo) {
