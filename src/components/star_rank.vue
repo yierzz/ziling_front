@@ -1,7 +1,7 @@
 <template>
   <div>
     <img :src="Star1IMG" alt="rank" v-for="i in starInteger">
-    <img :src="starDecimal" alt="rank">
+    <img :src="starDecimal" alt="rank" v-if="starDecimal">
   </div>
 </template>
 <script>
@@ -26,9 +26,9 @@
       }
     },
     mounted () {
-      console.log(this.rank)
       let {rank} = this
-      while (rank > 1) {
+      rank = parseInt(rank)
+      while (rank >= 1) {
         rank--
         this.starInteger++
       }
@@ -40,6 +40,8 @@
         this.starDecimal = Star4IMG
       } else if (rank >= 0.8 && rank < 1) {
         this.starDecimal = Star5IMG
+      } else {
+        this.starDecimal = null
       }
     },
     components: {},
