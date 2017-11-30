@@ -15,6 +15,7 @@
           <!--</div>-->
 
           <div class="grey_bkg" style="margin-top: 30px;">
+
             <div class="title">资质等级:{{capacity_rank}}</div>
             <mu-linear-progress mode="determinate" class="linear" :value="capacity_rank*10" color="#4A5AF8"/>
 
@@ -24,6 +25,7 @@
 
             <div class="title"> 评价星级:{{evaluate_rank}}</div>
             <star-rank v-bind:rank="4"></star-rank>
+
           </div>
 
           <div class="grey_bkg">
