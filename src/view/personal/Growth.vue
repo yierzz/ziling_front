@@ -1,7 +1,7 @@
 <template>
-  <div>
-
-  </div>
+    <div>
+     growth
+    </div>
 </template>
 <script>
   export default {
@@ -10,9 +10,10 @@
     },
     components: {},
     methods: {},
-    computed: {}
+    computed: {},
+    mounted () {}
   }
 </script>
-<style scoped>
+<style scoped lang="scss" rel="stylesheet/scss">
 
 </style>

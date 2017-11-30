@@ -65,7 +65,7 @@
             <mu-tab value="tab1" title="个人钱包" href="#/personal/purse"/>
             <mu-tab value="tab2" title="当前项目" href="#/personal/current_project"/>
             <mu-tab value="tab3" title="消息" href="#/personal/message"/>
-            <mu-tab value="tab4" title="成长记录" href="#/personal/mile_stone"/>
+            <mu-tab value="tab4" title="成长记录" href="#/personal/growth"/>
 
           </mu-tabs>
           <router-view></router-view>
@@ -150,7 +150,7 @@
   }
 
   .left_paper {
-    margin: 35px 0 20px 0;
+    margin: 15px 0 20px 0;
     padding: 0 2rem;
     display: flex;
     justify-content: flex-start;
@@ -189,7 +189,7 @@
   }
 
   .right_paper {
-    margin: 35px 0 20px 0;
+    margin: 15px 0 20px 0;
 
   }
 

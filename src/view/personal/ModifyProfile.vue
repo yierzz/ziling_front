@@ -1,42 +1,55 @@
 <template>
-  <mu-paper class="modify-profile" :zDepth="2">
-    <avator :avator="avatorURL" style="margin-top: 50px;"/>
-    <mu-sub-header>个人资料</mu-sub-header>
-    <mu-flexbox class="flex-intro">
-      所在城市
-      <mu-dropDown-menu :value="choosedProvince" @change="selectProvince" :maxHeight="400"
-                        :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}" style="width: 110px;margin-top:-10px;">
-        <mu-menu-item v-for="province,index in Object.keys(cityMap)" :value="province" :title="province" :key="'province-'+ index"/>
-      </mu-dropDown-menu>
-      <mu-dropDown-menu :value="choosedCity" @change="selectCity" style="width: 110px;margin-top:-10px;">
-        <mu-menu-item v-for="city,index in cityMap[choosedProvince]" :value="city" :title="city" :key="'city-' + index"/>
-      </mu-dropDown-menu>
+  <mu-paper class="modify-profile">
+    <div class="intro-avator">
+      <avator :avator="avatorURL" style="margin-top: 50px;"/>
+      <mu-badge content="LV1" style="margin-top: 75px;margin-left:10px;" color="#F6DB65"/>
+      <mu-raised-button label="修改" class="avator-button"/>
+    </div>
+    <div class="sub-header">
+      <mu-icon value="person" :size="20"/>
+      <span>个人资料</span>
+    </div>
+    <mu-flexbox>
+      <div class="flex-intro">
+        <span>所在城市</span>
+        <mu-dropDown-menu :value="choosedProvince" @change="selectProvince" :maxHeight="400"
+                          :anchorOrigin="{vertical: 'bottom', horizontal: 'left'}"
+                          style="width: 110px;margin-top:-10px;margin-right:-10px;">
+          <mu-menu-item v-for="province,index in Object.keys(cityMap)" :value="province" :title="province"
+                        :key="'province-'+ index"/>
+        </mu-dropDown-menu>
+        <mu-dropDown-menu :value="userCity" @change="selectCity"
+                          style="width: 110px;margin-top:-10px;margin-right:-10px;">
+          <mu-menu-item v-for="city,index in cityMap[choosedProvince]" :value="city" :title="city"
+                        :key="'city-' + index"/>
+        </mu-dropDown-menu>
+      </div>
+      <div class="flex-intro" style="margin-left:40px;">
+        <span>联系方式</span>
+        <mu-text-field v-model="userPhone" style="width:160px;margin-left:20px;margin-right:10px;"/>
+      </div>
+      <div class="flex-intro" style="margin-left:40px;">
+        <span>工作邮箱</span>
+        <mu-text-field v-model="userEmail" style="width:160px;margin-left:20px;"/>
+      </div>
     </mu-flexbox>
     <mu-flexbox>
-      <mu-flexbox-item class="flex-intro">
-        联系方式
-        <mu-text-field v-model="telephone"/>
-      </mu-flexbox-item>
+      <div class="flex-intro">
+        <span>联系QQ</span>
+        <mu-text-field v-model="userQq" style="width:160px;margin-left:20px;"/>
+      </div>
     </mu-flexbox>
     <mu-flexbox>
-      <mu-flexbox-item class="flex-intro">
-        工作邮箱
-        <mu-text-field v-model="email"/>
-      </mu-flexbox-item>
+      <div class="flex-intro">
+        <span>个人简介</span>
+        <mu-text-field hintText="该紫领暂未填写个人简介,该紫领暂未填写个人简介。" style="width:750px;margin-left:20px;" v-model="userDesc"/>
+      </div>
     </mu-flexbox>
-    <mu-flexbox>
-      <mu-flexbox-item class="flex-intro">
-        联系QQ
-        <mu-text-field v-model="qq"/>
-      </mu-flexbox-item>
-    </mu-flexbox>
-    <mu-flexbox>
-      <mu-flexbox-item class="flex-intro">
-        个人简介
-        <mu-text-field hintText="该紫领暂未填写个人简介,该紫领暂未填写个人简介。" fullWidth/>
-      </mu-flexbox-item>
-    </mu-flexbox>
-    <mu-sub-header>案例展示</mu-sub-header>
+    <div class="sub-header">
+      <mu-icon value="flag" :size="20"/>
+      <span>案例展示</span>
+      <mu-raised-button label="上传" class="case-button"/>
+    </div>
     <div class="case">
       <div></div>
       <div></div>
@@ -44,15 +57,19 @@
       <div></div>
     </div>
     <div class="submit">
-      <mu-raised-button label="保存修改" class="submit-button" primary/>
-      <mu-raised-button label="取消" class="submit-button"/>
+      <mu-raised-button label="保存修改" class="submit-button" primary @click="submitNewInfo"/>
+      <mu-raised-button label="取消" class="submit-button" to="/personal"/>
     </div>
+    <mu-toast v-if="toast" message="输出值错误" @close="hideToast"/>
+
   </mu-paper>
 </template>
 
 <script>
   import UserAvatorURL from '../../assets/defaultUserlogo.png'
   import Avator from '../../components/avator.vue'
+  import API from '../../api'
+  import { mapState } from 'vuex'
 
   const cityMap = {
     '北京': ['北京'],
@@ -94,76 +111,162 @@
     data () {
       return {
         avatorURL: UserAvatorURL,
-        telephone: '12345678900',
-        qq: '123456789',
-        email: '123456789@qq.com',
-        cities: null,
+        userPhone: '12345678900',
+        userQq: '123456789',
+        userEmail: '123456789@qq.com',
         choosedProvince: '北京', // 选定的省份
-        choosedCity: '北京', // 选定的城市
-        cityMap
+        userCity: '北京', // 选定的城市
+        cityMap,
+        userDesc: '',
+        toast: false
       }
     },
     components: {
-      Avator
+      'avator': Avator
     },
     methods: {
+      hideToast () {
+        this.toast = false
+        if (this.toastTimer) clearTimeout(this.toastTimer)
+      },
       selectProvince (choosedProvince) {
         this.choosedProvince = choosedProvince
-        this.choosedCity = cityMap[choosedProvince][0]
+        this.userCity = cityMap[choosedProvince][0]
       },
-      selectCity (choosedCity) {
-        this.choosedCity = choosedCity
+      selectCity (userCity) {
+        this.userCity = userCity
+      },
+      checkInfo () {
+        let {userCity, userPhone, userEmail, userQq, userDesc} = this
+        let userId = this.userId || null
+        // 值检查器,可以加入复杂逻辑
+
+        if (userId && userCity && userPhone && userEmail && userQq && userDesc) {
+          return true
+        } else {
+          return false
+        }
+      },
+      submitNewInfo () {
+        if (this.checkInfo()) {
+          let {userId, userCity, userPhone, userEmail, userQq, userDesc} = this
+
+          API('postNewUserInfo', {
+            userId, userCity, userPhone, userEmail, userQq, userDesc
+          }).then(res => {
+            console.log(res)
+          })
+        } else {
+          this.toast = true
+          if (this.toastTimer) clearTimeout(this.toastTimer)
+          this.toastTimer = setTimeout(() => { this.toast = false }, 2000)
+        }
       }
     },
-    computed: {}
+    computed: mapState({
+      userId: state => state.user.info.userId
+    })
   }
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
 
-.modify-profile{
-  margin: 35px 0 20px 0;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  font-family: MicrosoftYaHei;
-  font-size: 12px;
-  color: #808080;
-  letter-spacing: 0;
-
-  .flex-intro {
-    margin:10px 0 10px 0;
-    background-color: white;
-    text-align: left;
-  }
-
-  .submit {
+  .modify-profile {
+    margin: 15px 0 20px 0;
+    padding: 0 2rem;
     display: flex;
-    justify-content: center;
-  }
+    justify-content: flex-start;
+    flex-direction: column;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #808080;
+    letter-spacing: 0;
 
-  .submit-button {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    margin: 20px;
-    border-radius: 18px;
-  }
+    .intro-avator {
+      display: flex;
+      align-items: flex-start;
 
-  .case {
-    display: flex;
-    height: 200px;
-    margin: 10px;
-  }
+      .avator-button {
+        margin: 10px 0 0 620px;
+        height: 30px;
+        font-size: 12px;
+        border-radius: 18px;
+      }
+    }
 
-  .case div {
-    background: #e0e0e0;
-    flex: 1;
-  }
+    .sub-header {
+      display: flex;
+      align-items: center;
 
-  .case div + div {
-    margin-left: 10px;
+      span {
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 16px;
+        color: #808080;
+        letter-spacing: 0;
+        line-height: 30px;
+        margin-left: 15px;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      div {
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #808080;
+        letter-spacing: 0;
+        line-height: 30px;
+      }
+
+      .case-button {
+        margin: 10px 0 0 640px;
+        height: 30px;
+        font-size: 12px;
+        border-radius: 18px;
+      }
+    }
+
+    .flex-intro {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      text-align: left;
+      margin: 10px 10px 10px 0;
+
+      span {
+        font-size: 12px;
+      }
+
+    }
+
+    .submit {
+      display: flex;
+      justify-content: center;
+    }
+
+    .submit-button {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      margin: 20px;
+      border-radius: 18px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .case {
+      display: flex;
+      height: 200px;
+      margin: 10px;
+    }
+
+    .case div {
+      background: #e0e0e0;
+      flex: 1;
+    }
+
+    .case div + div {
+      margin-left: 10px;
+    }
   }
-}
 </style>

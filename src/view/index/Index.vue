@@ -10,10 +10,7 @@
       <div class="right">
         <router-link to="/projects">查看更多</router-link>
         <mu-icon value="keyboard_arrow_right" :size="20"/>
-
-
       </div>
-
 
     </div>
 
@@ -34,20 +31,14 @@
       <div class="right">
         <router-link to="/recruit">查看更多</router-link>
         <mu-icon value="keyboard_arrow_right" :size="20"/>
-
-
       </div>
-
-
     </div>
+
     <div class="container">
       <loading-bar v-if="!projectList"></loading-bar>
       <user-card v-for="(user, index) in starEmployee" :key="`index-superstar-${index}`" :userProfile="user"/>
     </div>
-    <div style="display: flex; justify-content: center">
     </div>
-
-  </div>
 </template>
 <script>
   import API from 'api'
