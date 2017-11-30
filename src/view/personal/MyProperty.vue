@@ -56,7 +56,7 @@
     <!--</mu-table>-->
 
 
-    <mu-dialog :open="RechargeDialog">
+    <mu-dialog :open="RechargeDialog" >
       <span slot="title">充值</span>
       <mu-text-field hintText="充值金额"/>
       <br/>

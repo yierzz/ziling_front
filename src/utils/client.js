@@ -2,7 +2,7 @@ import axios from 'axios'
 
 let instance = axios.create({
   baseURL: '/apiv1',
-  timeout: 2000,  // 超时
+  timeout: 10000,  // 超时
   responseType: 'json' // default
 })
 export default function (options) {

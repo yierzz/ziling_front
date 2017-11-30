@@ -60,7 +60,7 @@
       <mu-raised-button label="保存修改" class="submit-button" primary @click="submitNewInfo"/>
       <mu-raised-button label="取消" class="submit-button" to="/personal"/>
     </div>
-    <mu-toast v-if="toast" message="输出值错误" @close="hideToast"/>
+    <mu-toast v-if="toast" :message="message" @close="hideToast"/>
 
   </mu-paper>
 </template>
@@ -118,7 +118,8 @@
         userCity: '北京', // 选定的城市
         cityMap,
         userDesc: '',
-        toast: false
+        toast: false,
+        message: ''
       }
     },
     components: {
@@ -154,9 +155,14 @@
           API('postNewUserInfo', {
             userId, userCity, userPhone, userEmail, userQq, userDesc
           }).then(res => {
+            this.message = '信息修改成功'
+            this.toast = true
+            if (this.toastTimer) clearTimeout(this.toastTimer)
+            this.toastTimer = setTimeout(() => { this.toast = false }, 2000)
             console.log(res)
           })
         } else {
+          this.message = '填写的信息有误'
           this.toast = true
           if (this.toastTimer) clearTimeout(this.toastTimer)
           this.toastTimer = setTimeout(() => { this.toast = false }, 2000)

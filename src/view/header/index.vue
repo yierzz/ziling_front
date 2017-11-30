@@ -202,6 +202,8 @@
             this.$router.push('/index')
           }
         }, error => {
+          this.login_dialog = false
+          this.$store.commit('changeLoadState', false)
           console.log(error)
         })
       },
