@@ -2,9 +2,11 @@ import Page from './page'
 import Project from './project'
 import User from './user'
 import Search from './search'
+import Charge from './charge'
 import client from '../utils/client'
 
 const apiFactory = {
+  ...Charge,
   ...Page,
   ...Project,
   ...User,
