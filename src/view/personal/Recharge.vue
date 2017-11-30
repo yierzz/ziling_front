@@ -5,20 +5,20 @@
     <input v-model="totalmoney" type="number"/>
     <br/>
 
-    <mu-tabs :value="activeTab" @change="handleTabChange"  lineClass="underline" class="tabs">
-      <mu-tab value="tab1" title="银行支付"  class="tab" />
+    <mu-tabs :value="activeTab" @change="handleTabChange" lineClass="underline" class="tabs">
+      <mu-tab value="tab1" title="银行支付" class="tab"/>
       <mu-tab value="tab2" class="tab" title="移动支付"/>
     </mu-tabs>
     <h3>充值金额不少于1.00元</h3>
 
     <div style="display: flex; justify-content: flex-start; margin-top: 20px;">
       <mu-paper class="paper" :zDepth="1">
-        <img src="../../assets/aliPaylogo.png" alt="alipaylogo">
+        <img src="../../assets/wechartPay.png" alt="alipaylogo">
         <mu-radio label="微信支付" name="payRadio" nativeValue="wechat" v-model="payMethod" labelLeft/>
 
       </mu-paper>
       <mu-paper class="paper" :zDepth="1">
-        <img src="../../assets/wechartPay.png" alt="">
+        <img src="../../assets/aliPaylogo.png" alt="">
 
         <mu-radio label="支付宝支付" name="payRadio" nativeValue="alipay" v-model="payMethod" labelLeft/>
 
@@ -53,7 +53,8 @@
 
 </template>
 <script>
-  //  import API from '../../api'
+  import API from '../../api'
+  import { mapState } from 'vuex'
 
   export default {
     data () {
@@ -61,17 +62,21 @@
         activeTab: 'tab1',
         payDialog: false,
         payMethod: 'alipay',
-        totalmoney: 0
+        totalmoney: 1
       }
     },
     components: {},
     methods: {
       submitChargeInfo () {
-        console.log(this.payMethod)
-//        API('postChargeInfo', {
-//          username: this.username,
-//          totalmoney: this.totalmoney
-//        })
+        API('postChargeInfo', {
+          username: this.username,
+          totalMoney: this.totalmoney,
+          transactionType: 'charge'
+        }).then(res => {
+          console.log('res', res)
+        }, err => {
+          console.log('err', err)
+        })
       },
       handleTabChange (val) {
         this.activeTab = val
@@ -83,7 +88,9 @@
         this.payDialog = false
       }
     },
-    computed: {},
+    computed: mapState({
+      username: state => state.user.info.userName
+    }),
     mounted () {}
   }
 </script>
@@ -187,7 +194,8 @@
     }
 
   }
-  .underline{
+
+  .underline {
     width: 20px;
     background: #9013FE;
   }
@@ -205,9 +213,9 @@
       letter-spacing: 0;
       line-height: 14px;
     }
-    .tabs{
+    .tabs {
       background-color: #fff;
-      .tab{
+      .tab {
         font-family: MicrosoftYaHei;
         font-size: 14px;
         color: #808080;

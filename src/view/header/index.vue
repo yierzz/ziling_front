@@ -19,9 +19,9 @@
 
         <div v-if="loginTag" slot="right" style="height: 100%">
 
-          <mu-flat-button color="grey" label="钱包" icon="attach_money" to="/wallet"/>
+          <mu-flat-button color="grey" label="钱包" icon="attach_money" to="/personal"/>
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="未读信息" ref="msgButton"
-                          icon="remove_red_eye" @hover="toggle('msgOpen')" to="/message"/>
+                          icon="remove_red_eye" @hover="toggle('msgOpen')" to="/personal/message"/>
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="其他" to="/other"/>
 
           <mu-flat-button v-if="loginTag" slot="right" ref="userButton" @hover="toggle('userOpen')" to="/personal">

@@ -1,7 +1,7 @@
 <template>
   <div class="card">
-    <mu-paper >
-      <router-link :to="`/project/detail/${project.taskId}`">
+    <mu-paper>
+      <router-link :to="`/project/detail/${project.id}`">
         <mu-row gutter>
           <!--<mu-col>-->
           <mu-col width="100" tablet="50" desktop="34">
@@ -20,11 +20,11 @@
               </div>
               <div class="pro-text">
                 <div>项目悬赏</div>
-                <div class="pro-text-2">预计周期</div>
+                <div class="pro-text-2">剩余天数</div>
               </div>
               <div class="pro-value">
                 <div class="price">{{project.proPrice}}<label>元</label></div>
-                <div class="period">{{project | dateFormat}}<label>天</label></div>
+                <div class="period">{{project | dateFormat}}<label></label></div>
               </div>
             </div>
           </mu-col>
@@ -65,44 +65,42 @@
     computed: {},
     filters: {
       dateFormat (project) {
-        let start = new Date(project.endedOn)
-        let end = new Date(project.applyDeadline)
+//        let start = new Date(project.endedOn)
+        let start = Date.now()
+//        console.log(start)
+//        let end = new Date(project.applyDeadline)
 //        console.log(start, end)
-        let period = Date.parse(start) - Date.parse(end)
+//        console.log(project.endedOn)
+        let period = project.endedOn - start
 //        console.log(period)
 //        let periodY =
 //        let periodM =
-        let periodD = period / 86400000
+        let periodD = parseInt(period / 86400000)
 //        console.log(periodD)
-        return periodD
+        return periodD < 0 ? '项目已结束' : periodD + '天'
       }
     },
     created () {
       switch (this.project.proLevel) {
         case 'C': {
-          console.log('c')
           this.ProRank = C
           break
         }
         case 'A+': {
-          console.log('ap')
           this.ProRank = AP
           break
         }
         case 'A': {
-          console.log('a')
           this.ProRank = A
           break
         }
 
         case 'B': {
-          console.log('b')
           this.ProRank = B
           break
         }
 
         case 'S': {
-          console.log('')
           this.ProRank = S
           break
         }
@@ -140,8 +138,8 @@
     background: #FFFFFF;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.08);
     border-radius: 5px;
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     margin-bottom: 30px;
   }
 
