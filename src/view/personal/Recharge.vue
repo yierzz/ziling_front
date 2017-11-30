@@ -26,6 +26,10 @@
     </div>
     <mu-raised-button label="支付" primary class="payButton" @click="submitChargeInfo"/>
 
+    <mu-dialog :open="waittingDialog" title="充值">
+      {{chargeMsg}}
+      <mu-flat-button slot="actions" primary @click="confirmCharge" label="确定"/>
+    </mu-dialog>
     <mu-dialog :open="payDialog" dialogClass="paydialog" actionsContainerClass="closeButton">
       <div class="dialogwrapper">
         <p class="messageHead"><img src="../../assets/message.png" alt="message"><span>订单信息</span></p>
@@ -62,21 +66,43 @@
         activeTab: 'tab1',
         payDialog: false,
         payMethod: 'alipay',
-        totalmoney: 1
+        totalmoney: 1,
+        waittingDialog: false,
+        chargeMsg: '请在弹出的页面中扫码完成支付，支付完成请点击下发的按钮确认'
       }
     },
     components: {},
     methods: {
+      confirmCharge () {
+        API('postConfirmCharge', {
+          username: this.username
+        }).then(res => {
+          setTimeout(this.waittingDialog = false, 1000)
+          console.log(res)
+        }, () => {
+          this.chargeMsg = '网络错误请重试'
+          setTimeout(this.waittingDialog = false, 1000)
+        })
+      },
       submitChargeInfo () {
         API('postChargeInfo', {
           username: this.username,
           totalMoney: this.totalmoney,
           transactionType: 'charge'
         }).then(res => {
-          console.log('res', res)
-        }, err => {
-          console.log('err', err)
+          const div = document.createElement('div') // 创建div
+          div.innerHTML = res.data // 将返回的form 放入div
+          document.body.appendChild(div)
+          const d = document.forms[0]
+          d.target = '_blank'
+          document.forms[0].submit()
+          this.waittingDialog = true
         })
+      },
+      parse (arg) {
+        let objE = document.createElement('div')
+        objE.innerHTML = arg
+        return objE.childNodes
       },
       handleTabChange (val) {
         this.activeTab = val
