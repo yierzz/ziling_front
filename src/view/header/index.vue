@@ -19,9 +19,15 @@
 
         <div v-if="loginTag" slot="right" style="height: 100%">
 
+<<<<<<< HEAD
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="钱包" ref="payButton" icon="attach_money" @hover="toggle('payOpen')" to="/personal"/>
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="未读信息" ref="msgButton"
                           icon="remove_red_eye" @hover="toggle('msgOpen')" to="/personal/message"/>
+=======
+          <mu-flat-button color="grey" label="钱包" icon="attach_money" to="/wallet"/>
+          <mu-flat-button v-if="loginTag" slot="right" color="grey" label="未读信息" ref="msgButton"
+                          icon="remove_red_eye" @hover="toggle('msgOpen')" to="/message"/>
+>>>>>>> 26cb621f2425ab0cf6cc4778505a934a0eb2cf6a
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="其他" to="/other"/>
 
           <mu-flat-button v-if="loginTag" slot="right" ref="userButton" @hover="toggle('userOpen')" to="/personal">
@@ -43,6 +49,7 @@
       <div class="mobile_device" slot="right">
         <mu-icon-button icon="menu" touch @click.native="drawer = true"/>
       </div>
+
     </mu-appbar>
 
     <mu-popover :trigger="payTrigger" :open="payOpen" @close="handleClose" :anchorOrigin="anchorOrigin"
@@ -62,6 +69,7 @@
     <mu-popover :trigger="msgTrigger" :open="msgOpen" @close="handleClose" :anchorOrigin="anchorOrigin"
                 :targetOrigin="targetOrigin" v-if="loginTag">
       <mu-menu>
+
         <mu-menu-item title="系统通知">
           <mu-badge content="0" slot="after"/>
         </mu-menu-item>
@@ -103,6 +111,7 @@
       </mu-paper>
     </mu-popover>
 
+
     <mu-drawer right :open="drawer" :docked="false" @close="touchToggle()">
       <mu-list @itemClick="touchToggle()">
         <mu-list-item title="注册"/>
@@ -122,6 +131,7 @@
           <mu-tab value="signup" title="注册" style="color: #000"/>
         </mu-tabs>
         <div v-if="activeTab === 'login'" style="width: 60%">
+
           <mu-text-field hintText="手机号" icon="person" v-model="loginInfo.userName" style="width: 100%"/>
           <br/>
           <mu-text-field hintText="密码" icon="lock" v-model="loginInfo.password" style="width: 100%"/>
@@ -132,6 +142,7 @@
 
           </div>
           <div style="display: flex; justify-content: space-between; margin-top: 10px; margin-left: 20px;">
+
             <mu-raised-button label="立即登录" primary @click="login"/>
             <mu-raised-button label="取消" @click=" login_dialog = false"/>
           </div>
@@ -141,12 +152,14 @@
           </div>
         </div>
         <div v-if="activeTab === 'signup'" style="width: 60%">
+
           <mu-text-field hintText="手机号" icon="phone_iphone" v-model="signupInfo.cellphone" style="width: 100%"/>
           <mu-text-field hintText="密码" icon="lock" v-model="signupInfo.password" style="width: 100%"/>
           <mu-text-field hintText="确认密码" icon="lock" v-model="signupInfo.rePwd" style="width: 100%"/>
 
           <br/>
           <mu-checkbox label="我同意《紫领用户注册协议》" style="margin-left:100px;margin-top:-10px;" v-model="signupInfo.agreeTermsheet"/>
+
           <br/>
 
           <!--验证码-->
@@ -154,7 +167,9 @@
           <!--<mu-text-field label="请填写验证码" labelFloat style="width: 60%"/>-->
           <!--<mu-raised-button label="获取验证码" class="demo-raised-button" primary/>-->
           <!--</div>-->
+
           <div style="display: flex; justify-content: space-between; margin-left: 20px;margin-top:10px;">
+
             <mu-raised-button label="立即注册" primary @click="signup"/>
             <mu-raised-button label="取消" @click=" login_dialog = false"/>
           </div>
@@ -173,6 +188,7 @@
   import userAvatorImg from 'assets/defaultUserlogo.png'
   import API from 'api'
   import StarRank from '../../components/star_rank.vue'
+
 
   export default {
     data () {
@@ -211,6 +227,7 @@
     components: {
       'star-rank': StarRank
     },
+
     methods: {
       openDialog (type) {
         this.activeTab = type
@@ -274,6 +291,7 @@
         this.userOpen = false
         this.msgOpen = false
         this.payOpen = false
+
       },
       toggle (type) {
         // console.log(type)
@@ -314,6 +332,7 @@
         this.msgTrigger = this.$refs.msgButton.$el
         this.userTrigger = this.$refs.userButton.$el
         this.payTrigger = this.$refs.payButton.$el
+
       }
     },
     filters: {}
