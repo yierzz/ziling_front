@@ -19,7 +19,9 @@
 
         <div v-if="loginTag" slot="right" style="height: 100%">
 
-          <mu-flat-button color="grey" label="钱包" icon="attach_money" to="/personal"/>
+
+          <mu-flat-button v-if="loginTag" slot="right" color="grey" label="钱包" ref="payButton" icon="attach_money" @hover="toggle('payOpen')" to="/personal"/>
+
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="未读信息" ref="msgButton"
                           icon="remove_red_eye" @hover="toggle('msgOpen')" to="/personal/message"/>
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="其他" to="/other"/>
@@ -44,42 +46,68 @@
         <mu-icon-button icon="menu" touch @click.native="drawer = true"/>
       </div>
 
-
     </mu-appbar>
+
+    <mu-popover :trigger="payTrigger" :open="payOpen" @close="handleClose" :anchorOrigin="anchorOrigin"
+                :targetOrigin="targetOrigin" v-if="loginTag">
+      <div class="recharge" style="width:120px;">
+        <div class="reamount" style="background-color:#aa00ff">
+          <p style="color:#fff;margin-top:0px; margin-left:20px;">账户余额(元)</p>
+          <h1 style="color:#fff; margin-top:-10px;margin-left:20px;">{{aggregateAmount}}</h1>
+        </div>
+        <mu-raised-button label="充值" primary to="/personal/pre_pay" style="margin-left:15px; margin-top: -5px; font-size: 12px; border-radius: 20px; height: 25px;"/>
+        <br/>
+        <mu-raised-button label="提现" style="margin-left:15px; margin-top: 5px; font-size: 12px; border-radius: 20px; height: 25px;"/>
+        <div style="color: grey; font-size: 12px; margin-top: 10px; margin-left:35px;">交易记录</div>
+      </div>
+    </mu-popover>
 
     <mu-popover :trigger="msgTrigger" :open="msgOpen" @close="handleClose" :anchorOrigin="anchorOrigin"
                 :targetOrigin="targetOrigin" v-if="loginTag">
       <mu-menu>
-        <mu-menu-item title="未读消息">
-          <mu-badge content="0" slot="after"/>
-        </mu-menu-item>
 
+        <mu-menu-item title="系统通知" style="margin-left: 20px;">
+          <mu-badge content="0" slot="after" style="margin-right: 25px;"/>
+        </mu-menu-item>
+        <mu-menu-item title="聊天消息" style="margin-left: 20px;">
+          <mu-badge content="0" slot="after" style="margin-right: 25px;"/>
+        </mu-menu-item>
+        <mu-menu-item title="为你推荐" style="margin-left: 20px;">
+          <mu-badge content="0" slot="after" style="margin-right: 25px;"/>
+        </mu-menu-item>
       </mu-menu>
     </mu-popover>
+
     <mu-popover :trigger="userTrigger" :open="userOpen" :anchorOrigin="anchorOrigin"
                 :targetOrigin="targetOrigin" @close="handleClose" v-if="loginTag">
       <mu-paper class="popop_user_profile" style="padding: 0 20px 0px 20px">
-        <h3 style="text-align: center">{{userInfo.cellphone }}</h3>
-        <mu-badge content="空闲中" primary>
-        </mu-badge>
-        <mu-list>
-          <mu-list-item title="信用">
-            <mu-icon slot="left" value="credit_card"></mu-icon>
-            <mu-linear-progress mode="determinate" :value="8" color="blue"/>
-            <span slot="right">0.8/10</span>
-          </mu-list-item>
-          <mu-list-item title="能力">
-            <mu-icon slot="left" value="attach_money"></mu-icon>
-            <mu-linear-progress mode="determinate" :value="50" color="orange"/>
-            <span slot="right">0.8/10</span>
-          </mu-list-item>
-          <mu-flexbox justify="space-between" :gutter="3">
-            <mu-flat-button label="修改密码"/>
-            <mu-flat-button label="注销" @click="logout"/>
-          </mu-flexbox>
+        <div style="font-size: 22px; line-height: 30px; color: rgb(102, 102, 102); text-align: center; margin-top: 10px;">{{userInfo.cellphone }}</div>
+        <mu-badge content="LV1" style="margin-top: -22px; margin-left: 80px;" color="#F6DB65"/>
+        <div class="grey_bkg" style="margin-top: 10px;">
+          <mu-divider shadowLiner/>
+          <div class="title">资质等级:{{capacity_rank}}</div>
+          <mu-linear-progress mode="determinate" class="linear" :value="capacity_rank*10" color="#4A5AF8"/>
+          <div class="title">信用等级:{{credit_rank}}</div>
+          <mu-linear-progress mode="determinate" :value="credit_rank*10" class="linear" color="#5ECD87"/>
+          <div class="title"> 评价星级:{{evaluate_rank}}</div>
+          <star-rank v-bind:rank="evaluate_rank"></star-rank>
+          <mu-divider shadowLiner/>
+        </div>
+        <mu-list class="list_item" >
+          <mu-list-item title="紫领简历" to="/personal/info-modify"/>
+          <mu-divider shadowLiner/>
+          <mu-list-item title="编辑简历" to="/personal/info-modify" />
+          <mu-divider shadowLiner/>
+          <mu-list-item title="资格认证" />
+          <mu-divider shadowLiner/>
+          <mu-list-item title="会员充值" />
+          <mu-divider shadowLiner/>
         </mu-list>
+        <mu-raised-button label="退出" style="justify-content: center; border-radius: 20px; font-size: 12px; height:30px;" @click="logout"/>        
       </mu-paper>
     </mu-popover>
+
+
     <mu-drawer right :open="drawer" :docked="false" @close="touchToggle()">
       <mu-list @itemClick="touchToggle()">
         <mu-list-item title="注册"/>
@@ -99,16 +127,18 @@
           <mu-tab value="signup" title="注册" style="color: #000"/>
         </mu-tabs>
         <div v-if="activeTab === 'login'" style="width: 60%">
-          <mu-text-field hintText="手机号" type="" icon="phone" v-model="loginInfo.userName" style="width: 100%"/>
+
+          <mu-text-field hintText="手机号" icon="person" v-model="loginInfo.userName" style="width: 100%"/>
           <br/>
-          <mu-text-field hintText="密码" type="password" icon="lock" v-model="loginInfo.password" style="width: 100%"/>
+          <mu-text-field hintText="密码" icon="lock" v-model="loginInfo.password" style="width: 100%"/>
           <br/>
           <div style="display: flex; justify-content: space-between">
-            <mu-checkbox label="记住密码" v-model="remeberPWD"/>
-            <a href="#">忘记密码?</a>
+            <mu-checkbox label="记住密码" style="margin-left: 17px;margin-top:-10px;" v-model="remeberPWD"/>
+            <div style="margin-top:-10px;">忘记密码?</div>
 
           </div>
-          <div style="display: flex; justify-content: space-between">
+          <div style="display: flex; justify-content: space-between; margin-top: 10px; margin-left: 20px;">
+
             <mu-raised-button label="立即登录" primary @click="login"/>
             <mu-raised-button label="取消" @click=" login_dialog = false"/>
           </div>
@@ -118,12 +148,14 @@
           </div>
         </div>
         <div v-if="activeTab === 'signup'" style="width: 60%">
-          <mu-text-field hintText="手机号" type="" icon="phone" v-model="signupInfo.cellphone" style="width: 100%"/>
-          <mu-text-field hintText="密码" type="password" icon="lock" v-model="signupInfo.password" style="width: 100%"/>
-          <mu-text-field hintText="确认密码" type="password" icon="lock" v-model="signupInfo.rePwd" style="width: 100%"/>
+
+          <mu-text-field hintText="手机号" icon="phone_iphone" v-model="signupInfo.cellphone" style="width: 100%"/>
+          <mu-text-field hintText="密码" icon="lock" v-model="signupInfo.password" style="width: 100%"/>
+          <mu-text-field hintText="确认密码" icon="lock" v-model="signupInfo.rePwd" style="width: 100%"/>
 
           <br/>
-          <mu-checkbox label="确认并同意用户条款" v-model="signupInfo.agreeTermsheet"/>
+          <mu-checkbox label="我同意《紫领用户注册协议》" style="margin-left:100px;margin-top:-10px;" v-model="signupInfo.agreeTermsheet"/>
+
           <br/>
 
           <!--验证码-->
@@ -131,7 +163,9 @@
           <!--<mu-text-field label="请填写验证码" labelFloat style="width: 60%"/>-->
           <!--<mu-raised-button label="获取验证码" class="demo-raised-button" primary/>-->
           <!--</div>-->
-          <div style="display: flex; justify-content: space-between">
+
+          <div style="display: flex; justify-content: space-between; margin-left: 20px;margin-top:10px;">
+
             <mu-raised-button label="立即注册" primary @click="signup"/>
             <mu-raised-button label="取消" @click=" login_dialog = false"/>
           </div>
@@ -149,6 +183,7 @@
   import { mapState } from 'vuex'
   import userAvatorImg from 'assets/defaultUserlogo.png'
   import API from 'api'
+  import StarRank from '../../components/star_rank.vue'
 
   export default {
     data () {
@@ -171,14 +206,23 @@
         userAvatorImg,
         msgOpen: false,
         userOpen: false,
+        payOpen: false,
         msgTrigger: null,
         userTrigger: null,
+        payTrigger: null,
         anchorOrigin: {'vertical': 'bottom', 'horizontal': 'middle'},
         targetOrigin: {'vertical': 'top', 'horizontal': 'middle'},
-        drawer: false
+        drawer: false,
+        credit_rank: 8.2,
+        capacity_rank: 9.8,
+        evaluate_rank: 4.2,
+        aggregateAmount: 10000
       }
     },
-    components: {},
+    components: {
+      'star-rank': StarRank
+    },
+
     methods: {
       openDialog (type) {
         this.activeTab = type
@@ -241,6 +285,7 @@
       handleClose () {
         this.userOpen = false
         this.msgOpen = false
+        this.payOpen = false
       },
       toggle (type) {
         // console.log(type)
@@ -280,6 +325,7 @@
       if (this.loginTag) {
         this.msgTrigger = this.$refs.msgButton.$el
         this.userTrigger = this.$refs.userButton.$el
+        this.payTrigger = this.$refs.payButton.$el
       }
     },
     filters: {}
@@ -289,13 +335,43 @@
   @import "../../../node_modules/muse-ui/src/styles/colors.less";
 
   .popop_user_profile {
-    width: 300px;
-    height: 240px;
+    width: 240px;
+    height: 480px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-    margin-left: -200px;
+    margin-left: -160px;
+
+    .list_item {
+      margin-top: -24px;
+      font-size: 12px;
+      font-family: MicrosoftYaHei;
+      text-align: center;
+    }
+
+    .grey_bkg {
+      .linear {
+        width: 220px;
+        margin-top: 8px;
+        height: 10px;
+        border-radius: 5px;
+      }
+      .title {
+        margin-top: 15px;
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #808080;
+        letter-spacing: 0;
+      }
+      margin-bottom: 20px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 10px;
+      width: 260px;
+    }
   }
 
   .dialog {
@@ -342,7 +418,5 @@
     .desktop {
       height: 100%;
     }
-
   }
-
 </style>
