@@ -74,11 +74,20 @@
     components: {},
     methods: {
       confirmCharge () {
+        this.$store.commit('setWallet', {
+          balance: 100
+        })
         API('postConfirmCharge', {
           username: this.username
         }).then(res => {
-          setTimeout(this.waittingDialog = false, 1000)
-          console.log(res)
+          if (res.data.comfirm) {
+            this.chargeMsg = '支付成功！'
+            this.$store.commit('setWallet', {
+              balance: res.data.balance
+            })
+            setTimeout(this.waittingDialog = false, 1000)
+            console.log(res)
+          }
         }, () => {
           this.chargeMsg = '网络错误请重试'
           setTimeout(this.waittingDialog = false, 1000)

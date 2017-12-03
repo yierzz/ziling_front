@@ -6,11 +6,15 @@ import API from 'api'
 
 export default {
   state: {
-    info: null
+    info: null,
+    wallet: {balance: 0}
   },
   mutations: {
     SET (state, data) {
       state[data.type] = data.data
+    },
+    setWallet (state, wallet) {
+      state.wallet = wallet
     }
   },
   actions: {

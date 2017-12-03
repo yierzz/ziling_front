@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="title">
-      <span class="integer">{{aggregateAmount}}</span><span class="deciamal">.00元</span>
+      <span class="integer">{{wallet.balance}}</span><span class="deciamal">.00元</span>
     </div>
     <div class="subtitle" style="margin-top: 10px;">
       钱包余额:   <span>
@@ -20,12 +20,12 @@
     </div>
 
 
-
-
   </div>
 </template>
 <script>
   // import {getUserFundInfo} from '../../api/fund/base'
+  import { mapState } from 'vuex'
+
   export default {
     data () {
       return {
@@ -40,7 +40,9 @@
         this.$router.push({path: '/personal/pre_pay'})
       }
     },
-    computed: {},
+    computed: mapState({
+      wallet: state => state.user.wallet
+    }),
     mounted () {
 //      getUserFundInfo().then(res => {
 //        console.log(res)

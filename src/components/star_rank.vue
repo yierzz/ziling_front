@@ -27,18 +27,16 @@
     },
     mounted () {
       let {rank} = this
-      rank = parseInt(rank)
-      while (rank >= 1) {
-        rank--
-        this.starInteger++
-      }
-      if (rank >= 0.2 && rank <= 0.4) {
+      this.starInteger = parseInt(rank)
+      let decimal = rank % 1
+
+      if (decimal >= 0.2 && decimal <= 0.4) {
         this.starDecimal = Star2IMG
-      } else if (rank >= 0.4 && rank <= 0.6) {
+      } else if (decimal >= 0.4 && decimal <= 0.6) {
         this.starDecimal = Star3IMG
-      } else if (rank >= 0.6 && rank <= 0.8) {
+      } else if (decimal >= 0.6 && decimal <= 0.8) {
         this.starDecimal = Star4IMG
-      } else if (rank >= 0.8 && rank < 1) {
+      } else if (decimal >= 0.8 && decimal < 1) {
         this.starDecimal = Star5IMG
       } else {
         this.starDecimal = null
