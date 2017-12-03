@@ -40,6 +40,7 @@
         this.starDecimal = Star4IMG
       } else if (rank >= 0.8 && rank < 1) {
         this.starDecimal = Star5IMG
+
       }
     },
     components: {},

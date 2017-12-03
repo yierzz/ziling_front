@@ -8,7 +8,6 @@
     <mu-tabs :value="activeTab" @change="handleTabChange" lineClass="underline" class="tabs">
       <mu-tab value="tab1" title="银行支付" class="tab"/>
 
-
       <mu-tab value="tab2" class="tab" title="移动支付"/>
     </mu-tabs>
     <h3>充值金额不少于1.00元</h3>
@@ -21,6 +20,7 @@
       </mu-paper>
       <mu-paper class="paper" :zDepth="1">
         <img src="../../assets/aliPaylogo.png" alt="">
+
         <mu-radio label="支付宝支付" name="payRadio" nativeValue="alipay" v-model="payMethod" labelLeft/>
 
       </mu-paper>
@@ -70,7 +70,6 @@
         totalmoney: 1,
         waittingDialog: false,
         chargeMsg: '请在弹出的页面中扫码完成支付，支付完成请点击下发的按钮确认'
-
       }
     },
     components: {},

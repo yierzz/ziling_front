@@ -1,17 +1,13 @@
 <template>
   <div>
     <mu-paper class="card_container">
-      <div >
-        <avator  gender="男"></avator>
+      <div>
+        <avator gender="男"></avator>
       </div>
       <div class="baseInfo">
         <div class="divide"></div>
-        <div class="currentState" v-if="status='空闲中'">
-          <img :src="RESTSTATE">
-          <p class="status">{{status}}</p>
-        </div>
-        <div class="currentState" v-else>
-          <img :src="BUZYSTATE">
+        <div class="currentState">
+          <img :src="status =='空闲中'? RESTSTATE : BUZYSTATE">
           <p class="status">{{status}}</p>
         </div>
         <div class="username">
@@ -23,28 +19,13 @@
         <div class="ranks">
           <p>能力等级:{{userProfile.capcityRank}}</p>
           <mu-linear-progress mode="determinate" class="linear" :value="userProfile.capcityRank*10" color="#4A5AF8"/>
-          <p>信用等级:{{userProfile.creditRank}}</p>                          
-          <mu-linear-progress mode="determinate" :value="userProfile.creditRank*10" class="linear" color="#5ECD87"/>                         
+          <p>信用等级:{{userProfile.creditRank}}</p>
+          <mu-linear-progress mode="determinate" :value="userProfile.creditRank*10" class="linear" color="#5ECD87"/>
           <div class="evaluateRank">
             <p>评价星级:{{userProfile.evaluateRank}}</p>
             <div class="evaluateBar">
-              <ul>
-                <li>
-                  <img :src="STAR1">
-                </li>
-                <li>
-                  <img :src="STAR1">
-                </li>
-                <li>
-                  <img :src="STAR1">
-                </li>
-                <li>
-                  <img :src="STAR1">
-                </li>
-                <li>
-                  <img :src="STAR06">
-                </li>
-              </ul>
+              <star-rank v-bind:rank="userProfile.evaluateRank"></star-rank>
+
             </div>
           </div>
         </div>
@@ -73,24 +54,26 @@
     </mu-paper>
 
 
-      <!-- <div>当前状态：{{userProfile.status || '接单中'}}</div> -->
-      <!-- <div class="base_info" style="cursor: pointer" @click="toUserProfile" >
-        <avator  gender="男"></avator>
-        <div>
-          <div>昵称：{{userProfile.nickname}}</div>
-          <div>定位：<mu-badge v-for="(label,index) in resume" :key="index" :content="label"></mu-badge></div>
-        </div>
+    <!-- <div>当前状态：{{userProfile.status || '接单中'}}</div> -->
+    <!-- <div class="base_info" style="cursor: pointer" @click="toUserProfile" >
+      <avator  gender="男"></avator>
+      <div>
+        <div>昵称：{{userProfile.nickname}}</div>
+        <div>定位：<mu-badge v-for="(label,index) in resume" :key="index" :content="label"></mu-badge></div>
       </div>
-      <div class="ranks">
-        <div>能力等级:{{userProfile.capacityRank}}</div>
-        <div>信用等级:{{userProfile.creditRank}}</div>
-        <div>评价星级:{{userProfile.evaluateRank}}</div>
-        <div>认证资质:<span v-for="skill in userProfile.verifiedSkills">{{skill}}  </span></div>
-      </div> -->
+    </div>
+    <div class="ranks">
+      <div>能力等级:{{userProfile.capacityRank}}</div>
+      <div>信用等级:{{userProfile.creditRank}}</div>
+      <div>评价星级:{{userProfile.evaluateRank}}</div>
+      <div>认证资质:<span v-for="skill in userProfile.verifiedSkills">{{skill}}  </span></div>
+    </div> -->
 
   </div>
 </template>
 <script>
+  import StarRank from '../components/star_rank.vue'
+
   import STAR1 from '../assets/star1.0.png'
   import RESTSTATE from '../assets/restState.png'
   import BUZYSTATE from '../assets/buzyState.png'
@@ -100,6 +83,7 @@
   import WEBQUA from '../assets/WEBQUA.png'
   import SMALLPROQUA from '../assets/SMALLPROQUA.png'
   import ANDRIODQUA from '../assets/ANDRIODQUA.png'
+
   export default {
     data () {
       return {
@@ -137,7 +121,8 @@
       id: {type: String, default: '123'}
     },
     components: {
-      'avator': Avator
+      'avator': Avator,
+      'star-rank': StarRank
     },
     methods: {
       toUserProfile () {
@@ -153,77 +138,79 @@
   .card_container {
     width: 360px;
     //height:470px;
-    margin-bottom:30px;
-    margin-top:40px;
-    dispaly:flex;
-    justify-content:center;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    dispaly: flex;
+    justify-content: center;
     background-color: #FFD3D1;
     border-radius: 5px;
   }
 
-  .avator1{
+  .avator1 {
     //width: 88px;
     //height: 88px;
-    top:-50%px;
-    position:relative;
+    top: -50% px;
+    position: relative;
   }
 
-  .baseInfo{
-    width:100%;
+  .baseInfo {
+    width: 100%;
     background-color: #fff;
-    height:420px;
-    margin-top:-56px;
+    height: 420px;
+    margin-top: -56px;
     // border:1px solid red;
   }
 
-  .baseInfo .divide{
-    height:18px;
-    width:100%;
+  .baseInfo .divide {
+    height: 18px;
+    width: 100%;
   }
-    .baseInfo .currentState{
-      margin-top:-38px;
-      position:relative;
-    }
 
-  .baseInfo .currentState p{
-    position:absolute;
-    top:-3px;
-    left:0;
-    color:#FFF;
+  .baseInfo .currentState {
+    margin-top: -38px;
+    position: relative;
+  }
+
+  .baseInfo .currentState p {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    color: #FFF;
     font-family: "微软雅黑";
     font-size: 12px;
     text-indent: 8px
   }
 
-  .baseInfo .username{text-align: center;
-    font-family:"微软雅黑";
+  .baseInfo .username {
+    text-align: center;
+    font-family: "微软雅黑";
     font-size: 14px;
     color: #808080;
     letter-spacing: 0;
     line-height: 14px;
-    padding:3px 0;
-   }
+    padding: 3px 0;
+  }
 
-  .baseInfo .skills{
+  .baseInfo .skills {
     text-align: center;
-    font-family:"微软雅黑";
+    font-family: "微软雅黑";
     font-size: 12px;
     color: #BCBCBC;
     letter-spacing: 0;
     line-height: 12px;
-    padding:5px 0;
+    padding: 5px 0;
   }
 
-  .baseInfo .ranks{
-    background-color:rgba(250,250,250,1);
+  .baseInfo .ranks {
+    background-color: rgba(250, 250, 250, 1);
     border-radius: 10px;
-    width:92%;
-    margin:10px auto;
-    height:200px;
+    width: 92%;
+    margin: 10px auto;
+    height: 200px;
   }
 
-  .baseInfo .ranks p{
-    padding-top:10px;
+  .baseInfo .ranks p {
+    padding-top: 10px;
     text-align: center;
     font-family: "微软雅黑";
     font-weight: bold;
@@ -241,39 +228,41 @@
     margin-left: 15px;
   }
 
-  .evaluateBar ul{list-style: none;margin-top:-10px;}
-
-  .evaluateBar ul li{display: inline-block}
-
-  .baseInfo .verifiedSkills{
-      background-color:rgba(250,250,250,1);
-      border-radius: 10px;
-      width:92%;
-      margin:10px auto;
-      height:85px;
+  .evaluateBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-.baseInfo .verifiedSkills .qualify ul{
-  list-style: none;
-}
+  .baseInfo .verifiedSkills {
+    background-color: rgba(250, 250, 250, 1);
+    border-radius: 10px;
+    width: 92%;
+    margin: 10px auto;
+    height: 85px;
+  }
 
-.baseInfo .verifiedSkills .qualify{
-  margin-top:-10px;
-  margin:0 auto;
-}
+  .baseInfo .verifiedSkills .qualify ul {
+    list-style: none;
+  }
 
-.baseInfo .verifiedSkills .qualify ul li{
-  display: inline-block;
-  margin-left:15px;
-}
+  .baseInfo .verifiedSkills .qualify {
+    margin-top: -10px;
+    margin: 0 auto;
+  }
 
-.baseInfo .verifiedSkills p{
-  text-align: center;
-  font-family: "微软雅黑";
-  font-size: 12px;
-  color: #808080;
-  line-height: 16px;
-  letter-spacing: 0;
-  padding-top:10px;
-}
+  .baseInfo .verifiedSkills .qualify ul li {
+    display: inline-block;
+    margin-left: 15px;
+  }
+
+  .baseInfo .verifiedSkills p {
+    text-align: center;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #808080;
+    line-height: 16px;
+    letter-spacing: 0;
+    padding-top: 10px;
+  }
 </style>

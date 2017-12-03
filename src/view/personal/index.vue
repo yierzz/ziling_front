@@ -26,7 +26,6 @@
             <div class="title"> 评价星级:{{evaluate_rank}}</div>
             <star-rank v-bind:rank="evaluate_rank"></star-rank>
 
-
           </div>
 
           <div class="grey_bkg">

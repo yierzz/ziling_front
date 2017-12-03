@@ -19,7 +19,9 @@
 
         <div v-if="loginTag" slot="right" style="height: 100%">
 
+
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="钱包" ref="payButton" icon="attach_money" @hover="toggle('payOpen')" to="/personal"/>
+
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="未读信息" ref="msgButton"
                           icon="remove_red_eye" @hover="toggle('msgOpen')" to="/personal/message"/>
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="其他" to="/other"/>
