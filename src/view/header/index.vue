@@ -19,15 +19,9 @@
 
         <div v-if="loginTag" slot="right" style="height: 100%">
 
-<<<<<<< HEAD
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="钱包" ref="payButton" icon="attach_money" @hover="toggle('payOpen')" to="/personal"/>
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="未读信息" ref="msgButton"
                           icon="remove_red_eye" @hover="toggle('msgOpen')" to="/personal/message"/>
-=======
-          <mu-flat-button color="grey" label="钱包" icon="attach_money" to="/wallet"/>
-          <mu-flat-button v-if="loginTag" slot="right" color="grey" label="未读信息" ref="msgButton"
-                          icon="remove_red_eye" @hover="toggle('msgOpen')" to="/message"/>
->>>>>>> 26cb621f2425ab0cf6cc4778505a934a0eb2cf6a
           <mu-flat-button v-if="loginTag" slot="right" color="grey" label="其他" to="/other"/>
 
           <mu-flat-button v-if="loginTag" slot="right" ref="userButton" @hover="toggle('userOpen')" to="/personal">
@@ -70,14 +64,14 @@
                 :targetOrigin="targetOrigin" v-if="loginTag">
       <mu-menu>
 
-        <mu-menu-item title="系统通知">
-          <mu-badge content="0" slot="after"/>
+        <mu-menu-item title="系统通知" style="margin-left: 20px;">
+          <mu-badge content="0" slot="after" style="margin-right: 25px;"/>
         </mu-menu-item>
-        <mu-menu-item title="聊天消息">
-          <mu-badge content="0" slot="after"/>
+        <mu-menu-item title="聊天消息" style="margin-left: 20px;">
+          <mu-badge content="0" slot="after" style="margin-right: 25px;"/>
         </mu-menu-item>
-        <mu-menu-item title="为你推荐">
-          <mu-badge content="0" slot="after"/>
+        <mu-menu-item title="为你推荐" style="margin-left: 20px;">
+          <mu-badge content="0" slot="after" style="margin-right: 25px;"/>
         </mu-menu-item>
       </mu-menu>
     </mu-popover>
@@ -189,7 +183,6 @@
   import API from 'api'
   import StarRank from '../../components/star_rank.vue'
 
-
   export default {
     data () {
       return {
@@ -291,7 +284,6 @@
         this.userOpen = false
         this.msgOpen = false
         this.payOpen = false
-
       },
       toggle (type) {
         // console.log(type)
@@ -332,7 +324,6 @@
         this.msgTrigger = this.$refs.msgButton.$el
         this.userTrigger = this.$refs.userButton.$el
         this.payTrigger = this.$refs.payButton.$el
-
       }
     },
     filters: {}
