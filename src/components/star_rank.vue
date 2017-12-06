@@ -32,7 +32,6 @@
       let decimal = rank % 1
 
       if (decimal >= 0.2 && decimal <= 0.4) {
-
         this.starDecimal = Star2IMG
       } else if (decimal >= 0.4 && decimal <= 0.6) {
         this.starDecimal = Star3IMG
@@ -40,7 +39,6 @@
         this.starDecimal = Star4IMG
       } else if (decimal >= 0.8 && decimal < 1) {
         this.starDecimal = Star5IMG
-
       }
     },
     components: {},

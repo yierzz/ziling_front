@@ -89,7 +89,7 @@
 </script>
 <style scoped lang="scss" rel="stylesheet/scss">
   .title_container {
-    color: #808080;;
+    color: #808080;
 
     display: flex;
     align-items: center;
@@ -100,7 +100,6 @@
     .left {
       display: flex;
       align-items: center;
-
       i {
         height: 30px;
         width: 30px;
