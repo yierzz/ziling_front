@@ -1,7 +1,7 @@
 <template>
   <div>
     <img :src="Star1IMG" alt="rank" v-for="i in starInteger">
-    <img :src="starDecimal" alt="rank">
+    <img :src="starDecimal" alt="rank" v-if="starDecimal">
   </div>
 </template>
 <script>
@@ -16,7 +16,7 @@
       return {
         Star1IMG,
         starInteger: 0,
-        starDecimal: Star2IMG
+        starDecimal: null
       }
     },
     props: {
