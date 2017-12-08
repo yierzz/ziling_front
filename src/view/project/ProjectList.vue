@@ -1,9 +1,11 @@
 <template>
   <div>
     <search-bar :filters="filters"></search-bar>
-    <div>按搜索共有21个项目正在寻找人才</div>
+    <div>
+      <mu-icon value="tag_faces" :size="20"/>
+      <div class="amount">共为您搜索到<label>21个</label>项目寻求人才</div>
+    </div>
     <div class="container">
-
       <projcard v-for="(project, index) in projectList" :project="project" :key="`index-project-${index}`"></projcard>
 
       <!--<project-card v-for="(proj, index) in projList" :project_title="proj.title" :index="index" :key="index"-->
@@ -66,5 +68,20 @@
       width: 25%;
       height: 200px;
     }
+  }
+  .amount {
+    margin-left: 28px;
+    margin-top: -28px;
+    div{
+      font-size: 14px;
+      color: #808080;
+      letter-spacing: 0;
+      line-height: 30px;
+      
+    }
+    label {
+      font-weight: bold;
+      font-size: 16px;
+    }    
   }
 </style>
