@@ -90,7 +90,6 @@
 <style scoped lang="scss" rel="stylesheet/scss">
   .title_container {
     color: #808080;
-
     display: flex;
     align-items: center;
     height: 30px;
