@@ -290,6 +290,7 @@
             color: #FF5B00;
             letter-spacing: 0;
             line-height: 20px;
+            font-family: Roboto-Bold;
           }
         }
       }
