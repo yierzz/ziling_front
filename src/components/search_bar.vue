@@ -1,6 +1,5 @@
 <template>
-
-<div>
+<div class="search">
   <!--  <div style="display: flex; justify-content: space-between">
       <mu-flat-button v-for="(filter, index) in filters" :label="filter" backgroundColor="grey" :key="index" @click="search(index)"/>
      <div>-->
@@ -28,12 +27,11 @@
       <mu-menu-item title="认证3" />
     </mu-menu>
   </mu-popover>
-  <mu-text-field hintText="搜索用户名、技术术语"/>
+  <mu-text-field class="text" hintText="搜索用户名、技术术语" :underlineShow="false"/>
   <mu-raised-button class="search_but" label="搜索" primary/>
 </div>
 </template>
 <script>
-
   export default {
     data () {
       return {
@@ -90,24 +88,40 @@
   }
 </script>
 <style scoped lang="scss" rel="stylesheet/scss">
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0px 10px;
   .pop_duty {
-    margin-left: 190px;
-    margin-right: 40px;
-    border-radius: 20px;
+    margin-left: 172px;
+    border-radius: 15px;
+    height: 30px;
+    background: #F5F5F5;;
   }
   .pop_skill {
-    margin-right: 40px;
-    border-radius: 20px;
+    border-radius: 15px;
+    height: 30px;
+    background: #F5F5F5;
   }
  .pop_qualify {
-    margin-right: 40px;
-    border-radius: 20px;
+    border-radius: 15px;
+    height: 30px;
+    background: #F5F5F5;;
+  } 
+  .text {
+    width: 280px;
+    margin-top:10px;
+    margin-right:20px;
+    font-size:15px;
+    border-radius: 15px;
   }
   .search_but {
-    margin-left: 40px;
-    border-radius: 20px;
+    margin-right: 172px;
+    border-radius: 15px;
     background: #9013FE;
+    height: 30px;
   }
-
+}
 
 </style>

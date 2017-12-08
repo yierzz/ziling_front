@@ -304,7 +304,6 @@
           }
         }
       }
-
     }
     .members {
       padding: 0 20px;
@@ -343,16 +342,23 @@
   .recommand {
     margin-left: 48px;
     width: 300px;
-    height:502px;
+    height: 502px;
     .list_item {
-      position: relative;
+      display: flex;
+      align-items:center;
+      justify-content: space-between;
+      margin-top:-15px;
+      margin-bottom:10px;
       height: 80px;
       .item_left {
-        position: absolute;
         width: 60px;
         height: 60px;
+        display:flex;
+        align-items:center;
       }
       .item_middle {
+        margin-left:90px;
+        margin-top:-55px;
         .title {
           font-family: MicrosoftYaHei-Bold;
           font-size: 14px;
@@ -360,9 +366,7 @@
           letter-spacing: 0;
           line-height: 14px;
           width: 168px;
-          height: 14px;
-          margin-left: 80px;
-          margin-top: 5px;
+          height: 14px;  
         }
         .pro_value {
           font-family: Roboto-Bold;
@@ -372,13 +376,13 @@
           line-height: 20px;
           width: 75px;
           display: flex;
-          margin-top:-15px;
           .price {
-            margin-left: 80px;
+            margin-top:-10px;
           }
           .period {
             margin-left: 25px;
-          }
+            margin-top:-10px;
+          } 
           label {
             font-size: 12px;
             margin-left: 4px;
@@ -386,8 +390,9 @@
         }
       }
       .item_right{
-        margin-left: 250px;
-        position: absolute;
+        display:flex;
+        align-items:center;
+        margin-left:250px;
         margin-top:-50px;
         width:26px;
         height: 26px;
