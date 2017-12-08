@@ -14,12 +14,12 @@
 
     <div style="display: flex; justify-content: flex-start; margin-top: 20px;">
       <mu-paper class="paper" :zDepth="1">
-        <img src="../../assets/wechartPay.png" alt="alipaylogo">
+        <img :src="wechartPay" alt="alipaylogo">
         <mu-radio label="微信支付" name="payRadio" nativeValue="wechat" v-model="payMethod" labelLeft/>
 
       </mu-paper>
       <mu-paper class="paper" :zDepth="1">
-        <img src="../../assets/aliPaylogo.png" alt="">
+        <img :src="aliPayLogo" alt="">
 
         <mu-radio label="支付宝支付" name="payRadio" nativeValue="alipay" v-model="payMethod" labelLeft/>
 
@@ -33,7 +33,7 @@
     </mu-dialog>
     <mu-dialog :open="payDialog" dialogClass="paydialog" actionsContainerClass="closeButton">
       <div class="dialogwrapper">
-        <p class="messageHead"><img src="../../assets/message.png" alt="message"><span>订单信息</span></p>
+        <p class="messageHead"><img :src="message" alt="message"><span>订单信息</span></p>
         <ul class="userMessage clearfix">
           <li class="messageText">买家</li>
           <li class="messageBorder"></li>
@@ -49,7 +49,7 @@
           <li class="messageText">12345</li>
           <li class="messageText">12345</li>
         </ul>
-        <img src="../../assets/alipay.png" class="alipay" alt="扫码">
+        <img :src="alipay" class="alipay" alt="扫码">
       </div>
       <mu-flat-button slot="actions" @click="close" primary label="取消"/>
     </mu-dialog>
@@ -58,12 +58,19 @@
 
 </template>
 <script>
+  import wechartPay from '../../assets/wechartPay.png'
+  import aliPayLogo from '../../assets/aliPaylogo.png'
+  import message from '../../assets/message.png'
+  import alipay from '../../assets/alipay.png'
   import API from '../../api'
   import { mapState } from 'vuex'
-
   export default {
     data () {
       return {
+        wechartPay,
+        aliPayLogo,
+        message,
+        alipay,
         activeTab: 'tab1',
         payDialog: false,
         payMethod: 'alipay',
