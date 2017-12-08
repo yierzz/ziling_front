@@ -24,7 +24,7 @@
 
     <div class="title_container">
       <div class="left">
-        <mu-icon value="face" :size="20"/>
+        <mu-icon value="tag_faces" :size="20"/>
         <span>人气紫领</span>
         <div>POPULAR ZLING</div>
       </div>

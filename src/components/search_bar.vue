@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div style="display: flex; justify-content: space-between">
+    <div style="display: flex; justify-content: space-between;">
       <mu-flat-button v-for="(filter, index) in filters" :label="filter" backgroundColor="grey" :key="index" @click="search(index)"/>
       <mu-text-field hintText="搜索用户名、技术术语"/>
       <mu-raised-button label="搜索" secondary/>

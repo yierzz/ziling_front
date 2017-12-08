@@ -23,9 +23,9 @@
         <a href="" class="link_item">行为守则</a>
         <a href="" class="link_item">条款与条件</a>
       </div>
-      <img src="../assets/QRcodes.png" class="QrCode" alt="qrcode">
+      <img :src="qrCodes" class="QrCode" alt="qrCodes">
       <div class="links">
-        <a href="" class="link_item"><img class="logo" src="../../logo.png" alt=""></a>
+        <a href="" class="link_item"><img :class="logo" src="../../logo.png" alt=""></a>
         <div class="link_mes">电话:027-87755388</div>
         <div class="link_mes">手机:18202786345</div>
         <div class="link_mes">邮箱:zling@zling.net</div>
@@ -34,9 +34,12 @@
   </div>
 </template>
 <script>
+  import qrCodes from '../assets/qrCodes.png'
   export default {
     data () {
-      return {}
+      return {
+        qrCodes
+      }
     },
     components: {},
     methods: {},

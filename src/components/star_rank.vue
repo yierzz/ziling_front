@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <img :src="Star1IMG" alt="rank" v-for="i in starInteger">
+  <div style="display: flex; justify-content:space-around; width:300px;">
+    <img :src="Star1IMG" alt="rank" v-for="i in starInteger" >
     <img :src="starDecimal" alt="rank" v-if="starDecimal">
   </div>
 </template>
