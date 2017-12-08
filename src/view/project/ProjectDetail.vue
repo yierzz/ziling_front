@@ -15,25 +15,25 @@
 
                   任务赏金
                 </h3>
-                <span>150000 元</span>
+                <div>150000<label>元</label></div>
               </div>
               <div class="detail_block">
                 <h3>
                   周期上限
                 </h3>
-                <span>32天</span>
+                <div>32<label>天</label></div>
               </div>
               <div class="detail_block">
                 <h3>
                   抢单人数
                 </h3>
-                <span>16 人</span>
+                <div>16<label>人</label></div>
               </div>
               <div class="detail_block">
                 <h3>
                   截止日期
                 </h3>
-                <span>2017-10-18</span>
+                <div>2017-10-18</div>
               </div>
               <div class="detail_block">
                 <h3>
@@ -46,7 +46,7 @@
                 <h3>
                   项目类型
                 </h3>
-                <span style="font-size: 12px;color: #808080;line-height: 12px; font-weight: bold;">网站、后台</span>
+                <div style="font-size: 12px;color: #808080;line-height: 12px; font-weight: bold;">网站、后台</div>
               </div>
             </div>
           </div>
@@ -290,12 +290,17 @@
             line-height: 12px;
           }
 
-          span {
+          div {
             margin-top: 8px;
             font-size: 20px;
             color: #FF5B00;
             letter-spacing: 0;
             line-height: 20px;
+            font-family: Roboto-Bold;
+            label {
+              font-size: 13px;
+              margin-top: 4px;
+            }
           }
         }
       }
