@@ -185,7 +185,7 @@
       text-overflow: ellipsis;
     }
     .pro-text {
-      font-family: MicrosoftYaHei-Bold;
+      font-family: MicrosoftYaHei;
       font-size: 12px;
       color: #BCBCBC;
       letter-spacing: 0;

@@ -18,14 +18,11 @@
       <mu-raised-button label="充值" primary class="button" @click="GoPrepay" style="margin-right: 40px;"/>
       <mu-raised-button label="提现" class="button"/>
     </div>
-
-
   </div>
 </template>
 <script>
   // import {getUserFundInfo} from '../../api/fund/base'
   import { mapState } from 'vuex'
-
   export default {
     data () {
       return {

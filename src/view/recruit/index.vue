@@ -63,8 +63,7 @@
       font-size: 14px;
       color: #808080;
       letter-spacing: 0;
-      line-height: 30px;
-      
+      line-height: 30px;     
     }
     label {
       font-weight: bold;

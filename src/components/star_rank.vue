@@ -30,7 +30,6 @@
       let {rank} = this
       this.starInteger = parseInt(rank)
       let decimal = rank % 1
-
       if (decimal >= 0.2 && decimal <= 0.4) {
         this.starDecimal = Star2IMG
       } else if (decimal >= 0.4 && decimal <= 0.6) {
