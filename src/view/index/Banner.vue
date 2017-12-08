@@ -3,7 +3,8 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="str in listImg" :style="{ backgroundImage: 'url(' + str.url + ')' }"></div>
     </div>
-    <div class="swiper-pagination swiper-pagination-white"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
   </div>
 </template>
 <script>
@@ -31,10 +32,10 @@
     mounted () {
       // console.log('mounted', this)
       let swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next',
         loop: true,
-        speed: 600,
+        speed: 300,
         autoplay: 4000,
         onTouchEnd: function () {
           swiper.startAutoplay()
@@ -49,29 +50,21 @@
     width: 100%;
     height: 520px;
 
-  .swiper-wrapper {
-    width: 100%;
-    height: 100%;
-  }
+    .swiper-wrapper {
+      width: 100%;
+      height: 100%;
+    }
 
-  .swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
 
-  img {
-    width: 100%;
-    height: 100%;
-  }
-
-  }
-  .swiper-pagination-bullet {
-    width: 0.833rem;
-    height: 0.833rem;
-    display: inline-block;
-    background: #7c5e53;
-  }
-
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 </style>

@@ -5,12 +5,9 @@
         <img :src="LOGO_NOBACK" slot="left" style="width: 100%">
       </a>
       <div class="desktop" slot="left" style="display: flex; align-items: center;">
-        <mu-flat-button slot="left" color="black" label="首页" to="/index" style="height: 30px;border-radius: 18px"
-                        activeClass="pathActive" :color="currentPath === '/index' ? '#fff': '#000' "/>
-        <mu-flat-button slot="left" color="black" label="聘请紫领" to="/recruit" style="height: 30px;border-radius: 18px"
-                        activeClass="pathActive" :color="currentPath === '/recruit' ? '#fff': '#000' "/>
-        <mu-flat-button slot="left" color="black" label="任务列表" to="/projects" style="height: 30px;border-radius: 18px"
-                        activeClass="pathActive" :color="currentPath === '/projects' ? '#fff': '#000' "/>
+        <mu-flat-button slot="left" color="black" label="首页" to="/index" style="height: 30px;border-radius: 18px" activeClass="pathActive" :color="currentPath === '/index' ? '#fff': '#000' "/>
+        <mu-flat-button slot="left" color="black" label="聘请紫领" to="/recruit" style="height: 30px;border-radius: 18px"activeClass="pathActive" :color="currentPath === '/recruit' ? '#fff': '#000' "/>
+        <mu-flat-button slot="left" color="black" label="任务列表" to="/projects" style="height: 30px;border-radius: 18px"activeClass="pathActive" :color="currentPath === '/projects' ? '#fff': '#000' "/>
         <mu-flat-button slot="left" color="black" label="帮助" to="/help" :rippleOpacity="0"
                         style="height: 30px;border-radius: 18px" activeClass="pathActive"
                         :color="currentPath === '/help' ? '#fff': '#000' "/>
@@ -19,14 +16,14 @@
 
         <div v-if="loginTag" slot="right" style="height: 100%">
 
+          <mu-flat-button v-if="loginTag" slot="right" label=" " color="grey"  ref="payButton" 
+          icon="account_balance_wallet"  @hover="toggle('payOpen')"  to="/personal"/>
 
-          <mu-flat-button v-if="loginTag" slot="right" color="grey" label="钱包" ref="payButton" icon="attach_money" @hover="toggle('payOpen')" to="/personal"/>
+          <mu-flat-button v-if="loginTag" slot="right" label=" " color="grey"  ref="msgButton"
+          icon="assignment_turned_in" @hover="toggle('msgOpen')" to="/personal/message"/>
+          <mu-flat-button v-if="loginTag" slot="right" label=" " color="grey" icon="add_alert" to="/other"/>
 
-          <mu-flat-button v-if="loginTag" slot="right" color="grey" label="未读信息" ref="msgButton"
-                          icon="remove_red_eye" @hover="toggle('msgOpen')" to="/personal/message"/>
-          <mu-flat-button v-if="loginTag" slot="right" color="grey" label="其他" to="/other"/>
-
-          <mu-flat-button v-if="loginTag" slot="right" ref="userButton" @hover="toggle('userOpen')" to="/personal">
+          <mu-flat-button v-if="loginTag" slot="right"  ref="userButton" @hover="toggle('userOpen')" to="/personal">
             <mu-avatar :src="userAvatorImg"/>
           </mu-flat-button>
         </div>
@@ -107,72 +104,81 @@
       </mu-paper>
     </mu-popover>
 
-
     <mu-drawer right :open="drawer" :docked="false" @close="touchToggle()">
       <mu-list @itemClick="touchToggle()">
         <mu-list-item title="注册"/>
         <mu-list-item title="登录" @click="login_dialog = true"/>
       </mu-list>
     </mu-drawer>
-
-    <mu-dialog :open="login_dialog" @close="close">
-      <div class="dialog">
-        <div slot="title" class="dialog_head">做产品
-          <span style="font-weight: bold; font-size: 2rem">
-          一个人在家也可以
-          </span>
-        </div>
-        <mu-tabs :value="activeTab" @change="handleTabChange" style="width: 60%;background-color: #fff;">
+    
+    <mu-dialog :open="login_dialog" @close="close" dialogClass="dialog">
+      <div >
+        <div class="dialog_head"></div>
+        <mu-tabs :value="activeTab" @change="handleTabChange" style="width: 400px;background-color: #fff;">
           <mu-tab value="login" title="登录" style="color: #000"/>
           <mu-tab value="signup" title="注册" style="color: #000"/>
         </mu-tabs>
-        <div v-if="activeTab === 'login'" style="width: 60%">
-
-          <mu-text-field hintText="手机号" icon="person" v-model="loginInfo.userName" style="width: 100%"/>
+        <!-- 登录 -->
+        <div v-if="activeTab === 'login'" >
+          <mu-text-field hintText="手机号/电子邮箱"  underlineClass="none" hintTextClass="hint_font" icon="person" v-model="loginInfo.userName" style="width:320px;height:40px;border: 1px solid #E3E3E3;border-radius: 20px;margin:40px 0 20px 40px;"/>
+          <!-- <br/> -->
+          <mu-text-field hintText="请输入您的密码" underlineClass="none" hintTextClass="hint_font" icon="lock" v-model="loginInfo.password" type="password" style="width:320px;height:40px;border: 1px solid #E3E3E3;border-radius: 20px;margin-left:40px;"/>
           <br/>
-          <mu-text-field hintText="密码" icon="lock" v-model="loginInfo.password" style="width: 100%"/>
-          <br/>
-          <div style="display: flex; justify-content: space-between">
-            <mu-checkbox label="记住密码" style="margin-left: 17px;margin-top:-10px;" v-model="remeberPWD"/>
-            <div style="margin-top:-10px;">忘记密码?</div>
-
+          <div class="password">
+            <mu-checkbox label="记住密码" v-model="remeberPWD" labelClass="check_font" uncheckIcon="radio_button_unchecked" checkedIcon="radio_button_checked" style="margin-right: 146px;"/>
+            <a class="forget_pass" href=":;">忘记密码?</a>
           </div>
-          <div style="display: flex; justify-content: space-between; margin-top: 10px; margin-left: 20px;">
+          <div style="display:flex; justify-content:left;">
 
-            <mu-raised-button label="立即登录" primary @click="login"/>
-            <mu-raised-button label="取消" @click=" login_dialog = false"/>
+            <mu-raised-button label="立即登录" primary class="confirmBtn" @click="login" />
+
+            <mu-raised-button label="取消" class="cancelBtn" @click="login_dialog = false" />
           </div>
 
           <div id="captcha">
-
           </div>
         </div>
-        <div v-if="activeTab === 'signup'" style="width: 60%">
+        <!-- 注册 -->
+        <div v-if="activeTab === 'signup'">
+          <!-- 验证码 -->
+          <div style="display:flex;justify-content:space-around;margin-top:40px;">
+            <mu-text-field hintText="手机" underlineClass="none" hintTextClass="hint_font"  icon="phone_iphone" v-model="signupInfo.cellphone" style="width:210px;height:40px;border: 1px solid #E3E3E3;border-radius: 20px;margin-bottom:20px;"/>
 
-          <mu-text-field hintText="手机号" icon="phone_iphone" v-model="signupInfo.cellphone" style="width: 100%"/>
-          <mu-text-field hintText="密码" icon="lock" v-model="signupInfo.password" style="width: 100%"/>
-          <mu-text-field hintText="确认密码" icon="lock" v-model="signupInfo.rePwd" style="width: 100%"/>
+            <mu-raised-button label="获取验证码" style="background: #FFFFFF;border: 1px solid #E3E3E3;border-radius: 20px;font-family: MicrosoftYaHei;font-size: 12px;color: #808080;     letter-spacing: 0;line-height: 12px;margin-bottom:20px;"/>
+          </div>
+          <mu-text-field hintText="请输入验证码"  underlineClass="none" hintTextClass="hint_font" icon="email"   style="width:320px;height:40px;background:#FFFFFF;border: 1px solid #E3E3E3;border-radius: 20px;margin-left:25px;margin-bottom:20px;"/>
+          <!-- 密码 -->
+          <mu-text-field hintText="请输入您的密码" underlineClass="none" hintTextClass="hint_font" icon="lock" type="password"  v-model="signupInfo.password" style="width:320px;height:40px;border: 1px solid #E3E3E3;border-radius: 20px;margin-left:25px;margin-bottom:20px;"/>
+          <mu-text-field hintText="请再次输入您的密码" underlineClass="none" hintTextClass="hint_font" icon="lock"  type="password" v-model="signupInfo.rePwd"  style="width:320px;height:40px;border: 1px solid #E3E3E3;border-radius: 20px;margin-left:25px;"/>
+          <div style="display:flex;justify-content:center">
+            <mu-checkbox label="我同意" labelClass="check_font" v-model="signupInfo.agreeTermsheet" uncheckIcon="radio_button_unchecked" checkedIcon="radio_button_checked" />
+            <a href="" class="aggrement" 
+            style="">《紫领用户协议》</a>
+          </div>
+          
+          <div style="display:flex; justify-content:left;margin-top:32px;">
 
-          <br/>
-          <mu-checkbox label="我同意《紫领用户注册协议》" style="margin-left:100px;margin-top:-10px;" v-model="signupInfo.agreeTermsheet"/>
+            <mu-raised-button label="立即注册" primary class="confirmBtn" @click="signup" />
 
-          <br/>
-
+            <mu-raised-button label="取消" class="cancelBtn" @click="login_dialog = false" />
+          </div>
+          <!-- <mu-text-field hintText="密码" icon="lock" v-model="signupInfo.password" style="width: 100%"/> -->
+          <!-- <mu-text-field hintText="确认密码" icon="lock" v-model="signupInfo.rePwd" style="width: 100%"/> -->
+         <!--  <mu-checkbox label="我同意《紫领用户注册协议》" style="margin-left:100px;margin-top:-10px;" v-model="signupInfo.agreeTermsheet"/> -->
+          <!-- <br/> -->
           <!--验证码-->
           <!--<div class="captcha_action">-->
           <!--<mu-text-field label="请填写验证码" labelFloat style="width: 60%"/>-->
           <!--<mu-raised-button label="获取验证码" class="demo-raised-button" primary/>-->
           <!--</div>-->
 
-          <div style="display: flex; justify-content: space-between; margin-left: 20px;margin-top:10px;">
+         <!--  <div style="display: flex; justify-content: space-between; margin-left: 20px;margin-top:10px;">
 
             <mu-raised-button label="立即注册" primary @click="signup"/>
             <mu-raised-button label="取消" @click=" login_dialog = false"/>
-          </div>
+          </div> -->
 
         </div>
-
-
       </div>
     </mu-dialog>
 
@@ -331,9 +337,7 @@
     filters: {}
   }
 </script>
-<style scoped lang="less" ref="stylesheet/less">
-  @import "../../../node_modules/muse-ui/src/styles/colors.less";
-
+ <style lang="css" ref="stylesheet/css">
   .popop_user_profile {
     width: 240px;
     height: 480px;
@@ -342,15 +346,22 @@
     flex-direction: column;
     align-items: center;
     margin-left: -160px;
-
-    .list_item {
+    }
+     .list_item {
       margin-top: -24px;
       font-size: 12px;
       font-family: MicrosoftYaHei;
       text-align: center;
     }
-
     .grey_bkg {
+      margin-bottom: 20px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 10px;
+      width: 260px;
+      }
       .linear {
         width: 220px;
         margin-top: 8px;
@@ -364,57 +375,89 @@
         color: #808080;
         letter-spacing: 0;
       }
-      margin-bottom: 20px;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-radius: 10px;
-      width: 260px;
-    }
-  }
-
-  .dialog {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .dialog_head {
-      text-align: center;
-      color: #fff;
-      line-height: 4rem;
-      background: @purple300;
-      width: 100%;
-      border-radius: 6px 6px 0 0;
-      height: 4rem;
-    }
-
-  }
-
-  .tab {
-    color: #000;
-  }
-
-  .pathActive {
-    background-color: #9013FE;
-    color: #fff;
-  }
-
+  
+      .tab {
+        color: #000;
+      }
+      .pathActive {
+        background: #9013FE !important;
+        color: #fff;
+      }
+      .dialog {
+        width:400px !important;
+        background: #FFFFFF;
+        border-radius: 8px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .dialog_head{
+        width: 376px;
+        height: 56px;
+        background: url(../../assets/slogan.png);
+        border-radius: 8px 8px 0 0;
+      }
+      .hint_font{
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #BCBCBC;
+      }
+      .password{
+        width: 320px;
+        display: flex;
+        justify-content: left;
+        margin: 0 0 32px 52px;
+      }
+      .forget_pass{
+        width: 60px;
+        height: 12px;
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #808080;
+        line-height: 12px;
+      }
+      .check_font{
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #808080 !important;
+        line-height: 12px;
+      }
+      .confirmBtn{
+        width: 150px;
+        height: 30px;
+        background: #9013FE !important;
+        border-radius: 15px !important;
+        margin: 0 20px 0 40px !important;
+      }
+      .cancelBtn{
+        width: 150px;
+        height: 30px;
+        background: #FFFFFF !important;
+        border: 1px solid #E3E3E3 !important;
+        border-radius: 15px !important;
+      }
+      .none{
+        display: none;
+      }
+      .aggrement{
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #9013FE;
+        line-height: 12px;
+        padding-top:5px;
+      }
   @media (max-width: 600px) {
     .desktop {
       display: none
     }
-
     .mobile_device {
       color: #000
     }
   }
-
   @media (min-width: 720px) {
     .mobile_device {
       display: none
     }
-
     .desktop {
       height: 100%;
     }

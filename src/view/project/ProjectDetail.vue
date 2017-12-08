@@ -2,6 +2,7 @@
   <div class="main">
     <mu-row gutter>
       <mu-col width="100" desktop="66">
+
         <mu-paper class="project_detail">
           <div class="header">
             <icon-title :icon="'assignment_turned_in'" :title="'这里的项目名称可以打很多字'"></icon-title>
@@ -11,6 +12,7 @@
             <div class="detail_items">
               <div class="detail_block">
                 <h3>
+
                   任务赏金
                 </h3>
                 <div>150000<label>元</label></div>
@@ -50,6 +52,7 @@
           </div>
           <div class="header">
             <icon-title :icon="'people'" :title="'人员配置'"></icon-title>
+
           </div>
           <div class="members">
             <mu-divider/>
@@ -60,7 +63,8 @@
               <div class="number">
                 已报名 12人
               </div>
-              <mu-raised-button backgroundColor="#9013FE" style="height: 40px; width: 120px;border-radius: 24px;" label="报名" icon="person" primary/>
+              <mu-raised-button backgroundColor="#9013FE" style="height: 40px; width: 120px;border-radius: 24px;" label="报名"
+                                icon="person" primary/>
             </div>
             <mu-divider/>
             <div class="member_item">
@@ -71,6 +75,7 @@
                 已报名 12人
               </div>
               <mu-raised-button backgroundColor="#9013FE" style="height: 40px; width: 120px;border-radius: 24px;" label="报名" icon="person" primary/>
+
             </div>
             <mu-divider/>
             <div class="member_item">
@@ -257,6 +262,7 @@
   }
 
   .project_detail {
+
     width: 840px;
     .header {
       padding: 12px 22px;
@@ -361,7 +367,6 @@
           line-height: 14px;
           width: 168px;
           height: 14px;  
-
         }
         .pro_value {
           font-family: Roboto-Bold;

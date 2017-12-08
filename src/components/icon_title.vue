@@ -1,4 +1,5 @@
 <template>
+
   <div style="  display: flex; height: 27px; color: #D8D8D8; align-items: center;">
     <mu-icon :value="icon" :size="20"/>
     <h1 style="margin: 0;

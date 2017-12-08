@@ -2,7 +2,7 @@
   <div>
     <mu-paper class="card_container">
       <div>
-        <avator gender="男"></avator>
+        <avator ></avator>
       </div>
       <div class="baseInfo">
         <div class="divide"></div>
@@ -25,7 +25,6 @@
             <p>评价星级:{{userProfile.evaluateRank}}</p>
             <div class="evaluateBar">
               <star-rank v-bind:rank="userProfile.evaluateRank"></star-rank>
-
             </div>
           </div>
         </div>
@@ -73,7 +72,6 @@
 </template>
 <script>
   import StarRank from '../components/star_rank.vue'
-
   import STAR1 from '../assets/star1.0.png'
   import RESTSTATE from '../assets/restState.png'
   import BUZYSTATE from '../assets/buzyState.png'

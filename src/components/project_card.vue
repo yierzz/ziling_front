@@ -42,10 +42,10 @@
   import C from '../assets/C.png'
   import S from '../assets/S.png'
 
-  import android from '../assets/安卓.png'
+  import android from '../assets/ANDROID.png'
   import web from '../assets/WEB.png'
-  import ios from '../assets/苹果.png'
-  import wechat from '../assets/微信.png'
+  import ios from '../assets/APPLE.png'
+  import wechat from '../assets/WECHAT.png'
 
   export default {
     name: 'project-card',
@@ -171,6 +171,7 @@
   .right {
     margin-top: 23px;
     .title {
+      font-weight:bold;
       font-family: MicrosoftYaHei-Bold;
       font-size: 14px;
       color: #808080;
