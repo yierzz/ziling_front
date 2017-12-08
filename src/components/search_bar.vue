@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 <div>
   <!--  <div style="display: flex; justify-content: space-between">
       <mu-flat-button v-for="(filter, index) in filters" :label="filter" backgroundColor="grey" :key="index" @click="search(index)"/>
@@ -44,24 +43,6 @@
         trigger2: null,
         trigger3: null
       }
-=======
-  <div>
-
-    <div style="display: flex; justify-content: space-between">
-      <mu-flat-button v-for="(filter, index) in filters" :label="filter" backgroundColor="grey" :key="index" @click="search(index)"/>
-      <mu-text-field hintText="搜索用户名、技术术语"/>
-      <mu-raised-button label="搜索" secondary/>
-    </div>
-
-  </div>
-
-</template>
-<script>
-
-  export default {
-    data () {
-      return {}
->>>>>>> b25327c7e91dc22fc805f4cbd3723933db5c4f16
     },
     props: {
       filters: {
@@ -76,7 +57,6 @@
       }
     },
     components: {},
-<<<<<<< HEAD
     methods: {
       toggle1 () {
         this.open1 = !this.open1
@@ -105,16 +85,10 @@
       this.trigger1 = this.$refs.button1.$el
       this.trigger2 = this.$refs.button2.$el
       this.trigger3 = this.$refs.button3.$el
-=======
-    methods: {},
-    computed: {},
-    mounted () {
->>>>>>> b25327c7e91dc22fc805f4cbd3723933db5c4f16
     }
   }
 </script>
 <style scoped lang="scss" rel="stylesheet/scss">
-<<<<<<< HEAD
   .pop_duty {
     margin-left: 190px;
     margin-right: 40px;
@@ -133,7 +107,6 @@
     border-radius: 20px;
     background: #9013FE;
   }
-=======
->>>>>>> b25327c7e91dc22fc805f4cbd3723933db5c4f16
+
 
 </style>
