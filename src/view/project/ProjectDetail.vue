@@ -357,7 +357,7 @@
       align-items:center;
       justify-content: space-between;
       height: 80px;
-      margin-top:5px;
+      margin-top:0px;
       .item_left {
         width: 60px;
         height: 60px;

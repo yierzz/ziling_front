@@ -3,7 +3,7 @@
   <!--  <div style="display: flex; justify-content: space-between">
       <mu-flat-button v-for="(filter, index) in filters" :label="filter" backgroundColor="grey" :key="index" @click="search(index)"/>
      <div>-->
-  <mu-raised-button class="pop_duty" label="职务筛选" ref="button1" @click="toggle1" />
+  <mu-raised-button class="pop_duty" label="职务筛选" ref="button1" @click="toggle1" icon="keyboard_arrow_down" />
   <mu-popover :open="open1" :autoPosition="false" :trigger="trigger1" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin" @close="handleClose" popoverClass="duty">
     <mu-menu>
       <mu-menu-item title="职务1" />
@@ -11,7 +11,7 @@
       <mu-menu-item title="职务3" />
     </mu-menu>
   </mu-popover>
-  <mu-raised-button class="pop_skill" label="技能筛选" ref="button2" @click="toggle2" />
+  <mu-raised-button class="pop_skill" label="技能筛选" ref="button2" @click="toggle2" icon="keyboard_arrow_down" />
   <mu-popover :open="open2" :autoPosition="false" :trigger="trigger2" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin" @close="handleClose">
     <mu-menu>
       <mu-menu-item title="技能1" />
@@ -19,7 +19,7 @@
       <mu-menu-item title="技能3" />
     </mu-menu>
   </mu-popover>
-  <mu-raised-button class="pop_qualify" label="资质认证筛选" ref="button3" @click="toggle3"/>
+  <mu-raised-button class="pop_qualify" label="资质认证筛选" ref="button3" @click="toggle3" icon="keyboard_arrow_down"/>
   <mu-popover :open="open3" :autoPosition="false" :trigger="trigger3" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin" @close="handleClose">
     <mu-menu>
       <mu-menu-item title="认证1" />
@@ -97,17 +97,23 @@
     margin-left: 172px;
     border-radius: 15px;
     height: 30px;
-    background: #F5F5F5;;
+    background: #F5F5F5;
+    color: #808080;
+    margin-right: 40px;
   }
   .pop_skill {
     border-radius: 15px;
     height: 30px;
     background: #F5F5F5;
+    color: #808080;
+    margin-right: 40px;
   }
  .pop_qualify {
     border-radius: 15px;
     height: 30px;
-    background: #F5F5F5;;
+    background: #F5F5F5;
+    color: #808080;
+    margin-right: 40px;
   } 
   .text {
     width: 280px;
@@ -115,9 +121,11 @@
     margin-right:20px;
     font-size:15px;
     border-radius: 15px;
+    color: #808080;
+    margin-right: 40px;
   }
   .search_but {
-    margin-right: 172px;
+    margin-right: 192px;
     border-radius: 15px;
     background: #9013FE;
     height: 30px;
