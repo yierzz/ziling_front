@@ -147,10 +147,8 @@
               <mu-icon value="keyboard_arrow_right" :size="20"/>
             </div>
           </div>
-
-          </div>
-            <mu-divider/>
-            <router-link to="/index">
+          <mu-divider/>
+          <router-link to="/index">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -162,9 +160,9 @@
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
             </div>
-            </router-link>
-            <mu-divider/>
-            <router-link to="/recruit">
+          </router-link>
+          <mu-divider/>
+          <router-link to="/recruit">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -176,9 +174,9 @@
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
             </div>
-            </router-link>
-            <mu-divider/>
-            <router-link to="/index">
+          </router-link>
+          <mu-divider/>
+          <router-link to="/index">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -190,9 +188,9 @@
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
             </div>
-            </router-link>
-            <mu-divider/>
-            <router-link to="/recruit">
+          </router-link>
+          <mu-divider/>
+          <router-link to="/recruit">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -204,9 +202,9 @@
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
             </div>
-            </router-link>
-            <mu-divider/>
-            <router-link to="/index">
+          </router-link>
+          <mu-divider/>
+          <router-link to="/index">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -218,8 +216,8 @@
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
             </div>
-            </router-link>
-            <mu-divider/>
+          </router-link>
+          <mu-divider/>
         </mu-paper>
       </mu-col>
     </mu-row>
@@ -273,229 +271,177 @@
     font-family: MicrosoftYaHei;
     font-family: Roboto-Bold;
 
-  .project_detail {
+    .project_detail {
 
-    width: 840px;
-    .header {
-      padding: 12px 22px;
-      margin-left:0px;
-    }
-    .body {
-      padding: 20px;
-      margin-left:-20px;
-      .detail_items {
-        display: flex;
-        padding:20px 20px;
+      width: 840px;
+      .header {
+        padding: 12px 22px;
+        margin-left:0px;
+      }
+      .body {
+        padding: 20px;
+        margin-left:-20px;
+        .detail_items {
+          display: flex;
+          padding:20px 20px;
 
-        .detail_block {
-          height: 80px;
-          padding: 20px 20px;
-          background-color: #fafafa;
-          border-radius: 10px;
-          margin-right: 10px;
+          .detail_block {
+            height: 80px;
+            padding: 20px 20px;
+            background-color: #fafafa;
+            border-radius: 10px;
+            margin-right: 10px;
 
-          h3 {
-            margin: 0;
-            font-size: 12px;
-            color: #808080;
-            letter-spacing: 0;
-            line-height: 12px;
-          }
+            h3 {
+              margin: 0;
+              font-size: 12px;
+              color: #808080;
+              letter-spacing: 0;
+              line-height: 12px;
+            }
 
-          div {
-            margin-top: 8px;
-            font-size: 20px;
-            color: #FF5B00;
-            letter-spacing: 0;
-            line-height: 20px;
-            font-family: Roboto-Bold;
-            label {
-              font-size: 13px;
-              margin-top: 4px;
+            div {
+              margin-top: 8px;
+              font-size: 20px;
+              color: #FF5B00;
+              letter-spacing: 0;
+              line-height: 20px;
+              font-family: Roboto-Bold;
+              label {
+                font-size: 13px;
+                margin-top: 4px;
+              }
             }
           }
         }
       }
-    }
-    .members {
-      padding: 0 20px;
-      .member_item {
-        height: 88px;
-        display: flex;
-        align-items: center;
-        padding: 36px;
-        justify-content: space-between;
-        .title {
-          font-size: 16px;
-          color: #808080;
-          letter-spacing: 0;
-          line-height: 16px;
-          font-weight: bold;
-          width: 100px;
-        }
-        .number {
-          font-size: 14px;
-          color: #808080;
-          letter-spacing: 0;
-          line-height: 14px;
-        }
-      }
-    }
-    .describe_block {
-      padding: 20px;
-      .title {
-        font-size: 16px;
-        color: #808080;
-        font-weight: bold;
-      }
-    }
-  }
-
-  .recommand {
-    margin-left: 48px;
-<<<<<<< HEAD
-    width: 300px;
-    height: 502px;
-=======
-    padding:0px 10px;
->>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
-    .list_item {
-      display: flex;
-      align-items:center;
-      justify-content: space-between;
-<<<<<<< HEAD
-      margin-top:-15px;
-      margin-bottom:10px;
-=======
->>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
-      height: 80px;
-      .item_left {
-        width: 60px;
-        height: 60px;
-        display:flex;
-        align-items:center;
-      }
-      .item_middle {
-<<<<<<< HEAD
-        margin-left:90px;
-        margin-top:-55px;
-=======
-
->>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
-        .title {
-          font-family: MicrosoftYaHei-Bold;
-          font-size: 14px;
-          color: #808080;
-          letter-spacing: 0;
-          line-height: 14px;
-          width: 168px;
-<<<<<<< HEAD
-          height: 14px;
-=======
-          height: 14px;
->>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
-        }
-        .pro_value {
-          font-family: Roboto-Bold;
-          font-size: 20px;
-          color: #FF5B00;
-          letter-spacing: 0;
-          line-height: 20px;
-          width: 75px;
+      .members {
+        padding: 0 20px;
+        .member_item {
+          height: 88px;
           display: flex;
-          .price {
-            margin-top:-10px;
+          align-items: center;
+          padding: 36px;
+          justify-content: space-between;
+          .title {
+            font-size: 16px;
+            color: #808080;
+            letter-spacing: 0;
+            line-height: 16px;
+            font-weight: bold;
+            width: 100px;
           }
-          .period {
-            margin-left: 25px;
-            margin-top:-10px;
-<<<<<<< HEAD
-          }
-=======
-          }
->>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
-          label {
-            font-size: 12px;
-            margin-left: 4px;
+          .number {
+            font-size: 14px;
+            color: #808080;
+            letter-spacing: 0;
+            line-height: 14px;
           }
         }
       }
-      .item_right{
-        display:flex;
-        align-items:center;
-<<<<<<< HEAD
-        margin-left:250px;
-        margin-top:-50px;
-=======
->>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
-        width:26px;
-        height: 26px;
-        margin-top: -30px;
-      }
-    }
-    .title {
-      color: #808080;
-      display: flex;
-      align-items: center;
-      height: 30px;
-      justify-content: space-between;
-      margin-bottom: 25px;
-      .left {
-<<<<<<< HEAD
-        display: flex;
-        align-items: center;
-        margin-top: 20px;
-        margin-left: 25px;
-        span {
-          font-family: MicrosoftYaHei-Bold;
+      .describe_block {
+        padding: 20px;
+        .title {
           font-size: 16px;
           color: #808080;
-          letter-spacing: 0;
-          line-height: 30px;
-          margin-left: 15px;
           font-weight: bold;
-          margin-right: 10px;
         }
-        div {
-          font-family: MicrosoftYaHei;
-          font-size: 12px;
-          color: #808080;
-          letter-spacing: 0;
-          line-height: 30px;
+      }
+    }
+
+    .recommand {
+      margin-left: 48px;
+      padding:0px 10px;
+      .list_item {
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+        height: 80px;
+        .item_left {
+          width: 60px;
+          height: 60px;
+          display:flex;
+          align-items:center;
         }
-=======
-      display: flex;
-      align-items: center;
-      margin-top: 20px;
-      margin-left: 15px;
-      span {
-        font-family: MicrosoftYaHei-Bold;
-        font-size: 16px;
+        .item_middle {
+
+          .title {
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 14px;
+            color: #808080;
+            letter-spacing: 0;
+            line-height: 14px;
+            width: 168px;
+            height: 14px;
+          }
+          .pro_value {
+            font-family: Roboto-Bold;
+            font-size: 20px;
+            color: #FF5B00;
+            letter-spacing: 0;
+            line-height: 20px;
+            width: 75px;
+            display: flex;
+            .price {
+              margin-top:-10px;
+            }
+            .period {
+              margin-left: 25px;
+              margin-top:-10px;
+            }
+            label {
+              font-size: 12px;
+              margin-left: 4px;
+            }
+          }
+        }
+        .item_right{
+          display:flex;
+          align-items:center;
+          width:26px;
+          height: 26px;
+          margin-top: -30px;
+        }
+      }
+      .title {
         color: #808080;
-        letter-spacing: 0;
-        line-height: 30px;
-        margin-left: 15px;
-        font-weight: bold;
-        margin-right: 10px;
-      }
-      div {
-        font-family: MicrosoftYaHei;
-        font-size: 12px;
-        color: #808080;
-        letter-spacing: 0;
-        line-height: 30px;
-      }
->>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
-      }
-      .right {
         display: flex;
         align-items: center;
-        margin-top:20px;
-        a {
-          color: #808080;;
+        height: 30px;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        .left {
+          display: flex;
+          align-items: center;
+          margin-top: 20px;
+          margin-left: 15px;
+          span {
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 16px;
+            color: #808080;
+            letter-spacing: 0;
+            line-height: 30px;
+            margin-left: 15px;
+            font-weight: bold;
+            margin-right: 10px;
+          }
+          div {
+            font-family: MicrosoftYaHei;
+            font-size: 12px;
+            color: #808080;
+            letter-spacing: 0;
+            line-height: 30px;
+          }
+        }
+        .right {
+          display: flex;
+          align-items: center;
+          margin-top:20px;
+          a {
+            color: #808080;;
+          }
         }
       }
     }
   }
-}
 </style>
