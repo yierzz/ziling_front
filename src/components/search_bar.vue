@@ -3,7 +3,7 @@
   <!--  <div style="display: flex; justify-content: space-between">
       <mu-flat-button v-for="(filter, index) in filters" :label="filter" backgroundColor="grey" :key="index" @click="search(index)"/>
      <div>-->
-  <mu-raised-button class="pop_duty" label="职务筛选" ref="button1" @click="toggle1" insert toggleNested/>
+  <mu-raised-button class="pop_duty" label="职务筛选" ref="button1" @click="toggle1" />
   <mu-popover :open="open1" :autoPosition="false" :trigger="trigger1" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin" @close="handleClose" popoverClass="duty">
     <mu-menu>
       <mu-menu-item title="职务1" />
