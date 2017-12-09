@@ -21,7 +21,7 @@
 
           <mu-flat-button v-if="loginTag" slot="right" label=" " color="grey"  ref="msgButton"
           icon="assignment_turned_in" @hover="toggle('msgOpen')" to="/personal/message"/>
-          <mu-flat-button v-if="loginTag" slot="right" label=" " color="grey" icon="add_alert" to="/other"/>
+          <mu-flat-button v-if="loginTag" slot="right" label=" " color="grey" icon="notifications" to="/other"/>
 
           <mu-flat-button v-if="loginTag" slot="right"  ref="userButton" @hover="toggle('userOpen')" to="/personal">
             <mu-avatar :src="userAvatorImg"/>
@@ -44,63 +44,64 @@
       </div>
 
     </mu-appbar>
-
+    <!-- 第一个弹框 -->
     <mu-popover :trigger="payTrigger" :open="payOpen" @close="handleClose" :anchorOrigin="anchorOrigin"
                 :targetOrigin="targetOrigin" v-if="loginTag">
-      <div class="recharge" style="width:120px;">
-        <div class="reamount" style="background-color:#aa00ff">
-          <p style="color:#fff;margin-top:0px; margin-left:20px;">账户余额(元)</p>
-          <h1 style="color:#fff; margin-top:-10px;margin-left:20px;">{{aggregateAmount}}</h1>
+      <div class="firstPop" style="width:180px;height:206px;">
+        <!-- 账户余额 -->
+        <div class="reamount" style="background-color:#aa00ff;color:#FFFFFF;padding-left:56px;padding-top:5px">
+          <p >账户余额(元)</p>
+          <p style="font-style:italic;font-size: 28px;cletter-spacing: 0;margin-top:-8px;">{{aggregateAmount}}</p>
         </div>
-        <mu-raised-button label="充值" primary to="/personal/pre_pay" style="margin-left:15px; margin-top: -5px; font-size: 12px; border-radius: 20px; height: 25px;"/>
+        <mu-raised-button label="充值" primary to="/personal/pre_pay" style="margin-left:24px; margin-top: -15px;width:140px; font-size: 12px; border-radius: 15px; height: 25px;"/>
         <br/>
-        <mu-raised-button label="提现" style="margin-left:15px; margin-top: 5px; font-size: 12px; border-radius: 20px; height: 25px;"/>
-        <div style="color: grey; font-size: 12px; margin-top: 10px; margin-left:35px;">交易记录</div>
+        <mu-raised-button label="提现" style="width:140px; margin-left:24px; margin-top: 5px; font-size: 12px;color: #808080;letter-spacing: 0;line-height: 12px;border-radius: 15px; height: 25px;"/>
+        <a href=""style="text-decoration:underline;font-size: 12px;color: #808080;letter-spacing: 0;line-height: 12px; margin-top: 7px; margin-left:66px;">交易记录</a>
       </div>
     </mu-popover>
-
+    <!-- 第二个弹框 -->
     <mu-popover :trigger="msgTrigger" :open="msgOpen" @close="handleClose" :anchorOrigin="anchorOrigin"
                 :targetOrigin="targetOrigin" v-if="loginTag">
       <mu-menu>
-
-        <mu-menu-item title="系统通知" style="margin-left: 20px;">
-          <mu-badge content="0" slot="after" style="margin-right: 25px;"/>
+        <mu-menu-item title="系统通知" titleClass="informFont" style="padding-left:20px;border-bottom: 1px solid #E3E3E3;">
+          <mu-badge content="0" color=" #EE5959" slot="after" badgeClass="badgeOval" />
         </mu-menu-item>
-        <mu-menu-item title="聊天消息" style="margin-left: 20px;">
-          <mu-badge content="0" slot="after" style="margin-right: 25px;"/>
+        <mu-menu-item title="聊天消息" titleClass="informFont" style="padding-left:20px;border-bottom: 1px solid #E3E3E3;">
+          <mu-badge content="0" color=" #EE5959" slot="after"badgeClass="badgeOval"/>
         </mu-menu-item>
-        <mu-menu-item title="为你推荐" style="margin-left: 20px;">
-          <mu-badge content="0" slot="after" style="margin-right: 25px;"/>
+        <mu-menu-item title="为你推荐" titleClass="informFont"  style="padding-left:20px;">
+          <mu-badge content="0" color=" #EE5959" slot="after" badgeClass="badgeOval"/>
         </mu-menu-item>
       </mu-menu>
     </mu-popover>
-
+    <!-- 第三个弹框 -->
     <mu-popover :trigger="userTrigger" :open="userOpen" :anchorOrigin="anchorOrigin"
                 :targetOrigin="targetOrigin" @close="handleClose" v-if="loginTag">
-      <mu-paper class="popop_user_profile" style="padding: 0 20px 0px 20px">
-        <div style="font-size: 22px; line-height: 30px; color: rgb(102, 102, 102); text-align: center; margin-top: 10px;">{{userInfo.cellphone }}</div>
+      <mu-paper class="popop_user_profile">
+        <div style="font-size: 22px; line-height: 30px; color: rgb(102, 102, 102); text-align: center; margin-top: 10px;">{{userInfo.cellphone}}sf</div>
         <mu-badge content="LV1" style="margin-top: -22px; margin-left: 80px;" color="#F6DB65"/>
-        <div class="grey_bkg" style="margin-top: 10px;">
+        <div style="margin:10px 0 10px 0;font-family: MicrosoftYaHei;font-size: 12px;color: #808080;letter-spacing: 0;line-height: 12px;">工号：{{user_jobnum}}</div>
+        <div class="grey_bkg" >
           <mu-divider shadowLiner/>
-          <div class="title">资质等级:{{capacity_rank}}</div>
+          <div class="title">能力等级:{{capacity_rank}}</div>
           <mu-linear-progress mode="determinate" class="linear" :value="capacity_rank*10" color="#4A5AF8"/>
           <div class="title">信用等级:{{credit_rank}}</div>
           <mu-linear-progress mode="determinate" :value="credit_rank*10" class="linear" color="#5ECD87"/>
           <div class="title"> 评价星级:{{evaluate_rank}}</div>
-          <star-rank v-bind:rank="evaluate_rank"></star-rank>
+          <star-rank width="200px" v-bind:rank="evaluate_rank"></star-rank>
           <mu-divider shadowLiner/>
         </div>
         <mu-list class="list_item" >
-          <mu-list-item title="紫领简历" to="/personal/info-modify"/>
+          <mu-list-item titleClass="itemFont" title="紫领简历" to="/personal/info-modify"/>
           <mu-divider shadowLiner/>
-          <mu-list-item title="编辑简历" to="/personal/info-modify" />
+          <mu-list-item titleClass="itemFont" title="编辑简历" to="/personal/info-modify" />
           <mu-divider shadowLiner/>
-          <mu-list-item title="资格认证" />
+          <mu-list-item titleClass="itemFont" title="资格认证" />
           <mu-divider shadowLiner/>
-          <mu-list-item title="会员充值" />
+          <mu-list-item titleClass="itemFont" title="会员充值" />
           <mu-divider shadowLiner/>
         </mu-list>
-        <mu-raised-button label="退出" style="justify-content: center; border-radius: 20px; font-size: 12px; height:30px;" @click="logout"/>        
+        <mu-raised-button label="退出" style="justify-content: center; background: #FFFFFF;border: 1px solid #E3E3E3;border-radius: 15px;font-size: 12px; color: #808080;height:30px;" @click="logout"/>        
       </mu-paper>
     </mu-popover>
 
@@ -121,7 +122,6 @@
         <!-- 登录 -->
         <div v-if="activeTab === 'login'" >
           <mu-text-field hintText="手机号/电子邮箱"  underlineClass="none" hintTextClass="hint_font" icon="person" v-model="loginInfo.userName" style="width:320px;height:40px;border: 1px solid #E3E3E3;border-radius: 20px;margin:40px 0 20px 40px;"/>
-          <!-- <br/> -->
           <mu-text-field hintText="请输入您的密码" underlineClass="none" hintTextClass="hint_font" icon="lock" v-model="loginInfo.password" type="password" style="width:320px;height:40px;border: 1px solid #E3E3E3;border-radius: 20px;margin-left:40px;"/>
           <br/>
           <div class="password">
@@ -177,7 +177,6 @@
             <mu-raised-button label="立即注册" primary @click="signup"/>
             <mu-raised-button label="取消" @click=" login_dialog = false"/>
           </div> -->
-
         </div>
       </div>
     </mu-dialog>
@@ -222,7 +221,8 @@
         credit_rank: 8.2,
         capacity_rank: 9.8,
         evaluate_rank: 4.2,
-        aggregateAmount: 10000
+        user_jobnum: 1234,
+        aggregateAmount: 10000.00
       }
     },
     components: {
@@ -340,7 +340,7 @@
  <style lang="css" ref="stylesheet/css">
   .popop_user_profile {
     width: 240px;
-    height: 480px;
+    height: 470px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -350,6 +350,7 @@
      .list_item {
       margin-top: -24px;
       font-size: 12px;
+      color: #808080;
       font-family: MicrosoftYaHei;
       text-align: center;
     }
@@ -369,7 +370,7 @@
         border-radius: 5px;
       }
       .title {
-        margin-top: 15px;
+        margin:8px 0;
         font-family: MicrosoftYaHei;
         font-size: 12px;
         color: #808080;
@@ -445,6 +446,24 @@
         color: #9013FE;
         line-height: 12px;
         padding-top:5px;
+      }
+      .badgeOval{
+        margin-right: 25px;
+        border-radius: 8px !important;
+      }
+      .informFont{
+        font-family: MicrosoftYaHei;
+        font-size: 14px;
+        color: #808080;
+        letter-spacing: 0;
+        line-height: 14px;
+      }
+      .itemFont{
+        font-family: MicrosoftYaHei;
+        font-size: 12px !important;
+        color: #808080;
+        letter-spacing: 0;
+        line-height: 12px !important;
       }
   @media (max-width: 600px) {
     .desktop {
