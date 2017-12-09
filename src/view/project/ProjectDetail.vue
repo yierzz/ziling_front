@@ -138,15 +138,15 @@
       <mu-col width="100" desktop="33">
         <mu-paper :zDepth="2" class="recommand">
           <div class="title">
-          <div class="left" >
-            <mu-icon value="tag_faces" :size="20"/>
-            <span>项目推荐</span>
+            <div class="left" >
+              <mu-icon value="tag_faces" :size="20"/>
+              <span>项目推荐</span>
+            </div>
+            <div class="right">
+              <router-link to="/recruit">查看更多</router-link>
+              <mu-icon value="keyboard_arrow_right" :size="20"/>
+            </div>
           </div>
-          <div class="right">
-            <router-link to="/recruit">查看更多</router-link>
-            <mu-icon value="keyboard_arrow_right" :size="20"/>
-          </div>
-         </div>
           <mu-list style="margin-top:-10px;">
             <mu-divider/>
             <mu-list-item class="list_item">
@@ -304,7 +304,6 @@
           }
         }
       }
-
     }
     .members {
       padding: 0 20px;
@@ -343,16 +342,23 @@
   .recommand {
     margin-left: 48px;
     width: 300px;
-    height:502px;
+    height: 502px;
     .list_item {
-      position: relative;
+      display: flex;
+      align-items:center;
+      justify-content: space-between;
+      margin-top:-15px;
+      margin-bottom:10px;
       height: 80px;
       .item_left {
-        position: absolute;
         width: 60px;
         height: 60px;
+        display:flex;
+        align-items:center;
       }
       .item_middle {
+        margin-left:90px;
+        margin-top:-55px;
         .title {
           font-family: MicrosoftYaHei-Bold;
           font-size: 14px;
@@ -361,8 +367,6 @@
           line-height: 14px;
           width: 168px;
           height: 14px;
-          margin-left: 80px;
-          margin-top: 5px;
         }
         .pro_value {
           font-family: Roboto-Bold;
@@ -372,12 +376,12 @@
           line-height: 20px;
           width: 75px;
           display: flex;
-          margin-top:-15px;
           .price {
-            margin-left: 80px;
+            margin-top:-10px;
           }
           .period {
             margin-left: 25px;
+            margin-top:-10px;
           }
           label {
             font-size: 12px;
@@ -386,8 +390,9 @@
         }
       }
       .item_right{
-        margin-left: 250px;
-        position: absolute;
+        display:flex;
+        align-items:center;
+        margin-left:250px;
         margin-top:-50px;
         width:26px;
         height: 26px;
@@ -401,27 +406,27 @@
       justify-content: space-between;
       margin-bottom: 25px;
       .left {
-      display: flex;
-      align-items: center;
-      margin-top: 20px;
-      margin-left: 25px;
-      span {
-        font-family: MicrosoftYaHei-Bold;
-        font-size: 16px;
-        color: #808080;
-        letter-spacing: 0;
-        line-height: 30px;
-        margin-left: 15px;
-        font-weight: bold;
-        margin-right: 10px;
-      }
-      div {
-        font-family: MicrosoftYaHei;
-        font-size: 12px;
-        color: #808080;
-        letter-spacing: 0;
-        line-height: 30px;
-      }
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        margin-left: 25px;
+        span {
+          font-family: MicrosoftYaHei-Bold;
+          font-size: 16px;
+          color: #808080;
+          letter-spacing: 0;
+          line-height: 30px;
+          margin-left: 15px;
+          font-weight: bold;
+          margin-right: 10px;
+        }
+        div {
+          font-family: MicrosoftYaHei;
+          font-size: 12px;
+          color: #808080;
+          letter-spacing: 0;
+          line-height: 30px;
+        }
       }
       .right {
         display: flex;
