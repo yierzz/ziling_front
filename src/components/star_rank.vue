@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <img :src="Star1IMG" alt="rank" v-for="i in starInteger">
-    <img :src="starDecimal" alt="rank">
+  <div style="display: flex; justify-content:space-around; width:300px;">
+    <img :src="Star1IMG" alt="rank" v-for="i in starInteger" >
+    <img :src="starDecimal" alt="rank" v-if="starDecimal">
   </div>
 </template>
 <script>
@@ -16,7 +16,7 @@
       return {
         Star1IMG,
         starInteger: 0,
-        starDecimal: Star2IMG
+        starDecimal: null
       }
     },
     props: {
@@ -30,6 +30,7 @@
       let {rank} = this
       this.starInteger = parseInt(rank)
       let decimal = rank % 1
+
       if (decimal >= 0.2 && decimal <= 0.4) {
         this.starDecimal = Star2IMG
       } else if (decimal >= 0.4 && decimal <= 0.6) {

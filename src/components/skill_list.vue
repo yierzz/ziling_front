@@ -4,10 +4,10 @@
   </div>
 </template>
 <script>
-  import android from '../assets/安卓=单色.png'
-  import web from '../assets/WEB-单色.png'
-  import ios from '../assets/苹果-单色.png'
-  import wechat from '../assets/微信-单色.png'
+  import android from '../assets/ANDROID.png'
+  import web from '../assets/WEB.png'
+  import ios from '../assets/APPLE.png'
+  import wechat from '../assets/WECHAT.png'
 
   export default {
     data () {

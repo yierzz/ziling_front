@@ -77,8 +77,8 @@
  </div>
 </template>
 <script>
-  import rightArrow from '../../assets/向下箭头.png'
-  import smileFace from '../../assets/笑脸.png'
+  import rightArrow from '../../assets/rightArrow.png'
+  import smileFace from '../../assets/smileFace.png'
   export default {
     data () {
       return {
@@ -153,7 +153,7 @@
 
         .more{
           display:inline-block;
-          margin:0 0 20px 116px;
+          margin:0 0 20px 58px;
           font-size: 12px;
           line-height: 12px;
         }

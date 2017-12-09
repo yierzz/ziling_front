@@ -1,7 +1,7 @@
 <template>
   <div class="paper_container">
     <mu-paper class="paper" :zDepth="2">
-      <img class="logo" src="../../assets/logo.png"/>
+      <img :class="logo" src="logo"/>
       <mu-text-field hintText="手机号" type="" icon="phone" v-model="cellphone"/>
       <mu-text-field hintText="密码" type="password" icon="lock" v-model="password"/>
       <mu-text-field hintText="确认密码" type="password" icon="lock" v-model="rePwd"/>
@@ -23,9 +23,11 @@
   </div>
 </template>
 <script>
+  import logo from '../../assets/logo.png'
   export default {
     data () {
       return {
+        logo,
         cellphone: '',
         password: '',
         rePwd: '',
