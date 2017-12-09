@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; justify-content:space-around; width:300px;">
+  <div class="star_dis">
     <img :src="Star1IMG" alt="rank" v-for="i in starInteger" >
     <img :src="starDecimal" alt="rank" v-if="starDecimal">
   </div>
@@ -47,5 +47,8 @@
   }
 </script>
 <style scoped lang="scss" rel="stylesheet/scss">
-
+  .star_dis{
+    display:flex;
+    justify-content:space-around;
+  }
 </style>
