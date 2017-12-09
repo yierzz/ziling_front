@@ -12,7 +12,6 @@
             <div class="detail_items">
               <div class="detail_block">
                 <h3>
-
                   任务赏金
                 </h3>
                 <div>150000<label>元</label></div>
@@ -270,7 +269,7 @@
     padding-top: 20px;
     font-family: MicrosoftYaHei;
     font-family: Roboto-Bold;
-
+}
   .project_detail {
 
     width: 840px;
@@ -351,12 +350,14 @@
 
   .recommand {
     margin-left: 48px;
+    margin-top:-15px;
     padding:0px 10px;
     .list_item {
       display: flex;
       align-items:center;
       justify-content: space-between;
       height: 80px;
+      margin-top:5px;
       .item_left {
         width: 60px;
         height: 60px;
@@ -373,6 +374,7 @@
           line-height: 14px;
           width: 168px;
           height: 14px;  
+          margin-top:-5px;
         }
         .pro_value {
           font-family: Roboto-Bold;
@@ -400,7 +402,7 @@
         align-items:center;
         width:26px;
         height: 26px;
-        margin-top: -30px;
+        margin-top: -40px;
       }
     }
     .title {
@@ -409,7 +411,7 @@
       align-items: center;
       height: 30px;
       justify-content: space-between;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
       .left {
       display: flex;
       align-items: center;
@@ -443,5 +445,5 @@
       }
     }
   }
-}
+
 </style>
