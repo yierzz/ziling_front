@@ -3,7 +3,7 @@
   <!--  <div style="display: flex; justify-content: space-between">
       <mu-flat-button v-for="(filter, index) in filters" :label="filter" backgroundColor="grey" :key="index" @click="search(index)"/>
      <div>-->
-  <mu-raised-button class="pop_duty" label="职务筛选" ref="button1" @click="toggle1" icon="keyboard_arrow_down" />
+  <mu-raised-button class="pop_duty" label="职务筛选" ref="button1" @click="toggle1" icon="keyboard_arrow_down" labelPosition="before"/>
   <mu-popover :open="open1" :autoPosition="false" :trigger="trigger1" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin" @close="handleClose" popoverClass="duty">
     <mu-menu>
       <mu-menu-item title="职务1" />
@@ -11,7 +11,7 @@
       <mu-menu-item title="职务3" />
     </mu-menu>
   </mu-popover>
-  <mu-raised-button class="pop_skill" label="技能筛选" ref="button2" @click="toggle2" icon="keyboard_arrow_down" />
+  <mu-raised-button class="pop_skill" label="技能筛选" ref="button2" @click="toggle2" icon="keyboard_arrow_down" labelPosition="before"/>
   <mu-popover :open="open2" :autoPosition="false" :trigger="trigger2" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin" @close="handleClose">
     <mu-menu>
       <mu-menu-item title="技能1" />
@@ -19,7 +19,7 @@
       <mu-menu-item title="技能3" />
     </mu-menu>
   </mu-popover>
-  <mu-raised-button class="pop_qualify" label="资质认证筛选" ref="button3" @click="toggle3" icon="keyboard_arrow_down"/>
+  <mu-raised-button class="pop_qualify" icon="keyboard_arrow_down" label="资质认证筛选" ref="button3" @click="toggle3" labelPosition="before" />
   <mu-popover :open="open3" :autoPosition="false" :trigger="trigger3" :anchorOrigin="anchorOrigin" :targetOrigin="targetOrigin" @close="handleClose">
     <mu-menu>
       <mu-menu-item title="认证1" />
@@ -27,7 +27,7 @@
       <mu-menu-item title="认证3" />
     </mu-menu>
   </mu-popover>
-  <mu-text-field class="text" hintText="搜索用户名、技术术语" :underlineShow="false"/>
+  <mu-text-field class="text" hintText="搜索用户名、技术术语" :underlineShow="false" />
   <mu-raised-button class="search_but" label="搜索" primary/>
 </div>
 </template>
@@ -93,6 +93,7 @@
   align-items: center;
   justify-content: space-between;
   padding:0px 10px;
+  font-size: 12px;
   .pop_duty {
     margin-left: 172px;
     border-radius: 15px;
@@ -117,12 +118,12 @@
   } 
   .text {
     width: 280px;
-    margin-top:10px;
+    margin-top:12px;
     margin-right:20px;
-    font-size:15px;
     border-radius: 15px;
     color: #808080;
     margin-right: 40px;
+    font-size: 12px;
   }
   .search_but {
     margin-right: 192px;

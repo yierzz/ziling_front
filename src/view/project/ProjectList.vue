@@ -3,7 +3,7 @@
     <search-bar :filters="filters"></search-bar>
     <div>
       <mu-icon value="tag_faces" :size="20"/>
-      <div class="amount">共为您搜索到<label>21个</label>项目寻求人才</div>
+      <div class="amount">共为您搜索到<label>1234位</label>项目寻求人才</div>
     </div>
     <div class="container">
       <projcard v-for="(project, index) in projectList" :project="project" :key="`index-project-${index}`"></projcard>

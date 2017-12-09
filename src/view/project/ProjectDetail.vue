@@ -137,17 +137,16 @@
       <mu-col width="100" desktop="33">
         <mu-paper :zDepth="2" class="recommand">
           <div class="title">
-            <div class="left" >
-              <mu-icon value="tag_faces" :size="20"/>
-              <span>项目推荐</span>
+            <div class="left" >            
+              <icon-title :icon="'tag_faces'" title="项目推荐"></icon-title>
             </div>
             <div class="right">
-              <router-link to="/recruit">查看更多</router-link>
+              <router-link to="/projects">查看更多</router-link>
               <mu-icon value="keyboard_arrow_right" :size="20"/>
             </div>
           </div>
           <mu-divider/>
-          <router-link to="/index">
+          <router-link to="/projects">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -161,7 +160,7 @@
             </div>
           </router-link>
           <mu-divider/>
-          <router-link to="/recruit">
+          <router-link to="/projects">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -175,7 +174,7 @@
             </div>
           </router-link>
           <mu-divider/>
-          <router-link to="/index">
+          <router-link to="/projects">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -189,7 +188,7 @@
             </div>
           </router-link>
           <mu-divider/>
-          <router-link to="/recruit">
+          <router-link to="/projects">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -203,7 +202,7 @@
             </div>
           </router-link>
           <mu-divider/>
-          <router-link to="/index">
+          <router-link to="/projects">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -234,11 +233,7 @@
       }
     },
     components: {IconTitle, ProjectRank},
-    methods: {
-      handle () {
-        console.log('')
-      }
-    },
+    methods: {},
     computed: {},
     mounted () {
       API('getProjectInfo', {
@@ -269,7 +264,7 @@
     padding-top: 20px;
     font-family: MicrosoftYaHei;
     font-family: Roboto-Bold;
-}
+
   .project_detail {
       width: 840px;
       .header {
@@ -364,7 +359,6 @@
         align-items:center;
       }
       .item_middle {
-       
         .title {
           font-family: MicrosoftYaHei-Bold;
           font-size: 14px;
@@ -372,47 +366,28 @@
           letter-spacing: 0;
           line-height: 14px;
           width: 168px;
-          height: 14px;  
-          margin-top:-5px;
+          height: 14px;
+          margin-top: -10px;
         }
-        .item_middle {
-
-          .title {
-            font-family: MicrosoftYaHei-Bold;
-            font-size: 14px;
-            color: #808080;
-            letter-spacing: 0;
-            line-height: 14px;
-            width: 168px;
-            height: 14px;
+        .pro_value {
+          font-family: Roboto-Bold;
+          font-size: 20px;
+          color: #FF5B00;
+          letter-spacing: 0;
+          line-height: 20px;
+          width: 75px;
+          display: flex;
+          .price {
+            margin-top:-10px;
           }
-          .pro_value {
-            font-family: Roboto-Bold;
-            font-size: 20px;
-            color: #FF5B00;
-            letter-spacing: 0;
-            line-height: 20px;
-            width: 75px;
-            display: flex;
-            .price {
-              margin-top:-10px;
-            }
-            .period {
-              margin-left: 25px;
-              margin-top:-10px;
-            }
-            label {
-              font-size: 12px;
-              margin-left: 4px;
-            }
+          .period {
+            margin-left: 25px;
+            margin-top:-10px;
           }
-        }
-        .item_right{
-          display:flex;
-          align-items:center;
-          width:26px;
-          height: 26px;
-          margin-top: -30px;
+          label {
+            font-size: 12px;
+            margin-left: 4px;
+          }
         }
       }
       .item_right{
@@ -420,72 +395,37 @@
         align-items:center;
         width:26px;
         height: 26px;
-        margin-top: -40px;
+        margin-top: -30px;
       }
     }
+    
     .title {
-      color: #808080;
       display: flex;
       align-items: center;
       height: 30px;
-      justify-content: space-between;
-      margin-bottom: 22px;
+      justify-content: space-between; 
+      margin-top: 15px;
+      padding:22px 0;
+      color: #808080;
       .left {
-      display: flex;
-      align-items: center;
-      margin-top: 20px;
-      margin-left: 15px;
-      span {
-        font-family: MicrosoftYaHei-Bold;
-        font-size: 16px;
-        color: #808080;
-        letter-spacing: 0;
-        line-height: 30px;
-        margin-left: 15px;
-        font-weight: bold;
-        margin-right: 10px;
-      }
-      div {
-        font-family: MicrosoftYaHei;
-        font-size: 12px;
-        color: #808080;
         display: flex;
         align-items: center;
-        height: 30px;
-        justify-content: space-between;
-        margin-bottom: 25px;
-        .left {
-          display: flex;
-          align-items: center;
-          margin-top: 20px;
-          margin-left: 15px;
-          span {
-            font-family: MicrosoftYaHei-Bold;
-            font-size: 16px;
-            color: #808080;
-            letter-spacing: 0;
-            line-height: 30px;
-            margin-left: 15px;
-            font-weight: bold;
-            margin-right: 10px;
-          }
-          div {
-            font-family: MicrosoftYaHei;
-            font-size: 12px;
-            color: #808080;
-            letter-spacing: 0;
-            line-height: 30px;
-          }
-        }
-        .right {
-          display: flex;
-          align-items: center;
-          margin-top:20px;
-          a {
-            color: #808080;;
-          }
+        margin-top: 10px;
+        margin-left: 15px;
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        a {
+          color: #808080;
+          font-family: MicrosoftYaHei;
+          font-size: 12px;
+          letter-spacing: 0;
+          line-height: 12px;
         }
       }
     }
   }
+}
 </style>
