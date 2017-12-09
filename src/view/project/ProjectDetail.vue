@@ -3,51 +3,50 @@
     <mu-row gutter>
       <mu-col width="100" desktop="66">
 
-
         <mu-paper class="project_detail">
           <div class="header">
-            <icon-title :icon="'assignment'" :title="'一个小项目'"></icon-title>
-
+            <icon-title :icon="'assignment_turned_in'" :title="'这里的项目名称可以打很多字'"></icon-title>
           </div>
-
           <mu-divider/>
           <div class="body">
             <div class="detail_items">
               <div class="detail_block">
                 <h3>
-                  项目悬赏
-                </h3>
 
-                <span>150000 元</span>
+                  任务赏金
+                </h3>
+                <div>150000<label>元</label></div>
               </div>
               <div class="detail_block">
                 <h3>
-                  预计周期
+                  周期上限
                 </h3>
-
-                <span>32天</span>
+                <div>32<label>天</label></div>
               </div>
               <div class="detail_block">
                 <h3>
                   抢单人数
                 </h3>
-
-                <span>16 人</span>
+                <div>16<label>人</label></div>
+              </div>
+              <div class="detail_block">
+                <h3>
+                  截止日期
+                </h3>
+                <div>2017-10-18</div>
               </div>
               <div class="detail_block">
                 <h3>
                   项目等级
                 </h3>
                 <project-rank proLevel="A">
-
                 </project-rank>
               </div>
               <div class="detail_block">
                 <h3>
-                  网站类型
+                  项目类型
                 </h3>
-
-                <span style="font-size: 12px;color: #808080;line-height: 12px; font-weight: bold;">网站、后台</span>
+                <div style="font-size: 12px;color: #808080;line-height: 12px; font-weight: bold;">网站、后台</div>
               </div>
             </div>
           </div>
@@ -66,7 +65,6 @@
               </div>
               <mu-raised-button backgroundColor="#9013FE" style="height: 40px; width: 120px;border-radius: 24px;" label="报名"
                                 icon="person" primary/>
-
             </div>
             <mu-divider/>
             <div class="member_item">
@@ -87,20 +85,14 @@
               <div class="number">
                 已报名 12人
               </div>
-              <mu-raised-button backgroundColor="#9013FE" style="height: 40px; width: 120px;border-radius: 24px;" label="报名"
-                                icon="person" primary/>
-
+              <mu-raised-button backgroundColor="#9013FE" style="height: 40px; width: 120px;border-radius: 24px;" label="报名" icon="person" primary/>
             </div>
-
           </div>
           <div class="header" style="display: flex;align-items: center;justify-content: space-between">
             <icon-title :icon="'list'" :title="'需求分工'"></icon-title>
             <mu-flat-button label="下载需求文档" icon="file_download" style="width: 158px;border-radius: 20px;"/>
-
           </div>
           <mu-divider/>
-
-
           <div class="describe_block">
             <div class="title">
               标题标题标题标题标题
@@ -140,50 +132,92 @@
           <!--<span slot="title">很厉害的项目</span>-->
           <!--</mu-list-item>-->
           <!--</mu-list>-->
-
           <!--<mu-text-field hintText="对项目提问" multiLine :rows="3" :rowsMax="6" icon="question_answer"></mu-text-field>-->
-
         </mu-paper>
       </mu-col>
       <mu-col width="100" desktop="33">
         <mu-paper :zDepth="2" class="recommand">
-          <div class="title">项目推荐</div>
-          <mu-list>
+          <div class="title">
+          <div class="left" >
+            <mu-icon value="tag_faces" :size="20"/>
+            <span>项目推荐</span>
+          </div>
+          <div class="right">
+            <router-link to="/recruit">查看更多</router-link>
+            <mu-icon value="keyboard_arrow_right" :size="20"/>
+          </div>
+          </div>
             <mu-divider/>
-            <mu-list-item class="list_item">
-              <mu-icon slot="left" value="inbox"/>
-              <span slot="title">紫领网</span>
-              <span slot="describe">项目周期：三天</span>
-              <span slot="right">￥80000</span>
-              <div class="class">品质：金色</div>
-            </mu-list-item>
+            <router-link to="/index">
+            <div class="list_item">                          
+              <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
+              <div class="item_middle">
+                <div class="title">项目名称</div>
+                <div class="pro_value">
+                  <div class="price">15000<label>元</label></div>
+                  <div class="period">32<label>天</label></div>
+                </div>
+              </div>
+              <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
+            </div>
+            </router-link>
             <mu-divider/>
-
-            <mu-list-item class="list_item">
-              <mu-icon slot="left" value="inbox"/>
-              <span slot="title">紫领网</span>
-              <span slot="describe">项目周期：三天</span>
-              <span slot="right">￥80000</span>
-              <div class="class">品质：金色</div>
-            </mu-list-item>
+            <router-link to="/recruit">
+            <div class="list_item">
+              <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
+              <div class="item_middle">
+                <div class="title">项目名称</div>
+                <div class="pro_value">
+                  <div class="price">15000<label>元</label></div>
+                  <div class="period">32<label>天</label></div>
+                </div>
+              </div>
+              <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
+            </div>
+            </router-link>
             <mu-divider/>
-
-            <mu-list-item class="list_item">
-              <mu-icon slot="left" value="inbox"/>
-              <span slot="title">紫领网</span>
-              <span slot="describe">项目周期：三天</span>
-              <span slot="right">￥80000</span>
-              <div class="class">品质：金色</div>
-            </mu-list-item>
+            <router-link to="/index">
+            <div class="list_item">
+              <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
+              <div class="item_middle">
+                <div class="title">项目名称</div>
+                <div class="pro_value">
+                  <div class="price">15000<label>元</label></div>
+                  <div class="period">32<label>天</label></div>
+                </div>
+              </div>
+              <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
+            </div>
+            </router-link>
             <mu-divider/>
-
-          </mu-list>
-        </mu-paper>
-        <mu-paper :zDepth="2" class="recommand" style="margin-top: 20px;">
-          <h1 class="title">这里是广告位</h1>
-          <mu-list>
-
-          </mu-list>
+            <router-link to="/recruit">
+            <div class="list_item">
+              <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
+              <div class="item_middle">
+                <div class="title">项目名称</div>
+                <div class="pro_value">
+                  <div class="price">15000<label>元</label></div>
+                  <div class="period">32<label>天</label></div>
+                </div>
+              </div>
+              <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
+            </div>
+            </router-link>
+            <mu-divider/>
+            <router-link to="/index">
+            <div class="list_item">
+              <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
+              <div class="item_middle">
+                <div class="title">项目名称</div>
+                <div class="pro_value">
+                  <div class="price">15000<label>元</label></div>
+                  <div class="period">32<label>天</label></div>
+                </div>
+              </div>
+              <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
+            </div>
+            </router-link>
+            <mu-divider/>
         </mu-paper>
       </mu-col>
     </mu-row>
@@ -197,10 +231,15 @@
 
   export default {
     data () {
-      return {}
+      return {
+      }
     },
     components: {IconTitle, ProjectRank},
-    methods: {},
+    methods: {
+      handle () {
+        console.log('')
+      }
+    },
     computed: {},
     mounted () {
       API('getProjectInfo', {
@@ -232,17 +271,19 @@
     font-family: MicrosoftYaHei;
     font-family: Roboto-Bold;
 
-  }
-
   .project_detail {
+
+    width: 840px;
     .header {
       padding: 12px 22px;
+      margin-left:0px;
     }
     .body {
       padding: 20px;
+      margin-left:-20px;
       .detail_items {
         display: flex;
-        padding: 20px 20px;
+        padding:20px 20px;
 
         .detail_block {
           height: 80px;
@@ -259,16 +300,20 @@
             line-height: 12px;
           }
 
-          span {
+          div {
             margin-top: 8px;
             font-size: 20px;
             color: #FF5B00;
             letter-spacing: 0;
             line-height: 20px;
+            font-family: Roboto-Bold;
+            label {
+              font-size: 13px;
+              margin-top: 4px;
+            }
           }
         }
       }
-
     }
     .members {
       padding: 0 20px;
@@ -305,17 +350,98 @@
   }
 
   .recommand {
-    .title {
-      color: #9e9e9e
-    }
+    margin-left: 48px;
+    padding:0px 10px;
     .list_item {
-      position: relative;
-      .class {
-        position: absolute;
-        right: 0;
-        top: 0;
+      display: flex;
+      align-items:center;
+      justify-content: space-between;
+      height: 80px;
+      .item_left {
+        width: 60px;
+        height: 60px;
+        display:flex;
+        align-items:center;
+      }
+      .item_middle {
+       
+        .title {
+          font-family: MicrosoftYaHei-Bold;
+          font-size: 14px;
+          color: #808080;
+          letter-spacing: 0;
+          line-height: 14px;
+          width: 168px;
+          height: 14px;  
+        }
+        .pro_value {
+          font-family: Roboto-Bold;
+          font-size: 20px;
+          color: #FF5B00;
+          letter-spacing: 0;
+          line-height: 20px;
+          width: 75px;
+          display: flex;
+          .price {
+            margin-top:-10px;
+          }
+          .period {
+            margin-left: 25px;
+            margin-top:-10px;
+          } 
+          label {
+            font-size: 12px;
+            margin-left: 4px;
+          }
+        }
+      }
+      .item_right{
+        display:flex;
+        align-items:center;
+        width:26px;
+        height: 26px;
+        margin-top: -30px;
       }
     }
-
+    .title {
+      color: #808080;
+      display: flex;
+      align-items: center;
+      height: 30px;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      .left {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      margin-left: 15px;
+      span {
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 16px;
+        color: #808080;
+        letter-spacing: 0;
+        line-height: 30px;
+        margin-left: 15px;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      div {
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #808080;
+        letter-spacing: 0;
+        line-height: 30px;
+      }
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        margin-top:20px;
+        a {
+          color: #808080;;
+        }
+      }
+    }
   }
+}
 </style>

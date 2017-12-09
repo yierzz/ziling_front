@@ -19,7 +19,6 @@
       <mu-raised-button label="提现" class="button"/>
     </div>
 
-
   </div>
 </template>
 <script>
