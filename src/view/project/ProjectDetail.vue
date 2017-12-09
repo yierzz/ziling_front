@@ -137,31 +137,17 @@
       <mu-col width="100" desktop="33">
         <mu-paper :zDepth="2" class="recommand">
           <div class="title">
-          <div class="left" >
-            <mu-icon value="tag_faces" :size="20"/>
-            <span>项目推荐</span>
+            <div class="left" >
+              <mu-icon value="tag_faces" :size="20"/>
+              <span>项目推荐</span>
+            </div>
+            <div class="right">
+              <router-link to="/recruit">查看更多</router-link>
+              <mu-icon value="keyboard_arrow_right" :size="20"/>
+            </div>
           </div>
-          <div class="right">
-            <router-link to="/recruit">查看更多</router-link>
-            <mu-icon value="keyboard_arrow_right" :size="20"/>
-          </div>
-          </div>
-            <mu-divider/>
-            <router-link to="/index">
-            <div class="list_item">                          
-              <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
-              <div class="item_middle">
-                <div class="title">项目名称</div>
-                <div class="pro_value">
-                  <div class="price">15000<label>元</label></div>
-                  <div class="period">32<label>天</label></div>
-                </div>
-              </div>
-              <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
-            </div>
-            </router-link>
-            <mu-divider/>
-            <router-link to="/recruit">
+          <mu-divider/>
+          <router-link to="/index">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -173,9 +159,9 @@
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
             </div>
-            </router-link>
-            <mu-divider/>
-            <router-link to="/index">
+          </router-link>
+          <mu-divider/>
+          <router-link to="/recruit">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -187,9 +173,9 @@
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
             </div>
-            </router-link>
-            <mu-divider/>
-            <router-link to="/recruit">
+          </router-link>
+          <mu-divider/>
+          <router-link to="/index">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -201,9 +187,9 @@
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
             </div>
-            </router-link>
-            <mu-divider/>
-            <router-link to="/index">
+          </router-link>
+          <mu-divider/>
+          <router-link to="/recruit">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -215,8 +201,22 @@
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
             </div>
-            </router-link>
-            <mu-divider/>
+          </router-link>
+          <mu-divider/>
+          <router-link to="/index">
+            <div class="list_item">
+              <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
+              <div class="item_middle">
+                <div class="title">项目名称</div>
+                <div class="pro_value">
+                  <div class="price">15000<label>元</label></div>
+                  <div class="period">32<label>天</label></div>
+                </div>
+              </div>
+              <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
+            </div>
+          </router-link>
+          <mu-divider/>
         </mu-paper>
       </mu-col>
     </mu-row>
@@ -271,82 +271,81 @@
     font-family: Roboto-Bold;
 }
   .project_detail {
+      width: 840px;
+      .header {
+        padding: 12px 22px;
+        margin-left:0px;
+      }
+      .body {
+        padding: 20px;
+        margin-left:-20px;
+        .detail_items {
+          display: flex;
+          padding:20px 20px;
 
-    width: 840px;
-    .header {
-      padding: 12px 22px;
-      margin-left:0px;
-    }
-    .body {
-      padding: 20px;
-      margin-left:-20px;
-      .detail_items {
-        display: flex;
-        padding:20px 20px;
+          .detail_block {
+            height: 80px;
+            padding: 20px 20px;
+            background-color: #fafafa;
+            border-radius: 10px;
+            margin-right: 10px;
 
-        .detail_block {
-          height: 80px;
-          padding: 20px 20px;
-          background-color: #fafafa;
-          border-radius: 10px;
-          margin-right: 10px;
+            h3 {
+              margin: 0;
+              font-size: 12px;
+              color: #808080;
+              letter-spacing: 0;
+              line-height: 12px;
+            }
 
-          h3 {
-            margin: 0;
-            font-size: 12px;
-            color: #808080;
-            letter-spacing: 0;
-            line-height: 12px;
-          }
-
-          div {
-            margin-top: 8px;
-            font-size: 20px;
-            color: #FF5B00;
-            letter-spacing: 0;
-            line-height: 20px;
-            font-family: Roboto-Bold;
-            label {
-              font-size: 13px;
-              margin-top: 4px;
+            div {
+              margin-top: 8px;
+              font-size: 20px;
+              color: #FF5B00;
+              letter-spacing: 0;
+              line-height: 20px;
+              font-family: Roboto-Bold;
+              label {
+                font-size: 13px;
+                margin-top: 4px;
+              }
             }
           }
         }
       }
-    }
-    .members {
-      padding: 0 20px;
-      .member_item {
-        height: 88px;
-        display: flex;
-        align-items: center;
-        padding: 36px;
-        justify-content: space-between;
+      .members {
+        padding: 0 20px;
+        .member_item {
+          height: 88px;
+          display: flex;
+          align-items: center;
+          padding: 36px;
+          justify-content: space-between;
+          .title {
+            font-size: 16px;
+            color: #808080;
+            letter-spacing: 0;
+            line-height: 16px;
+            font-weight: bold;
+            width: 100px;
+          }
+          .number {
+            font-size: 14px;
+            color: #808080;
+            letter-spacing: 0;
+            line-height: 14px;
+          }
+        }
+      }
+      .describe_block {
+        padding: 20px;
         .title {
           font-size: 16px;
           color: #808080;
-          letter-spacing: 0;
-          line-height: 16px;
           font-weight: bold;
-          width: 100px;
-        }
-        .number {
-          font-size: 14px;
-          color: #808080;
-          letter-spacing: 0;
-          line-height: 14px;
         }
       }
     }
-    .describe_block {
-      padding: 20px;
-      .title {
-        font-size: 16px;
-        color: #808080;
-        font-weight: bold;
-      }
-    }
-  }
 
   .recommand {
     margin-left: 48px;
@@ -376,25 +375,44 @@
           height: 14px;  
           margin-top:-5px;
         }
-        .pro_value {
-          font-family: Roboto-Bold;
-          font-size: 20px;
-          color: #FF5B00;
-          letter-spacing: 0;
-          line-height: 20px;
-          width: 75px;
-          display: flex;
-          .price {
-            margin-top:-10px;
+        .item_middle {
+
+          .title {
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 14px;
+            color: #808080;
+            letter-spacing: 0;
+            line-height: 14px;
+            width: 168px;
+            height: 14px;
           }
-          .period {
-            margin-left: 25px;
-            margin-top:-10px;
-          } 
-          label {
-            font-size: 12px;
-            margin-left: 4px;
+          .pro_value {
+            font-family: Roboto-Bold;
+            font-size: 20px;
+            color: #FF5B00;
+            letter-spacing: 0;
+            line-height: 20px;
+            width: 75px;
+            display: flex;
+            .price {
+              margin-top:-10px;
+            }
+            .period {
+              margin-left: 25px;
+              margin-top:-10px;
+            }
+            label {
+              font-size: 12px;
+              margin-left: 4px;
+            }
           }
+        }
+        .item_right{
+          display:flex;
+          align-items:center;
+          width:26px;
+          height: 26px;
+          margin-top: -30px;
         }
       }
       .item_right{
@@ -431,19 +449,43 @@
         font-family: MicrosoftYaHei;
         font-size: 12px;
         color: #808080;
-        letter-spacing: 0;
-        line-height: 30px;
-      }
-      }
-      .right {
         display: flex;
         align-items: center;
-        margin-top:20px;
-        a {
-          color: #808080;;
+        height: 30px;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        .left {
+          display: flex;
+          align-items: center;
+          margin-top: 20px;
+          margin-left: 15px;
+          span {
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 16px;
+            color: #808080;
+            letter-spacing: 0;
+            line-height: 30px;
+            margin-left: 15px;
+            font-weight: bold;
+            margin-right: 10px;
+          }
+          div {
+            font-family: MicrosoftYaHei;
+            font-size: 12px;
+            color: #808080;
+            letter-spacing: 0;
+            line-height: 30px;
+          }
+        }
+        .right {
+          display: flex;
+          align-items: center;
+          margin-top:20px;
+          a {
+            color: #808080;;
+          }
         }
       }
     }
   }
-
 </style>
