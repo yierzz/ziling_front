@@ -24,7 +24,7 @@
           <div class="evaluateRank">
             <p>评价星级:{{userProfile.evaluateRank}}</p>
             <div class="evaluateBar">
-              <star-rank v-bind:rank="userProfile.evaluateRank"></star-rank>
+              <star-rank style="width:300px;" v-bind:rank="userProfile.evaluateRank"></star-rank>
             </div>
           </div>
         </div>
