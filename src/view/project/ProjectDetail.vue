@@ -147,9 +147,11 @@
               <mu-icon value="keyboard_arrow_right" :size="20"/>
             </div>
           </div>
-          <mu-list style="margin-top:-10px;">
+
+          </div>
             <mu-divider/>
-            <mu-list-item class="list_item">
+            <router-link to="/index">
+            <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
                 <div class="title">项目名称</div>
@@ -159,9 +161,11 @@
                 </div>
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
-            </mu-list-item>
+            </div>
+            </router-link>
             <mu-divider/>
-            <mu-list-item class="list_item">
+            <router-link to="/recruit">
+            <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
                 <div class="title">项目名称</div>
@@ -171,9 +175,11 @@
                 </div>
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
-            </mu-list-item>
+            </div>
+            </router-link>
             <mu-divider/>
-            <mu-list-item class="list_item">
+            <router-link to="/index">
+            <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
                 <div class="title">项目名称</div>
@@ -183,9 +189,11 @@
                 </div>
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
-            </mu-list-item>
+            </div>
+            </router-link>
             <mu-divider/>
-            <mu-list-item class="list_item">
+            <router-link to="/recruit">
+            <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
                 <div class="title">项目名称</div>
@@ -195,9 +203,11 @@
                 </div>
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
-            </mu-list-item>
+            </div>
+            </router-link>
             <mu-divider/>
-            <mu-list-item class="list_item">
+            <router-link to="/index">
+            <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
                 <div class="title">项目名称</div>
@@ -207,9 +217,9 @@
                 </div>
               </div>
               <img  class="item_right" src="../../assets/S.png" alt="图片加载失败"/>
-            </mu-list-item>
+            </div>
+            </router-link>
             <mu-divider/>
-          </mu-list>
         </mu-paper>
       </mu-col>
     </mu-row>
@@ -227,7 +237,11 @@
       }
     },
     components: {IconTitle, ProjectRank},
-    methods: {},
+    methods: {
+      handle () {
+        console.log('')
+      }
+    },
     computed: {},
     mounted () {
       API('getProjectInfo', {
@@ -258,8 +272,6 @@
     padding-top: 20px;
     font-family: MicrosoftYaHei;
     font-family: Roboto-Bold;
-
-  }
 
   .project_detail {
 
@@ -341,14 +353,21 @@
 
   .recommand {
     margin-left: 48px;
+<<<<<<< HEAD
     width: 300px;
     height: 502px;
+=======
+    padding:0px 10px;
+>>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
     .list_item {
       display: flex;
       align-items:center;
       justify-content: space-between;
+<<<<<<< HEAD
       margin-top:-15px;
       margin-bottom:10px;
+=======
+>>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
       height: 80px;
       .item_left {
         width: 60px;
@@ -357,8 +376,12 @@
         align-items:center;
       }
       .item_middle {
+<<<<<<< HEAD
         margin-left:90px;
         margin-top:-55px;
+=======
+
+>>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
         .title {
           font-family: MicrosoftYaHei-Bold;
           font-size: 14px;
@@ -366,7 +389,11 @@
           letter-spacing: 0;
           line-height: 14px;
           width: 168px;
+<<<<<<< HEAD
           height: 14px;
+=======
+          height: 14px;
+>>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
         }
         .pro_value {
           font-family: Roboto-Bold;
@@ -382,7 +409,11 @@
           .period {
             margin-left: 25px;
             margin-top:-10px;
+<<<<<<< HEAD
           }
+=======
+          }
+>>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
           label {
             font-size: 12px;
             margin-left: 4px;
@@ -392,10 +423,14 @@
       .item_right{
         display:flex;
         align-items:center;
+<<<<<<< HEAD
         margin-left:250px;
         margin-top:-50px;
+=======
+>>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
         width:26px;
         height: 26px;
+        margin-top: -30px;
       }
     }
     .title {
@@ -406,6 +441,7 @@
       justify-content: space-between;
       margin-bottom: 25px;
       .left {
+<<<<<<< HEAD
         display: flex;
         align-items: center;
         margin-top: 20px;
@@ -427,6 +463,29 @@
           letter-spacing: 0;
           line-height: 30px;
         }
+=======
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      margin-left: 15px;
+      span {
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 16px;
+        color: #808080;
+        letter-spacing: 0;
+        line-height: 30px;
+        margin-left: 15px;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      div {
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #808080;
+        letter-spacing: 0;
+        line-height: 30px;
+      }
+>>>>>>> 52a8db321370ac4a0cc02e4f338708cd9bf3be82
       }
       .right {
         display: flex;
@@ -438,4 +497,5 @@
       }
     }
   }
+}
 </style>
