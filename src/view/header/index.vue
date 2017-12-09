@@ -63,13 +63,13 @@
     <mu-popover :trigger="msgTrigger" :open="msgOpen" @close="handleClose" :anchorOrigin="anchorOrigin"
                 :targetOrigin="targetOrigin" v-if="loginTag">
       <mu-menu>
-        <mu-menu-item title="系统通知" style="padding-left:20px;border-bottom: 1px solid #E3E3E3;">
+        <mu-menu-item title="系统通知" titleClass="informFont" style="padding-left:20px;border-bottom: 1px solid #E3E3E3;">
           <mu-badge content="0" color=" #EE5959" slot="after" badgeClass="badgeOval" />
         </mu-menu-item>
-        <mu-menu-item title="聊天消息" style="padding-left:20px;border-bottom: 1px solid #E3E3E3;">
+        <mu-menu-item title="聊天消息" titleClass="informFont" style="padding-left:20px;border-bottom: 1px solid #E3E3E3;">
           <mu-badge content="0" color=" #EE5959" slot="after"badgeClass="badgeOval"/>
         </mu-menu-item>
-        <mu-menu-item title="为你推荐" style="padding-left:20px;">
+        <mu-menu-item title="为你推荐" titleClass="informFont"  style="padding-left:20px;">
           <mu-badge content="0" color=" #EE5959" slot="after" badgeClass="badgeOval"/>
         </mu-menu-item>
       </mu-menu>
@@ -451,12 +451,19 @@
         margin-right: 25px;
         border-radius: 8px !important;
       }
-      .itemFont{
+      .informFont{
         font-family: MicrosoftYaHei;
-        font-size: 12px;
+        font-size: 14px;
         color: #808080;
         letter-spacing: 0;
-        line-height: 12px;
+        line-height: 14px;
+      }
+      .itemFont{
+        font-family: MicrosoftYaHei;
+        font-size: 12px !important;
+        color: #808080;
+        letter-spacing: 0;
+        line-height: 12px !important;
       }
   @media (max-width: 600px) {
     .desktop {
