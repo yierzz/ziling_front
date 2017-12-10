@@ -12,7 +12,6 @@
             <div class="detail_items">
               <div class="detail_block">
                 <h3>
-
                   任务赏金
                 </h3>
                 <div>150000<label>元</label></div>
@@ -139,16 +138,15 @@
         <mu-paper :zDepth="2" class="recommand">
           <div class="title">
             <div class="left" >
-              <mu-icon value="tag_faces" :size="20"/>
-              <span>项目推荐</span>
+              <icon-title :icon="'tag_faces'" title="项目推荐"></icon-title>
             </div>
             <div class="right">
-              <router-link to="/recruit">查看更多</router-link>
+              <router-link to="/projects">查看更多</router-link>
               <mu-icon value="keyboard_arrow_right" :size="20"/>
             </div>
           </div>
           <mu-divider/>
-          <router-link to="/index">
+          <router-link to="/projects">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -162,7 +160,7 @@
             </div>
           </router-link>
           <mu-divider/>
-          <router-link to="/recruit">
+          <router-link to="/projects">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -176,7 +174,7 @@
             </div>
           </router-link>
           <mu-divider/>
-          <router-link to="/index">
+          <router-link to="/projects">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -190,7 +188,7 @@
             </div>
           </router-link>
           <mu-divider/>
-          <router-link to="/recruit">
+          <router-link to="/projects">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -204,7 +202,7 @@
             </div>
           </router-link>
           <mu-divider/>
-          <router-link to="/index">
+          <router-link to="/projects">
             <div class="list_item">
               <img  class="item_left" src="../../assets/WEB.png" alt="图片加载失败"/>
               <div class="item_middle">
@@ -235,11 +233,7 @@
       }
     },
     components: {IconTitle, ProjectRank},
-    methods: {
-      handle () {
-        console.log('')
-      }
-    },
+    methods: {},
     computed: {},
     mounted () {
       API('getProjectInfo', {
@@ -272,7 +266,6 @@
     font-family: Roboto-Bold;
 
     .project_detail {
-
       width: 840px;
       .header {
         padding: 12px 22px;
@@ -351,12 +344,14 @@
 
     .recommand {
       margin-left: 48px;
+      margin-top:-15px;
       padding:0px 10px;
       .list_item {
         display: flex;
         align-items:center;
         justify-content: space-between;
         height: 80px;
+        margin-top:0px;
         .item_left {
           width: 60px;
           height: 60px;
@@ -364,7 +359,6 @@
           align-items:center;
         }
         .item_middle {
-
           .title {
             font-family: MicrosoftYaHei-Bold;
             font-size: 14px;
@@ -373,6 +367,7 @@
             line-height: 14px;
             width: 168px;
             height: 14px;
+            margin-top: -10px;
           }
           .pro_value {
             font-family: Roboto-Bold;
@@ -403,42 +398,31 @@
           margin-top: -30px;
         }
       }
+
       .title {
-        color: #808080;
         display: flex;
         align-items: center;
         height: 30px;
         justify-content: space-between;
-        margin-bottom: 25px;
+        margin-top: 15px;
+        padding:22px 0;
+        color: #808080;
         .left {
           display: flex;
           align-items: center;
-          margin-top: 20px;
+          margin-top: 10px;
           margin-left: 15px;
-          span {
-            font-family: MicrosoftYaHei-Bold;
-            font-size: 16px;
-            color: #808080;
-            letter-spacing: 0;
-            line-height: 30px;
-            margin-left: 15px;
-            font-weight: bold;
-            margin-right: 10px;
-          }
-          div {
-            font-family: MicrosoftYaHei;
-            font-size: 12px;
-            color: #808080;
-            letter-spacing: 0;
-            line-height: 30px;
-          }
         }
         .right {
           display: flex;
           align-items: center;
-          margin-top:20px;
+          margin-top: 10px;
           a {
-            color: #808080;;
+            color: #808080;
+            font-family: MicrosoftYaHei;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 12px;
           }
         }
       }
