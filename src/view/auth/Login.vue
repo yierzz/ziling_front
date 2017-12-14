@@ -2,9 +2,9 @@
   <div class="paper_container">
     <mu-paper class="paper" :zDepth="2">
       <img :class="logo" src="log"/>
-      <mu-text-field hintText="手机号" type="" icon="phone" v-model="userInfo.userName"/>
+      <text-input hintText="手机号" type="" icon="phone" v-model="userInfo.userName"/>
       <br/>
-      <mu-text-field hintText="密码" type="password" icon="lock" v-model="userInfo.password"/>
+      <text-input hintText="密码" type="password" icon="lock" v-model="userInfo.password"/>
       <br/>
       <div id="captcha">
 
@@ -21,6 +21,8 @@
 <script>
   // import {geetest, getCode} from '@/utils/geetest'
   import logo from '../../assets/logo.png'
+  import TextInput from '../../components/text_input'
+
   export default {
     data () {
       return {
@@ -31,7 +33,7 @@
         }
       }
     },
-    components: {},
+    components: {TextInput},
     methods: {
       login () {
         /* if (getCode.captchaObj.getValidate()) {

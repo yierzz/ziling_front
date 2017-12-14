@@ -2,8 +2,10 @@
   <div class="content">
     <div class="left">
       <div class="search_box">
-        <input class="search_input" type="text" placeholder="搜索用户名、职务、技术用语"></input>
+        <!--<input class="search_input" type="text" placeholder="搜索用户名、职务、技术用语"></input>-->
+        <text-input hintText="搜索用户名、职务、技术用语" style="margin:20px 0 0 0; width:195px;"></text-input>
         <a href="" class="search_button">搜  索</a>
+             
       </div>
       <div class="prefecture">
         <ul>
@@ -79,6 +81,7 @@
 <script>
   import rightArrow from '../../assets/rightArrow.png'
   import smileFace from '../../assets/smileFace.png'
+  import TextInput from '../../components/text_input'
   export default {
     data () {
       return {
@@ -86,7 +89,7 @@
         smileFace
       }
     },
-    components: {},
+    components: {TextInput},
     methods: {},
     computed: {},
     mounted () {}
@@ -108,27 +111,20 @@
         margin-bottom:2px;
         background: #FFFFFF;
 
-        .search_input{
-          width:195px;
-          height:30px;
-          background: #F5F5F5;
-          border:none;
-          border-radius: 15px;
-          margin:20px 10px 0px 20px;
-          font-size:12px;
-          padding-left:15px;
-        }
-        .search_button{
-          display:inline-block;
+        
+        .search_button {
+          display:flex;
           width:55px;
           height:30px;
           line-height:30px;
           text-align:center;
           border-radius: 15px;
-          margin-top:20px;
+          margin-top: -30px;
+          margin-left: 240px;
           background: #9013FE;
           font-size:12px;
           color: #FFFFFF;
+          padding-left: 14px;
         }
 
       }

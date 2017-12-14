@@ -26,23 +26,23 @@
       </div>
       <div class="flex-intro" style="margin-left:40px;">
         <span>联系方式</span>
-        <mu-text-field v-model="userPhone" style="width:160px;margin-left:20px;margin-right:10px;"/>
+        <text-input v-model="userPhone" style="width:160px;margin:0 10px 0 20px;"/>
       </div>
-      <div class="flex-intro" style="margin-left:40px;">
+      <div class="flex-intro" style="margin-left: 40px;">
         <span>工作邮箱</span>
-        <mu-text-field v-model="userEmail" style="width:160px;margin-left:20px;"/>
+        <text-input v-model="userEmail" style="width:160px;margin:0 0 0 20px;"/>
       </div>
     </mu-flexbox>
     <mu-flexbox>
       <div class="flex-intro">
         <span>联系QQ</span>
-        <mu-text-field v-model="userQq" style="width:160px;margin-left:20px;"/>
+        <text-input v-model="userQq" style="width:160px;margin:0 0 0 20px;"/>
       </div>
     </mu-flexbox>
     <mu-flexbox>
       <div class="flex-intro">
         <span>个人简介</span>
-        <mu-text-field hintText="该紫领暂未填写个人简介,该紫领暂未填写个人简介。" style="width:750px;margin-left:20px;" v-model="userDesc"/>
+        <text-input hintText="该紫领暂未填写个人简介,该紫领暂未填写个人简介。" style="width:750px; margin:0 0 0 16px;" v-model="userDesc"/>
       </div>
     </mu-flexbox>
     <div class="sub-header">
@@ -70,6 +70,7 @@
   import Avator from '../../components/avator.vue'
   import API from '../../api'
   import { mapState } from 'vuex'
+  import TextInput from '../../components/text_input'
 
   const cityMap = {
     '北京': ['北京'],
@@ -123,7 +124,8 @@
       }
     },
     components: {
-      'avator': Avator
+      'avator': Avator,
+      TextInput
     },
     methods: {
       hideToast () {

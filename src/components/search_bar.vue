@@ -27,11 +27,12 @@
       <mu-menu-item title="认证3" />
     </mu-menu>
   </mu-popover>
-  <mu-text-field class="text" hintText="搜索用户名、技术术语" :underlineShow="false" />
+  <text-input hintText="搜索用户名、技术术语" style="width:280px;" />
   <mu-raised-button class="search_but" label="搜索" primary/>
 </div>
 </template>
 <script>
+  import TextInput from './text_input'
   export default {
     data () {
       return {
@@ -55,7 +56,7 @@
         default: () => {}
       }
     },
-    components: {},
+    components: {TextInput},
     methods: {
       toggle1 () {
         this.open1 = !this.open1
@@ -92,7 +93,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:0px 10px;
+  padding:10px 10px;
   font-size: 12px;
   .pop_duty {
     margin-left: 172px;
@@ -116,20 +117,13 @@
     color: #808080;
     margin-right: 40px;
   } 
-  .text {
-    width: 280px;
-    margin-top:12px;
-    margin-right:20px;
-    border-radius: 15px;
-    color: #808080;
-    margin-right: 40px;
-    font-size: 12px;
-  }
+  
   .search_but {
     margin-right: 192px;
     border-radius: 15px;
     background: #9013FE;
     height: 30px;
+    margin-left: 40px;
   }
 }
 
