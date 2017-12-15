@@ -24,9 +24,6 @@
         type: String
       },
       value: {},
-      inputValue: {
-        type: String
-      },
       inputClass: {
         type: [String, Array, Object]
       },
@@ -44,9 +41,6 @@
       },
       float () {
         return !this.isFocused && !this.inputValue && this.inputValue !== 0
-      },
-      showHint () {
-        return !this.float && !this.inputValue && this.inputValue !== 0
       }
     },
     methods: {
@@ -68,21 +62,18 @@
         this.$emit('blur', e)
       },
       focus () {
-        const { input, textarea } = this.$refs
+        const input = this.$refs
         if (input) {
           input.focus()
-        } else if (textarea) {
-          textarea.focus()
         }
       }
     },
     computed: {},
-    mounted () {
-      this.resizeTextarea()
-    },
+    mounted () {},
     watch: {
       value (val) {
         this.inputValue = val
+        console.log(inputValue)
       },
       inputValue (val, oldVal) {
         this.$emit('input', val)

@@ -158,6 +158,7 @@
             userId, userCity, userPhone, userEmail, userQq, userDesc
           }).then(res => {
             this.message = '信息修改成功'
+            console.log(userPhone)
             this.toast = true
             if (this.toastTimer) clearTimeout(this.toastTimer)
             this.toastTimer = setTimeout(() => { this.toast = false }, 2000)
