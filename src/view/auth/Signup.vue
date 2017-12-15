@@ -2,9 +2,9 @@
   <div class="paper_container">
     <mu-paper class="paper" :zDepth="2">
       <img :class="logo" src="logo"/>
-      <mu-text-field hintText="手机号" type="" icon="phone" v-model="cellphone"/>
-      <mu-text-field hintText="密码" type="password" icon="lock" v-model="password"/>
-      <mu-text-field hintText="确认密码" type="password" icon="lock" v-model="rePwd"/>
+      <text-field hintText="手机号" type="" icon="phone" v-model="cellphone"/>
+      <text-field  hintText="密码" type="password" icon="lock" v-model="password"/>
+      <text-field  hintText="确认密码" type="password" icon="lock" v-model="rePwd"/>
 
       <br/>
       <mu-checkbox label="确认并同意用户条款" v-model="agreeTermsheet"/>
@@ -24,6 +24,7 @@
 </template>
 <script>
   import logo from '../../assets/logo.png'
+  import TextField from '../../components/text_field'
   export default {
     data () {
       return {
@@ -36,7 +37,7 @@
         toastMessage: ''
       }
     },
-    components: {},
+    components: {TextField},
     methods: {
       signup () {
         if (this.agreeTermsheet) {

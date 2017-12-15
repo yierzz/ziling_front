@@ -3,7 +3,7 @@
     <div class="left">
       <div class="search_box">
         <!--<input class="search_input" type="text" placeholder="搜索用户名、职务、技术用语"></input>-->
-        <text-input hintText="搜索用户名、职务、技术用语" style="margin:20px 0 0 0; width:195px;"></text-input>
+        <text-field placeholder="搜索用户名、职务、技术用语" class="text"/>
         <a href="" class="search_button">搜  索</a>
              
       </div>
@@ -81,7 +81,7 @@
 <script>
   import rightArrow from '../../assets/rightArrow.png'
   import smileFace from '../../assets/smileFace.png'
-  import TextInput from '../../components/text_input'
+  import TextField from '../../components/text_field'
   export default {
     data () {
       return {
@@ -89,7 +89,7 @@
         smileFace
       }
     },
-    components: {TextInput},
+    components: {TextField},
     methods: {},
     computed: {},
     mounted () {}
@@ -111,7 +111,10 @@
         margin-bottom:2px;
         background: #FFFFFF;
 
-        
+        .text {
+          margin: 20px 0 0 0;
+          width: 195px;
+        }
         .search_button {
           display:flex;
           width:55px;

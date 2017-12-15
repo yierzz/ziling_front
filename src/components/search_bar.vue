@@ -27,12 +27,12 @@
       <mu-menu-item title="认证3" />
     </mu-menu>
   </mu-popover>
-  <text-input hintText="搜索用户名、技术术语" style="width:280px;" />
+  <text-field v-model="value" placeholder="搜索用户名、技术术语" style="width:280px;" />
   <mu-raised-button class="search_but" label="搜索" primary/>
 </div>
 </template>
 <script>
-  import TextInput from './text_input'
+  import TextField from './text_field'
   export default {
     data () {
       return {
@@ -56,7 +56,7 @@
         default: () => {}
       }
     },
-    components: {TextInput},
+    components: {TextField},
     methods: {
       toggle1 () {
         this.open1 = !this.open1

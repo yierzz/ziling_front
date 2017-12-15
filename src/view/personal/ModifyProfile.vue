@@ -26,23 +26,23 @@
       </div>
       <div class="flex-intro" style="margin-left:40px;">
         <span>联系方式</span>
-        <text-input v-model="userPhone" style="width:160px;margin:0 10px 0 20px;"/>
+        <text-field v-model="userPhone" placeholder="123456789" style="width:160px;margin:0 10px 0 20px;"/>
       </div>
       <div class="flex-intro" style="margin-left: 40px;">
         <span>工作邮箱</span>
-        <text-input v-model="userEmail" style="width:160px;margin:0 0 0 20px;"/>
+        <text-field v-model="userEmail" placeholder="12345678@qq.com" style="width:160px;margin:0 0 0 20px;"/>
       </div>
     </mu-flexbox>
     <mu-flexbox>
       <div class="flex-intro">
         <span>联系QQ</span>
-        <text-input v-model="userQq" style="width:160px;margin:0 0 0 20px;"/>
+        <text-field v-model="userQq" placeholder="12345678" style="width:160px;margin:0 0 0 20px;"/>
       </div>
     </mu-flexbox>
     <mu-flexbox>
       <div class="flex-intro">
         <span>个人简介</span>
-        <text-input hintText="该紫领暂未填写个人简介,该紫领暂未填写个人简介。" style="width:750px; margin:0 0 0 16px;" v-model="userDesc"/>
+        <text-field placeholder="该紫领暂未填写个人简介,该紫领暂未填写个人简介。" style="width:750px; margin:0 0 0 16px;" v-model="userDesc"/>
       </div>
     </mu-flexbox>
     <div class="sub-header">
@@ -70,7 +70,7 @@
   import Avator from '../../components/avator.vue'
   import API from '../../api'
   import { mapState } from 'vuex'
-  import TextInput from '../../components/text_input'
+  import TextField from '../../components/text_field'
 
   const cityMap = {
     '北京': ['北京'],
@@ -112,9 +112,9 @@
     data () {
       return {
         avatorURL: UserAvatorURL,
-        userPhone: '12345678900',
-        userQq: '123456789',
-        userEmail: '123456789@qq.com',
+        userPhone: '',
+        userQq: '',
+        userEmail: '',
         choosedProvince: '北京', // 选定的省份
         userCity: '北京', // 选定的城市
         cityMap,
@@ -125,7 +125,7 @@
     },
     components: {
       'avator': Avator,
-      TextInput
+      TextField
     },
     methods: {
       hideToast () {
